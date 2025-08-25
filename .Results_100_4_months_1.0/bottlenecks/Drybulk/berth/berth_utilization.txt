@@ -1,0 +1,4 @@
+Mean Drybulk berth utilization over time steps:
+Overall: 53.61%
+Terminal_1: 53.61%
+Overall Drybulk berth utilization: 53.61%

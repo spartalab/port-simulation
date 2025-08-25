@@ -1,0 +1,24 @@
+===== Capacity Analysis for Base =====
+Months: 4 (T = 2880 hours)
+Sample points (λ_i, N_i):
+  Point 1: λ = 1.3000, N = 3735.0000
+Operating capacity (Co): 0.0000 vessels/hr
+Fitted ultimate capacity (Cu): 1.3000
+Fitted exponent (θ): 20.0000
+
+===== Capacity Analysis for Base =====
+Months: 4 (T = 2880 hours)
+Sample points (λ_i, N_i):
+  Point 1: λ = 1.3000, N = 3735.0000
+Operating capacity (Co): 1.4000 vessels/hr
+Fitted ultimate capacity (Cu): 1.3000
+Fitted exponent (θ): 20.0000
+
+===== Capacity Analysis for Base =====
+Months: 4 (T = 2880 hours)
+Sample points (λ_i, N_i):
+  Point 1: λ = 1.3000, N = 3735.0000
+Operating capacity (Co): 1.4000 vessels/hr
+Fitted ultimate capacity (Cu): 1.3000
+Fitted exponent (θ): 20.0000
+

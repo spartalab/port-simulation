@@ -1,0 +1,16 @@
+__pycache__/
+__pycache__/
+**/__pycache__/
+.venv/
+*.DS_Store*
+animations/
+logs/
+# plots/
+# output/
+# bottlenecks/
+!bottleneckAnalysis/expanded_channel/logs/
+!bottleneckAnalysis/non_expanded_channel/logs/
+!bottleneckAnalysis/logs/
+!.gitignore
+*force_action.text*
+*truck_data*

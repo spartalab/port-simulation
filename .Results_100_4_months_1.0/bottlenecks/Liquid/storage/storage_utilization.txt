@@ -1,0 +1,7 @@
+Mean Liquid storage utilization over time steps:
+Overall: 47.52%
+Terminal_1: 46.99%
+Terminal_2: 88.30%
+Terminal_3: 47.12%
+Terminal_4: 7.69%
+Overall Liquid storage utilization: 47.52%
