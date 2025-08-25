@@ -151,8 +151,7 @@ Output plots and logs are saved in the `bottleneckAnalysis` folder. Each sensiti
 Edit `config.py` to configure your simulation scenario. Set `SCENARIO_NAME = "BreakpointAnalysis"` Then:
 
 ```bash
-cd simulation_analysis
-python breakpoint.py
+python breakpoint_analysis.py
 ```
 
 Output plots and logs are saved in the `breakpointAnalysis` folder. The current version supports parallel processing and the number of cores can be set in the `config.py` file.
@@ -173,7 +172,7 @@ The `terminal_data.csv` and `constants.csv` are changed in the code while scenar
 ```
 .
 ├── main.py                                        # Master simulation controller
-├── breakpoint.py                                  # Finds break-points with varying arrival rates
+├── breakpoint_analysis.py                                  # Finds break-points with varying arrival rates
 ├── bottleneck_analysis.py                         # Finds resource bottlenecks
 |
 ├── config.py                                      # Set input parameters for the simulation
@@ -186,8 +185,6 @@ The `terminal_data.csv` and `constants.csv` are changed in the code while scenar
 │   └── terminal_data.csv                          # Internal copy (DO NOT CHANGE)
 |
 ├── simulation_analysis/                           # Post-processing & results analytics
-│   ├── breakpoint.py                              # Finds break-points with varying arrival rates
-│   ├── bottleneck_analysis.py                     # Finds resource bottlenecks
 │   ├── capacity.py                                # Functions that estimate operating & ultimate capacity
 │   ├── collate_results.py                         # Aggregates results across runs
 │   ├── resource_utilization.py                    # Computes berth / crane / pipeline utilizations
@@ -380,21 +377,6 @@ Uses ODE models for port inflow-outflow simulation_analysis.
 ### `resource_utilization.py`
 This script works in conjunction with `main.py`
 - Evaluates system resource utilization and restrictions
-
-### `breakpoint.py`
-This script is used to **find the system's performance breakpoint** by varying vessel arrival rates. It helps identify the point at which the port becomes unstable — when queues grow rapidly and vessels face long delays.
-
-- It gradually increases arrival rates across multiple runs.
-- For each rate, it records queue lengths, dwell times, and other metrics.
-- The goal is to find when performance **breaks down** due to overload.
-
-#### ⚠️ Important:
-This script must be **run separately** and not through `main.py`.
-
-```bash
-cd ./simulation_analysis
-python breakpointsimulation_analysis.py
-```
 
 ---
 
