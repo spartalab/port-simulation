@@ -234,6 +234,10 @@ if __name__ == '__main__':
     #                        'FastTruckArrival', 'FastTrainArrival', 'SlowTrainArrival',
     #   'HighPilots','LowTugs','HighTugs']
     scenario_name_list = ['LowLiqBerth']
+    # clear results from earlier runs in bottleneckAnalysis/results.txt
+    with open("bottleneckAnalysis/results.txt", "w") as f:
+        f.write("")
+
     for scenario in scenario_name_list:
         try:
             setup_scenario(scenario)

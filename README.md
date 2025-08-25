@@ -8,6 +8,9 @@ This repository provides a modular, discrete-event simulation (DES) framework fo
 
 Dummy input data for a **fictitious port** (shown above) are included as examples. The simulation framework is built for ports organized with an **anchorage area** followed by terminals located along a **navigational channel**. 
 
+📘 **[Read the Simulation Manual (PDF) for detailed usage instructions](simulation_documentation/Simulation_Manual.pdf)**
+
+
 Currently, the model supports:  
 
 - **Vessel types:** Container ships, tankers (liquid bulk), and general cargo/bulk vessels  

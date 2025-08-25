@@ -18,7 +18,7 @@ START_SEED = 100  # Initial random seed for the simulation
 DELETE_EVERYTHING = False # Cleans all existing result folders, including collated results (SAVE ALL DESIRED DATA PRIOR TO RUNNING AS TRUE)
 DELETE_RESULTS_FOLDER = True  # Cleans the results folder only
 
-SCENARIO_NAME = "Base"  # Set to "Base" for base conditions, or set to "BottleneckDetection" for bottleneck analysis, or "BreakpointAnalysis" for breakpoint analysis
+SCENARIO_NAME = "LowLiqBerth"
 
 # Set "what-if" scenarios. Set all as "False" for base conditions
 MODEL_HURRICANE = False
@@ -46,9 +46,9 @@ else:
     FOG_CLOSURES = []
 
 # set as 1.0 for most cases, values change directly if running breakpoint analysis
-ARRIVAL_INCREASE_FACTOR_CTR = 1.0
-ARRIVAL_INCREASE_FACTOR_LIQ = 1.0
-ARRIVAL_INCREASE_FACTOR_DRYBULK = 1.0
+ARRIVAL_INCREASE_FACTOR_CTR = 6.0
+ARRIVAL_INCREASE_FACTOR_LIQ = 6.0
+ARRIVAL_INCREASE_FACTOR_DRYBULK = 6.0
 
 ARRIVAL_INCREASE_FACTOR = ARRIVAL_INCREASE_FACTOR_CTR
 

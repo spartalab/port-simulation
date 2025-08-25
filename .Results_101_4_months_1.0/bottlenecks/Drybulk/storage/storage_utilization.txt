@@ -1,4 +1,0 @@
-Mean Drybulk storage utilization over time steps:
-Overall: 48.44%
-Terminal_1: 48.44%
-Overall Drybulk storage utilization: 48.44%

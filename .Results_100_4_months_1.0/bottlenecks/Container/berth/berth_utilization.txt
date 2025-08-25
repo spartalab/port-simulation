@@ -1,5 +1,0 @@
-Mean Container berth utilization over time steps:
-Overall: 15.45%
-Terminal_1: 14.65%
-Terminal_2: 16.26%
-Overall Container berth utilization: 15.45%

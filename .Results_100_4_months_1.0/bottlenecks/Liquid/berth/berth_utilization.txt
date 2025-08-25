@@ -1,7 +1,0 @@
-Mean Liquid berth utilization over time steps:
-Overall: 44.28%
-Terminal_1: 44.72%
-Terminal_2: 39.09%
-Terminal_3: 53.66%
-Terminal_4: 39.63%
-Overall Liquid berth utilization: 44.28%

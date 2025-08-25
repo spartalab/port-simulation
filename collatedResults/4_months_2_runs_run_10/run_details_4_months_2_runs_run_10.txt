@@ -75,4 +75,4 @@ Relative Error: 64.95033595343656
 Ultimate capacity: 1.30 vessels / hr
 Optimal theta: 20.00
 
-Total simulation runtime: 16.09 minutes
+Total simulation runtime: 30.45 minutes

@@ -18,7 +18,7 @@ START_SEED = 100  # Initial random seed for the simulation
 DELETE_EVERYTHING = False # Cleans all existing result folders, including collated results (SAVE ALL DESIRED DATA PRIOR TO RUNNING AS TRUE)
 DELETE_RESULTS_FOLDER = True  # Cleans the results folder only
 
-SCENARIO_NAME = "Base"  # Set to "Base" for base conditions, or set to "BottleneckDetection" for bottleneck analysis, or "BreakpointAnalysis" for breakpoint analysis
+SCENARIO_NAME = "BottleneckDetection"  # Set to "Base" for base conditions, or set to "BottleneckDetection" for bottleneck analysis, or "BreakpointAnalysis" for breakpoint analysis
 
 # Set "what-if" scenarios. Set all as "False" for base conditions
 MODEL_HURRICANE = False
