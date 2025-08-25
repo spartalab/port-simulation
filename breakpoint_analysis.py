@@ -516,9 +516,9 @@ if __name__ == '__main__':
     param_combinations = [(log_ids[i], inter_arrival_factors[i])
                           for i in range(len(log_ids))]
 
-    # for params in param_combinations:
-    #     print(f"Running simulation for LOG_NUM={params[0]} with inter-arrival factors {params[1]}")
-    #     run_simulation(params)
+    for params in param_combinations:
+        print(f"Running simulation for LOG_NUM={params[0]} with inter-arrival factors {params[1]}")
+        run_simulation(params)
 
     simulation_time = constants.SIMULATION_TIME
 
