@@ -8,11 +8,7 @@ This repository provides a modular, discrete-event simulation (DES) framework fo
 
 Dummy input data for a **fictitious port** (shown above) are included as examples. The simulation framework is built for ports organized with an **anchorage area** followed by terminals located along a **navigational channel**. 
 
-<p align="center">
-  <a href="https://raw.githubusercontent.com/spartalab/port-simulation/main/simulation_documentation/Simulation_Manual.pdf">
-    <img src="https://img.shields.io/badge/📘_Download–Simulation_Manual-PDF-blue?style=for-the-badge&logo=adobeacrobatreader" alt="Download Simulation Manual"/>
-  </a>
-</p>
+[![Simulation Manual](https://img.shields.io/badge/📘_Download-Simulation_Manual-blue?style=for-the-badge&logo=adobeacrobatreader)](https://github.com/spartalab/port-simulation/raw/main/simulation_documentation/Simulation_Manual.pdf)
 
 
 Currently, the model supports:  
