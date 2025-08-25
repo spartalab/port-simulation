@@ -1,0 +1,27 @@
+Drybulk berth Utilization Thresholds:
+
+Terminal: Overall
+Time at or above 100% utilization: 6.66%
+Time at or above 90% utilization: 13.01%
+Time at or above 80% utilization: 21.35%
+Time at or above 70% utilization: 31.88%
+Time at or above 60% utilization: 46.08%
+Time at or above 50% utilization: 60.21%
+Time at or above 40% utilization: 73.43%
+Time at or above 30% utilization: 86.81%
+Time at or above 20% utilization: 94.70%
+Time at or above 10% utilization: 98.80%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_1
+Time at or above 100% utilization: 6.66%
+Time at or above 90% utilization: 13.01%
+Time at or above 80% utilization: 21.35%
+Time at or above 70% utilization: 31.88%
+Time at or above 60% utilization: 46.08%
+Time at or above 50% utilization: 60.21%
+Time at or above 40% utilization: 73.43%
+Time at or above 30% utilization: 86.81%
+Time at or above 20% utilization: 94.70%
+Time at or above 10% utilization: 98.80%
+Time at or above 0% utilization: 100.00%

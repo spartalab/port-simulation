@@ -1,0 +1,66 @@
+Liquid berth Utilization Thresholds:
+
+Terminal: Overall
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.45%
+Time at or above 80% utilization: 4.51%
+Time at or above 70% utilization: 10.73%
+Time at or above 60% utilization: 24.39%
+Time at or above 50% utilization: 48.30%
+Time at or above 40% utilization: 70.97%
+Time at or above 30% utilization: 93.78%
+Time at or above 20% utilization: 98.66%
+Time at or above 10% utilization: 99.84%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_1
+Time at or above 100% utilization: 6.38%
+Time at or above 90% utilization: 6.38%
+Time at or above 80% utilization: 11.81%
+Time at or above 70% utilization: 19.77%
+Time at or above 60% utilization: 30.00%
+Time at or above 50% utilization: 42.16%
+Time at or above 40% utilization: 60.56%
+Time at or above 30% utilization: 77.01%
+Time at or above 20% utilization: 89.01%
+Time at or above 10% utilization: 97.44%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_2
+Time at or above 100% utilization: 6.01%
+Time at or above 90% utilization: 6.01%
+Time at or above 80% utilization: 11.02%
+Time at or above 70% utilization: 17.95%
+Time at or above 60% utilization: 29.82%
+Time at or above 50% utilization: 46.61%
+Time at or above 40% utilization: 63.80%
+Time at or above 30% utilization: 79.51%
+Time at or above 20% utilization: 92.17%
+Time at or above 10% utilization: 98.00%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_3
+Time at or above 100% utilization: 13.16%
+Time at or above 90% utilization: 13.16%
+Time at or above 80% utilization: 19.64%
+Time at or above 70% utilization: 28.16%
+Time at or above 60% utilization: 38.86%
+Time at or above 50% utilization: 53.34%
+Time at or above 40% utilization: 70.00%
+Time at or above 30% utilization: 85.13%
+Time at or above 20% utilization: 94.17%
+Time at or above 10% utilization: 98.31%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_4
+Time at or above 100% utilization: 5.14%
+Time at or above 90% utilization: 5.14%
+Time at or above 80% utilization: 8.86%
+Time at or above 70% utilization: 15.05%
+Time at or above 60% utilization: 25.15%
+Time at or above 50% utilization: 38.86%
+Time at or above 40% utilization: 55.39%
+Time at or above 30% utilization: 74.58%
+Time at or above 20% utilization: 90.69%
+Time at or above 10% utilization: 97.60%
+Time at or above 0% utilization: 100.00%

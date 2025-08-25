@@ -1,0 +1,40 @@
+Container berth Utilization Thresholds:
+
+Terminal: Overall
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 0.00%
+Time at or above 60% utilization: 0.00%
+Time at or above 50% utilization: 0.00%
+Time at or above 40% utilization: 0.67%
+Time at or above 30% utilization: 10.07%
+Time at or above 20% utilization: 35.53%
+Time at or above 10% utilization: 81.34%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_1
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 0.00%
+Time at or above 60% utilization: 0.08%
+Time at or above 50% utilization: 0.43%
+Time at or above 40% utilization: 3.57%
+Time at or above 30% utilization: 17.83%
+Time at or above 20% utilization: 43.02%
+Time at or above 10% utilization: 78.92%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_2
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 0.00%
+Time at or above 60% utilization: 0.03%
+Time at or above 50% utilization: 2.13%
+Time at or above 40% utilization: 8.72%
+Time at or above 30% utilization: 22.25%
+Time at or above 20% utilization: 49.09%
+Time at or above 10% utilization: 80.12%
+Time at or above 0% utilization: 100.00%

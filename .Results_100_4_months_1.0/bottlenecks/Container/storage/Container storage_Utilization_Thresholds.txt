@@ -1,0 +1,40 @@
+Container storage Utilization Thresholds:
+
+Terminal: Overall
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 0.00%
+Time at or above 60% utilization: 2.56%
+Time at or above 50% utilization: 54.66%
+Time at or above 40% utilization: 100.00%
+Time at or above 30% utilization: 100.00%
+Time at or above 20% utilization: 100.00%
+Time at or above 10% utilization: 100.00%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_1
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 4.26%
+Time at or above 60% utilization: 10.07%
+Time at or above 50% utilization: 30.92%
+Time at or above 40% utilization: 87.10%
+Time at or above 30% utilization: 100.00%
+Time at or above 20% utilization: 100.00%
+Time at or above 10% utilization: 100.00%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_2
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 6.18%
+Time at or above 60% utilization: 49.09%
+Time at or above 50% utilization: 76.89%
+Time at or above 40% utilization: 82.62%
+Time at or above 30% utilization: 88.27%
+Time at or above 20% utilization: 96.48%
+Time at or above 10% utilization: 100.00%
+Time at or above 0% utilization: 100.00%

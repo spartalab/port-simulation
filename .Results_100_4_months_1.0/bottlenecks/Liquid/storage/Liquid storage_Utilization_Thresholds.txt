@@ -1,0 +1,66 @@
+Liquid storage Utilization Thresholds:
+
+Terminal: Overall
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 0.00%
+Time at or above 60% utilization: 0.00%
+Time at or above 50% utilization: 6.96%
+Time at or above 40% utilization: 100.00%
+Time at or above 30% utilization: 100.00%
+Time at or above 20% utilization: 100.00%
+Time at or above 10% utilization: 100.00%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_1
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 0.00%
+Time at or above 60% utilization: 0.00%
+Time at or above 50% utilization: 22.25%
+Time at or above 40% utilization: 100.00%
+Time at or above 30% utilization: 100.00%
+Time at or above 20% utilization: 100.00%
+Time at or above 10% utilization: 100.00%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_2
+Time at or above 100% utilization: 35.07%
+Time at or above 90% utilization: 60.45%
+Time at or above 80% utilization: 67.59%
+Time at or above 70% utilization: 83.53%
+Time at or above 60% utilization: 96.35%
+Time at or above 50% utilization: 100.00%
+Time at or above 40% utilization: 100.00%
+Time at or above 30% utilization: 100.00%
+Time at or above 20% utilization: 100.00%
+Time at or above 10% utilization: 100.00%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_3
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 0.00%
+Time at or above 60% utilization: 0.00%
+Time at or above 50% utilization: 7.04%
+Time at or above 40% utilization: 100.00%
+Time at or above 30% utilization: 100.00%
+Time at or above 20% utilization: 100.00%
+Time at or above 10% utilization: 100.00%
+Time at or above 0% utilization: 100.00%
+
+Terminal: Terminal_4
+Time at or above 100% utilization: 0.00%
+Time at or above 90% utilization: 0.00%
+Time at or above 80% utilization: 0.00%
+Time at or above 70% utilization: 0.00%
+Time at or above 60% utilization: 0.00%
+Time at or above 50% utilization: 0.59%
+Time at or above 40% utilization: 6.00%
+Time at or above 30% utilization: 10.15%
+Time at or above 20% utilization: 15.51%
+Time at or above 10% utilization: 27.32%
+Time at or above 0% utilization: 100.00%
