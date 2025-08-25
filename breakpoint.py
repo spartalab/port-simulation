@@ -498,7 +498,7 @@ if __name__ == '__main__':
 
     # File ID
     file_id = constants.LOG_NUM
-    inter_arrival_factors_list = [1.0] + np.arange(0.5, 4.5, 0.5).tolist()
+    inter_arrival_factors_list = [1.0] + np.arange(0.5, 5.5, 0.5).tolist()
     print(inter_arrival_factors_list)
     num_test = len(inter_arrival_factors_list)
     log_ids = [file_id + i for i in range(num_test)]
