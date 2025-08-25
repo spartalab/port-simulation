@@ -59,6 +59,7 @@
 
 <p>This repository provides a modular, discrete-event simulation (DES) framework for analyzing multimodal port operations across container, liquid bulk, and dry bulk terminals. It is designed to support <strong>planning, bottleneck detection, and what-if scenario analysis</strong> using real-world data inputs and calibration.  </p>
 <p>Dummy input data for a <strong>fictitious port</strong> (shown above) are included as examples. The simulation framework is built for ports organized with an <strong>anchorage area</strong> followed by terminals located along a <strong>navigational channel</strong>. </p>
+<p><a href="https://github.com/spartalab/port-simulation/raw/main/simulation_documentation/Simulation_Manual.pdf"><img alt="Simulation Manual" src="https://img.shields.io/badge/📘_Download-Simulation_Manual-blue?style=for-the-badge&amp;logo=adobeacrobatreader" /></a></p>
 <p>Currently, the model supports:  </p>
 <ul>
 <li><strong>Vessel types:</strong> Container ships, tankers (liquid bulk), and general cargo/bulk vessels  </li>
@@ -79,8 +80,8 @@
 <p>The simulation requires several input files that define the <strong>navigation channel</strong>, <strong>vessel classes</strong>, and <strong>terminal resources</strong>. These inputs must be prepared carefully for any new port to ensure realistic results. This section describes each file, the meaning of its columns, expected units, and guidance on how to obtain the data.  </p>
 <h3 id="summary-checklist">Summary Checklist</h3>
 <p>Before running a new port simulation, prepare:
-- Channel geometry: divide the channel into section where terminals are located, each section has a particular lengths, widths, depths, speeds. The current (dummy) data provides 10 setions. Each section can have multiple terminals but the simulation will treat each of these terminals located at the exact same place. 
-- Fleet mix: vessel sizes, drafts, tonnage, tug/pilot requirement for vessels. The current dummy data assumes vessels are of three types small, medium and large among container, liquid, and dey bulk class.
+- Channel geometry: divide the channel into section where terminals are located, each section has a particular lengths, widths, depths, speeds. The current (dummy) data provides 10 sections. Each section can have multiple terminals but the simulation will treat each of these terminals located at the exact same place. 
+- Fleet mix: vessel sizes, drafts, tonnage, tug/pilot requirement for vessels. The current dummy data assumes vessels are of three types small, medium and large among container, liquid, and dry bulk class.
 - Terminal resources: berths, cranes/pipelines/conveyors, transfer rates.<br />
 - Landside: truck/rail arrival rates, gates, storage, payloads, and terminals which have these connections.
 - Activity flags: if a terminal is import/export-only or allows both, pipeline connectivity.  </p>
@@ -114,7 +115,7 @@
 <p><code>speed (mph)</code> — Nominal speed limit [mph].  </p>
 </li>
 <li>
-<p><strong>How to obtain:</strong> AIS data anlysis or port records. Replace with actual approach, entrance, and segments. Adjust widths, depths, and speeds as per local pilotage rules.  </p>
+<p><strong>How to obtain:</strong> AIS data analysis or port records. Replace with actual approach, entrance, and segments. Adjust widths, depths, and speeds as per local pilotage rules.  </p>
 </li>
 </ul>
 <h3 id="3-inputsship_sizescsv">3. <code>inputs/ship_sizes.csv</code></h3>
@@ -133,12 +134,12 @@
 <p><code>min_tugs</code>, <code>max_tugs</code> — Tug requirement [count].  </p>
 </li>
 <li>
-<p><strong>How to obtain:</strong> AIS data and port call logs. Clustering of obtained data is recomendded for obtaining small/medium/large disctinction. Update vessel class definitions, dimensions, tonnages, shares, and tug/pilot rules.  </p>
+<p><strong>How to obtain:</strong> AIS data and port call logs. Clustering of obtained data is recommended for obtaining small/medium/large distinction. Update vessel class definitions, dimensions, tonnages, shares, and tug/pilot rules.  </p>
 </li>
 </ul>
 <h3 id="4-inputsterminal_data_basecsv">4. <code>inputs/terminal_data_base.csv</code></h3>
 <ul>
-<li><strong>Purpose:</strong> Defines resources and landside throughput at each terminal. Copied internally to <code>terminal_data.csv</code>.  For any value that has to be randomly sampelled across seeds (a,b) can be used instead of value, where a and b are limits on range. Data is sampled from a uniform distribution in each seed. </li>
+<li><strong>Purpose:</strong> Defines resources and landside throughput at each terminal. Copied internally to <code>terminal_data.csv</code>.  For any value that has to be randomly sampled across seeds (a,b) can be used instead of value, where a and b are limits on range. Data is sampled from a uniform distribution in each seed. </li>
 <li><strong>Columns:</strong></li>
 <li><code>Cargo</code> — Cargo type (<code>Container</code>, <code>Liquid</code>, <code>DryBulk</code>).  </li>
 <li><code>Terminal</code> — Terminal identifier.  </li>
@@ -172,30 +173,29 @@ Edit <code>config.py</code> to configure your simulation scenario. Then:</p>
 <pre><code class="language-bash">python main.py
 </code></pre>
 <p>Output plots and logs are saved in the appropriate folders. The current version supports parallel processing and the number of cores can be set in the <code>config.py</code> file.</p>
-<p><strong>2.2 Bottleneck detection</strong> Runs sensitivity analysis on all resouces one by one.  (Takes ~1 day for 6 months and 5 seeds)
+<p><strong>2.2 Bottleneck detection</strong> Runs sensitivity analysis on all resources one by one.  (Takes ~1 day for 6 months and 5 seeds)
 Edit <code>config.py</code> to configure your simulation scenario. Set <code>SCENARIO_NAME = "BottleneckDetection"</code> Then:</p>
 <pre><code class="language-bash">cd simulation_analysis
 python bottleneck_analysis.py
 </code></pre>
-<p>Output plots and logs are saved in the <code>bottleneckAnalysis</code> folder. Each sensitivity analysis is saved as differenet folders under <code>bottleneckAnalysis</code>. Key metrics of each sensitivity analysis is saved in  <code>bottleneckAnalysis/logs</code> folder.  A summary is saved in <code>bottleneckAnalysis/results.txt</code> and  <code>bottleneckAnalysis/capacity_analysis.csv</code>. The current version supports parallel processing and the number of cores can be set in the <code>config.py</code> file.</p>
-<p><strong>2.2 Capacity analysis</strong> Runs severaql simulation with varied arrival rates.  (Takes ~few hours for 6 months and 5 seeds)
+<p>Output plots and logs are saved in the <code>bottleneckAnalysis</code> folder. Each sensitivity analysis is saved as different folders under <code>bottleneckAnalysis</code>. Key metrics of each sensitivity analysis is saved in  <code>bottleneckAnalysis/logs</code> folder.  A summary is saved in <code>bottleneckAnalysis/results.txt</code> and  <code>bottleneckAnalysis/capacity_analysis.csv</code>. The current version supports parallel processing and the number of cores can be set in the <code>config.py</code> file.</p>
+<p><strong>2.2 Capacity analysis</strong> Runs several simulation with varied arrival rates.  (Takes ~few hours for 6 months and 5 seeds)
 Edit <code>config.py</code> to configure your simulation scenario. Set <code>SCENARIO_NAME = "BreakpointAnalysis"</code> Then:</p>
-<pre><code class="language-bash">cd simulation_analysis
-python breakpoinnt.py
+<pre><code class="language-bash">python breakpoint_analysis.py
 </code></pre>
 <p>Output plots and logs are saved in the <code>breakpointAnalysis</code> folder. The current version supports parallel processing and the number of cores can be set in the <code>config.py</code> file.</p>
 <p><strong>⚠️ Important:</strong>
 To chnage input paramaters to the simulation the following can be changed
-- <code>config.py</code> (<code>constants.py</code> is an internal copy of <code>config.py</code> which should NOT be chnaged. The code automatically copied config to constants if required.)
-- <code>inputs/terminal_data_base.csv</code> (Do not chnage <code>terminal_data</code>, these are automatically changed / coped from the base file.)
+- <code>config.py</code> (<code>constants.py</code> is an internal copy of <code>config.py</code> which should NOT be changed. The code automatically copied config to constants if required.)
+- <code>inputs/terminal_data_base.csv</code> (Do not chnage <code>terminal_data</code>, these are automatically changed / copied from the base file.)
 - <code>inputs/channel_dimensions.csv</code>
 - <code>inputs/ship_sizes.csv</code></p>
-<p>The <code>terminal_data.csv</code> and <code>constsnts.csv</code> are changed in the code while sceario analysis is performed. For every scenario, the <code>config.py</code> and <code>terminal_data_base.py</code> are copied to <code>constants.py</code> and <code>terminal_data.csv</code> respectively. Thereafter some resource capacities are incresed/decreased for that scenario.</p>
+<p>The <code>terminal_data.csv</code> and <code>constants.csv</code> are changed in the code while scenario analysis is performed. For every scenario, the <code>config.py</code> and <code>terminal_data_base.py</code> are copied to <code>constants.py</code> and <code>terminal_data.csv</code> respectively. Thereafter some resource capacities are increased/decreased for that scenario.</p>
 <hr />
 <h2 id="project-structure">Project Structure</h2>
 <pre><code>.
 ├── main.py                                        # Master simulation controller
-├── breakpoint.py                                  # Finds break-points with varying arrival rates
+├── breakpoint_analysis.py                                  # Finds break-points with varying arrival rates
 ├── bottleneck_analysis.py                         # Finds resource bottlenecks
 |
 ├── config.py                                      # Set input parameters for the simulation
@@ -208,11 +208,9 @@ To chnage input paramaters to the simulation the following can be changed
 │   └── terminal_data.csv                          # Internal copy (DO NOT CHANGE)
 |
 ├── simulation_analysis/                           # Post-processing &amp; results analytics
-│   ├── breakpoint.py                              # Finds break-points with varying arrival rates
-│   ├── bottleneck_analysis.py                     # Finds resource bottlenecks
 │   ├── capacity.py                                # Functions that estimate operating &amp; ultimate capacity
 │   ├── collate_results.py                         # Aggregates results across runs
-│   ├── resource_utilization.py                    # Computes berth / crane / pipeline utilisation
+│   ├── resource_utilization.py                    # Computes berth / crane / pipeline utilizations
 │   ├── results.py                                 # Generates plots and logs for every seed
 │   └── whatif_scenarios.py                        # Models “what-if” scenarios and sensitivity tests
 │
@@ -273,8 +271,8 @@ To chnage input paramaters to the simulation the following can be changed
 <li><code>shipDistribution/</code>, <code>truckDistribution/</code>: Breakdown of vessel or truck types by terminal and cargo type</li>
 <li><code>TruckArrival/</code>, <code>TruckDwell/</code>: Truck-specific plots including arrival times, dwell durations</li>
 <li><code>TerminalProcessCharts/</code>: Plots of ship processing times (e.g., time of unloading/loading) per terminal</li>
-<li><code>TerminalProcessDist/</code>: Distributions of time spend in terminal process times to examine terminal efficiency</li>
-<li><code>scenarios/</code>: Arrival pattern plots if arrival patterns change in specifric scenarios </li>
+<li><code>TerminalProcessDist/</code>: Distributions of time spent in terminal processes to examine terminal efficiency</li>
+<li><code>scenarios/</code>: Arrival pattern plots if arrival patterns change in specific scenarios </li>
 </ul>
 <p><strong>Individual files in <code>plots/</code>:</strong></p>
 <ul>
@@ -386,18 +384,6 @@ Uses ODE models for port inflow-outflow simulation_analysis.</p>
 <h3 id="resource_utilizationpy"><code>resource_utilization.py</code></h3>
 <p>This script works in conjunction with <code>main.py</code>
 - Evaluates system resource utilization and restrictions</p>
-<h3 id="breakpointpy"><code>breakpoint.py</code></h3>
-<p>This script is used to <strong>find the system's performance breakpoint</strong> by varying vessel arrival rates. It helps identify the point at which the port becomes unstable — when queues grow rapidly and vessels face long delays.</p>
-<ul>
-<li>It gradually increases arrival rates across multiple runs.</li>
-<li>For each rate, it records queue lengths, dwell times, and other metrics.</li>
-<li>The goal is to find when performance <strong>breaks down</strong> due to overload.</li>
-</ul>
-<h4 id="important_1">⚠️ Important:</h4>
-<p>This script must be <strong>run separately</strong> and not through <code>main.py</code>.</p>
-<pre><code class="language-bash">cd ./simulation_analysis
-python breakpointsimulation_analysis.py
-</code></pre>
 <hr />
 <h2 id="6-developer-guide">6. Developer Guide</h2>
 <h3 id="virtual-environment-setup">Virtual Environment Setup</h3>
