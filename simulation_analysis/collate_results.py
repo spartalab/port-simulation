@@ -2,6 +2,7 @@
 This script collates results from multiple simulation runs, generates plots, and calculates statistics.
 TODO: Break down into smaller functions for better readability and maintainability.
 """
+from runpy import run_path
 import time
 import sys
 import os
@@ -16,7 +17,7 @@ from tqdm import tqdm
 # Get the parent directory path
 # parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-# Add parent directory to sys.path
+# # Add parent directory to sys.path
 # sys.path.append(parent_dir)
 
 # # Now you can import your script/module
@@ -24,6 +25,7 @@ import constants
 
 from simulation_analysis.capacity import calculate_mean_wait_time, calculate_ultimate_capacity
 from simulation_analysis.results import get_dists
+import config 
 from constants import WARMUP_ITERS, SCENARIO_NAME, base_arrival_rate, ARRIVAL_INCREASE_FACTOR
 
 
@@ -131,7 +133,7 @@ def collate_results(num_runs, total_time):
                              min_err, max_err], fmt='-o', capsize=5, label=f'Seed {seed}', color=colors[seed - constants.START_SEED])
 
             except Exception as e:
-                print(f"Error in processing seed {seed} (does not exist)")
+                print(f"Error in processing seed {seed} {e}")
                 print("Error:", e)
                 pass
 
@@ -216,16 +218,44 @@ def collate_results(num_runs, total_time):
     db_ships_exited = []
     db_ships_entered_channel = []
 
+    total_throughput = []
+    ctr_throughput = []
+    liq_throughput = []
+    dblk_throughput = []
+
     for seed in tqdm(range(constants.START_SEED, constants.START_SEED + num_runs)):
 
         try:
             # Wait times
             run_id = f"Results_{seed}_{int(constants.NUM_MONTHS)}_months_{constants.ARRIVAL_INCREASE_FACTOR}"
-            df_seed = pd.read_excel(f'.{run_id}/logs/ship_logs.xlsx')
+            df_seed = pd.read_excel(f'.{run_id}/logs/ship_logs.xlsx') 
+
             ships_entered.append(len(df_seed['Start Time'].dropna()))
             ships_exited.append(len(df_seed['End Time'].dropna()))
             ships_entered_channel.append(
                 len(df_seed['Time to Common Channel In'].dropna()))
+
+            # Throughput is computed using rows for each ship the number of container/tons etc loaded + unload and sum for all rows (ships)
+
+            logs_fp = f'.{run_id}/logs/ship_logs.xlsx'
+            data_fp = f'.{run_id}/logs/ship_data.csv'
+
+            out = compute_throughput(
+            logs_fp,
+            data_fp,
+            type_map = {"DryBulk":"Dry Bulk"},
+            )
+
+            # Append totals
+            total_throughput.append(out["total"])
+            ctr_throughput.append(out["by_type"].get("Container", 0.0))
+            liq_throughput.append(out["by_type"].get("Liquid", 0.0))
+            dblk_throughput.append(out["by_type"].get("Dry Bulk", 0.0))
+
+            # print(f"Run {seed}: Total Throughput = {out['total']}")
+            # print(f"Run {seed}: Container Throughput = {out['by_type'].get('Container', 0.0)}")
+            # print(f"Run {seed}: Liquid Throughput = {out['by_type'].get('Liquid', 0.0)}")
+            # print(f"Run {seed}: Dry Bulk Throughput = {out['by_type'].get('Dry Bulk', 0.0)}")
 
             ctr_ships_entered.append(
                 len(df_seed[df_seed['Terminal Type'] == 'Container']['Start Time'].dropna()))
@@ -305,10 +335,10 @@ def collate_results(num_runs, total_time):
             total_ships_in_channel = pd.read_csv(
                 f'./.{run_id}/logs/total_ships_in_channel.csv')
             channel[f'channel_{seed}'] = total_ships_in_channel.iloc[:, 1]
-        except:
-            print(f"Error in processing seed {seed} (does not exist)")
+        except Exception as e:
+            print(f"Error in processing seed {seed} {e}")
             with open(f'collatedResults/{logfileid}/run_details_{logfileid}.txt', 'a') as f:
-                f.write(f"Error in processing seed {seed} (does not exist)\n")
+                f.write(f"Error in processing seed {seed} {e})\n")
 
     print("\n")
     print("Mean ships entered:", sum(ships_entered)/len(ships_entered))
@@ -316,6 +346,16 @@ def collate_results(num_runs, total_time):
     print("Mean ships entered channel:", sum(
         ships_entered_channel)/len(ships_entered_channel))
     print("\n")
+
+    print(f"Mean annualised throughput (million tons): {round(((((sum(ctr_throughput)/len(ctr_throughput)) * (sum(constants.CONTAINER_CONVERSION_FACTORS)/len(constants.CONTAINER_CONVERSION_FACTORS))) + ((sum(liq_throughput)/len(liq_throughput)) / (sum(constants.LIQUID_CONVERSION_FACTORS)/len(constants.LIQUID_CONVERSION_FACTORS))) + (sum(dblk_throughput)/len(dblk_throughput))) * (12/constants.NUM_MONTHS)) / 1e6, 2)}")
+    print("\n")
+    print(f"Mean annualised container throughput (million FEU containers): {round(((sum(ctr_throughput)/len(ctr_throughput)) * (12/constants.NUM_MONTHS)) / 1e6, 2)}")
+    print(f"Mean annualised container throughput (million tons): {round(((sum(ctr_throughput)/len(ctr_throughput)) * (12/constants.NUM_MONTHS)) * (sum(constants.CONTAINER_CONVERSION_FACTORS)/len(constants.CONTAINER_CONVERSION_FACTORS)) / 1e6, 2)}")
+    print("\n")
+    print(f"Mean annualised liquid throughput (million cbm): {round(((sum(liq_throughput)/len(liq_throughput)) * (12/constants.NUM_MONTHS)) / 1e6, 2)}")
+    print(f"Mean annualised liquid throughput (million tons): {round(((sum(liq_throughput)/len(liq_throughput)) * (12/constants.NUM_MONTHS)) * (sum(constants.LIQUID_CONVERSION_FACTORS)/len(constants.LIQUID_CONVERSION_FACTORS)) / 1e6, 2)}")
+    print("\n")
+    print(f"Mean annualised dry bulk throughput (million tons): {round(((sum(dblk_throughput)/len(dblk_throughput)) * (12/constants.NUM_MONTHS)) / 1e6, 2)}")
 
     with open(f'collatedResults/{logfileid}/run_details_{logfileid}.txt', 'a') as f:
         f.write("\n")
@@ -345,6 +385,16 @@ def collate_results(num_runs, total_time):
             f"Mean ships exited for dry bulk: {sum(db_ships_exited)/len(db_ships_exited)}\n")
         f.write(
             f"Mean ships entered channel for dry bulk: {sum(db_ships_entered_channel)/len(db_ships_entered_channel)}\n")
+        f.write("\n")
+
+        f.write(f"Mean annualised throughput (million tons): {round(((((sum(ctr_throughput)/len(ctr_throughput)) * (sum(constants.CONTAINER_CONVERSION_FACTORS)/len(constants.CONTAINER_CONVERSION_FACTORS))) + ((sum(liq_throughput)/len(liq_throughput)) / (sum(constants.LIQUID_CONVERSION_FACTORS)/len(constants.LIQUID_CONVERSION_FACTORS))) + (sum(dblk_throughput)/len(dblk_throughput))) * (12/constants.NUM_MONTHS)) / 1e6, 2)}\n")
+        f.write(f"Mean annualised container throughput (million FEU containers): {round(((sum(ctr_throughput)/len(ctr_throughput)) * (12/constants.NUM_MONTHS)) / 1e6, 2)}\n")
+        f.write(f"Mean annualised container throughput (million tons): {round(((sum(ctr_throughput)/len(ctr_throughput)) * (12/constants.NUM_MONTHS)) * (sum(constants.CONTAINER_CONVERSION_FACTORS)/len(constants.CONTAINER_CONVERSION_FACTORS)) / 1e6, 2)}\n")
+        f.write(f"Mean annualised liquid throughput (million cbm): {round(((sum(liq_throughput)/len(liq_throughput)) * (12/constants.NUM_MONTHS)) / 1e6, 2)}\n")
+        f.write(f"Mean annualised liquid throughput (million tons): {round(((sum(liq_throughput)/len(liq_throughput)) * (12/constants.NUM_MONTHS)) * (sum(constants.LIQUID_CONVERSION_FACTORS)/len(constants.LIQUID_CONVERSION_FACTORS)) / 1e6, 2)}\n")
+        f.write(f"Mean annualised dry bulk throughput (million tons): {round(((sum(dblk_throughput)/len(dblk_throughput)) * (12/constants.NUM_MONTHS)) / 1e6, 2)}\n")
+
+
         f.write("\n")
 
     # Plot multirun combined anchorage queues
@@ -503,28 +553,31 @@ def collate_results(num_runs, total_time):
 
     print(f"Operating capacity: {op_cap:.2f} vessels / hr")
 
-    if np.isclose(current_mean_arrival_rate, base_arrival_rate, atol=1e-1):
-        with open(f'bottleneckAnalysis/logs/{SCENARIO_NAME}_BASE.txt', 'w') as f:
-            f.write(f"Operating capacity: {op_cap:.2f} vessels / hr\n")
-            f.write(f"Arrival rate: {current_mean_arrival_rate:.2f} vessels / hr\n")
-            f.write(f"Exited ships: {sum(ships_exited)/len(ships_exited):.2f} vessels / hr\n")
-            f.write(f"Dwell time (Container): {ctr_dwell['mean'].mean():.1f} hr\n")
-            f.write(f"Dwell time (Liquid): {liq_dwell['mean'].mean():.1f} hr\n")
-            f.write(f"Dwell time (Dry Bulk): {db_dwell['mean'].mean():.1f} hr\n")
-            f.write(f"Turn time (Average): {turn['mean'].mean():.1f} hr\n")
-            f.write(f"Anchorage queue length: {mean_queue_length:.2f} ships\n")
-            f.write(f"Anchorage queue length (Container): {mean_ctr_queue:.2f} ships\n")
-            f.write(f"Anchorage queue length (Liquid): {mean_liq_queue:.2f} ships\n")
-            f.write(f"Anchorage queue length (Dry Bulk): {mean_db_queue:.2f} ships\n")      
-            f.write(f"Mean wait time in anchorage: {mean_all_anc_wait:.2f} hr\n")
-            f.write(f"Mean wait time in anchorage (Container): {mean_ctr_queue:.2f} hr\n")
-            f.write(f"Mean wait time in anchorage (Liquid): {mean_liq_queue:.2f} hr\n")
-            f.write(f"Mean wait time in anchorage (Dry Bulk): {mean_db_queue:.2f} hr\n")
-            f.write(f"Mean channel utilization: {channel_analysis['mean'][WARMUP_ITERS:].mean():.1f} ships\n")
-    else:
-        with open(f'bottleneckAnalysis/logs/{SCENARIO_NAME}_{ARRIVAL_INCREASE_FACTOR}.txt', 'w') as f:
-            f.write("Arrival rate: {:.2f} vessels / hr\n".format(current_mean_arrival_rate))
-            f.write("Exited ships: {:.2f} vessels / hr\n".format(sum(ships_exited)/len(ships_exited)))
+    print("SAVING RESULTS")
+    if config.SCENARIO_NAME == 'BottleneckDetection':
+        print("Bottleneck detection scenario, not saving results")
+        if np.isclose(current_mean_arrival_rate, base_arrival_rate, atol=1e-1):
+            with open(f'bottleneckAnalysis/logs/{SCENARIO_NAME}_BASE.txt', 'w') as f: #use the scenario name from constants
+                f.write(f"Operating capacity: {op_cap:.2f} vessels / hr\n")
+                f.write(f"Arrival rate: {current_mean_arrival_rate:.2f} vessels / hr\n")
+                f.write(f"Exited ships: {sum(ships_exited)/len(ships_exited):.2f} vessels / hr\n")
+                f.write(f"Dwell time (Container): {ctr_dwell['mean'].mean():.1f} hr\n")
+                f.write(f"Dwell time (Liquid): {liq_dwell['mean'].mean():.1f} hr\n")
+                f.write(f"Dwell time (Dry Bulk): {db_dwell['mean'].mean():.1f} hr\n")
+                f.write(f"Turn time (Average): {turn['mean'].mean():.1f} hr\n")
+                f.write(f"Anchorage queue length: {mean_queue_length:.2f} ships\n")
+                f.write(f"Anchorage queue length (Container): {mean_ctr_queue:.2f} ships\n")
+                f.write(f"Anchorage queue length (Liquid): {mean_liq_queue:.2f} ships\n")
+                f.write(f"Anchorage queue length (Dry Bulk): {mean_db_queue:.2f} ships\n")      
+                f.write(f"Mean wait time in anchorage: {mean_all_anc_wait:.2f} hr\n")
+                f.write(f"Mean wait time in anchorage (Container): {mean_ctr_queue:.2f} hr\n")
+                f.write(f"Mean wait time in anchorage (Liquid): {mean_liq_queue:.2f} hr\n")
+                f.write(f"Mean wait time in anchorage (Dry Bulk): {mean_db_queue:.2f} hr\n")
+                f.write(f"Mean channel utilization: {channel_analysis['mean'][WARMUP_ITERS:].mean():.1f} ships\n")
+        else:
+            with open(f'bottleneckAnalysis/logs/{SCENARIO_NAME}_{ARRIVAL_INCREASE_FACTOR}.txt', 'w') as f: #use the scenario name from constants
+                f.write("Arrival rate: {:.2f} vessels / hr\n".format(current_mean_arrival_rate))
+                f.write("Exited ships: {:.2f} vessels / hr\n".format(sum(ships_exited)/len(ships_exited)))
 
     # Cu_opt = calculate_ultimate_capacity()
 
@@ -537,8 +590,7 @@ def collate_results(num_runs, total_time):
     except Exception as e:
         print("Ultimate capacity calculation failed")
         print("Error:", e)
-        print("Ensure atleast two simulations are run: one with base arrival rate and one with high arrival rate.")
-        print("Always run the high arrival rate simulation first else results will be rewritten.")
+        print("More simulation runs may be needed to calculate ultimate capacity.")
     
 
     # save the dataframes
@@ -646,4 +698,123 @@ def collate_results(num_runs, total_time):
     print(
         f"Total time taken: {round(total_time + collate_results_time, 2)} minutes\n")
 
-# collate_results(2, 8)
+def compute_throughput(
+    logs_fp: str,
+    data_fp: str,
+    *,
+    strict_missing: bool = True,
+    type_map: dict | None = None,
+) -> dict:
+    """
+    Compute throughput for a single run given paths to:
+      - logs_fp: Excel/CSV with 'Ship_Id' and 'End Time'
+      - data_fp: CSV with 'ship_id', 'ship_type',
+                 'num_container_or_liq_tons_or_dry_tons_to_load',
+                 'num_container_or_liq_tons_or_dry_tons_to_unload'
+
+    Returns:
+      {
+        "total": float,
+        "by_type": { "<type>": float, ... },
+        "ships_exited": int,
+        "exited_ids": list[str]
+      }
+
+    Raises:
+      KeyError / ValueError with clear messages if required columns are missing
+      or (if strict_missing=True) any exited ship isn't found in ship_data.
+    """
+    # --- read ---
+    if logs_fp.lower().endswith((".xls", ".xlsx")):
+        df_logs = pd.read_excel(logs_fp)
+    else:
+        df_logs = pd.read_csv(logs_fp)
+
+    df_data = pd.read_csv(data_fp)
+
+    # --- sanity: required columns ---
+    req_logs = {"Ship_Id", "End Time"}
+    req_data = {
+        "ship_id",
+        "ship_type",
+        "num_container_or_liq_tons_or_dry_tons_to_load",
+        "num_container_or_liq_tons_or_dry_tons_to_unload",
+    }
+    missing_logs = req_logs - set(df_logs.columns)
+    missing_data = req_data - set(df_data.columns)
+    if missing_logs:
+        raise KeyError(f"Ship Logs missing columns: {sorted(missing_logs)}")
+    if missing_data:
+        raise KeyError(f"Ship data missing columns: {sorted(missing_data)}")
+
+    # --- normalize ids ---
+    # logs are 0-based ("Ship_0", "Ship_1", ...)
+    df_logs["Ship_Id"] = (
+        df_logs["Ship_Id"]
+        .str.extract(r"(\d+)")[0]   # pull out the number part
+        .astype(int)
+        .add(1)                     # shift to match ship_data (1-based)
+        .astype(str)
+    )
+
+    df_logs["Ship_Id"] = df_logs["Ship_Id"].astype(int)
+    df_data["ship_id"] = df_data["ship_id"].astype(int)
+
+    # --- exited ships set ---
+    exited_ids = (
+        df_logs.loc[df_logs["End Time"].notna(), "Ship_Id"]
+        .dropna()
+        .unique()
+        .tolist()
+    )
+    ships_exited = len(exited_ids)
+
+    # --- subset data to exited; validate coverage ---
+    data_exited = df_data[df_data["ship_id"].isin(exited_ids)].copy()
+    missing = sorted(set(exited_ids) - set(data_exited["ship_id"]))
+    if missing and strict_missing:
+        raise ValueError(
+            f"{len(missing)} exited ship(s) not found in ship_data: "
+            f"{missing[:10]}{' ...' if len(missing) > 10 else ''}"
+        )
+
+    # --- (optional) standardize type labels ---
+    if type_map:
+        data_exited["ship_type"] = data_exited["ship_type"].map(
+            lambda x: type_map.get(x, x)
+        )
+
+    # --- numeric quantities ---
+    for c in [
+        "num_container_or_liq_tons_or_dry_tons_to_load",
+        "num_container_or_liq_tons_or_dry_tons_to_unload",
+    ]:
+        data_exited[c] = pd.to_numeric(data_exited[c], errors="coerce").fillna(0)
+
+    # --- collapse to one row per ship_id (+ keep ship_type) ---
+    grouped = (
+        data_exited.groupby(["ship_id", "ship_type"], as_index=False)[
+            [
+                "num_container_or_liq_tons_or_dry_tons_to_load",
+                "num_container_or_liq_tons_or_dry_tons_to_unload",
+            ]
+        ]
+        .sum()
+    )
+    grouped["ship_throughput"] = (
+        grouped["num_container_or_liq_tons_or_dry_tons_to_load"]
+        + grouped["num_container_or_liq_tons_or_dry_tons_to_unload"]
+    )
+
+    # --- aggregates ---
+    by_type = grouped.groupby("ship_type")["ship_throughput"].sum().to_dict()
+    total = float(grouped["ship_throughput"].sum())
+
+    return {
+        "total": float(total),
+        "by_type": {k: float(v) for k, v in by_type.items()},
+        "ships_exited": ships_exited,
+        "exited_ids": exited_ids,
+    }
+
+# collate_results(5, 8)
