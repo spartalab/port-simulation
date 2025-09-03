@@ -7,7 +7,7 @@
 ![Version](https://img.shields.io/badge/Version-0.1--Beta-orange?style=for-the-badge)
 
 > **Note:** This is a **public v0.1 Beta release**. The framework is still under testing and active development,  
-> but it is already functional and usable. Please report any issues through the [GitHub Issue Tracker](https://github.com/spartalab/port-simulation/issues).
+> but it is functional and usable. Please report any issues through the [GitHub Issue Tracker](https://github.com/spartalab/port-simulation/issues).
 
 
 This repository provides a modular, discrete-event simulation (DES) framework for analyzing multimodal port operations across container, liquid bulk, and dry bulk terminals. It is designed to support **planning, bottleneck detection, and what-if scenario analysis** using real-world data inputs and calibration.  
@@ -50,7 +50,7 @@ The simulation requires several input files that define the **navigation channel
 
 ### Summary Checklist
 Before running a new port simulation, prepare:
-- Channel geometry: divide the channel into sections where terminals are located. Each section has particular lengths, widths, depths, and travel speeds. The current generic data is given for 10 sections. Each section can have multiple terminals but the simulation will treat each of these terminals as being located at the exact same place. 
+- Channel geometry: divide the channel into sections where terminals are located. Each section has particular lengths, widths, depths, and travel speeds. The current synthetic data is given for 10 sections. Each section can have multiple terminals but the simulation will treat each of these terminals as being located at the exact same place. 
 - Vessel traffic mix: vessel dimensions, payload, and tug and pilot requirements for vessels. The provided data assumes vessels are one of three size types (small, medium, or large) for the container, liquid, and dry bulk cargo classes.
 - Terminal resources: berth counts, cranes/pipelines/conveyors and their associated transfer rates.  
 - Landside: truck and train arrival rates, gates, storage, payloads, and terminals which have these connections.
