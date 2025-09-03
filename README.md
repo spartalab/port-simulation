@@ -4,6 +4,12 @@
   <img src="simulation_documentation/home_logo.png" alt="Logo" width="800"/>
 </p>
 
+![Version](https://img.shields.io/badge/Version-0.1--Beta-orange?style=for-the-badge)
+
+> **Note:** This is a **public v0.1 Beta release**. The framework is still under testing and active development,  
+> but it is already functional and usable. Please report any issues through the [GitHub Issue Tracker](https://github.com/spartalab/port-simulation/issues).
+
+
 This repository provides a modular, discrete-event simulation (DES) framework for analyzing multimodal port operations across container, liquid bulk, and dry bulk terminals. It is designed to support **planning, bottleneck detection, and what-if scenario analysis** using real-world data inputs and calibration.  
 
 The simulation framework is developed for ports configured with an **anchorage area** connected to a **navigation channel** providing access to **terminals** and **landside transportation** modes. Input data for a hypothetical generic port system (shown above) are provided as an illustrative example. Users can adjust input parameters and the port layout configuration to simulate real-world port operations and scenarios for their desired location.  
