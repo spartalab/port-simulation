@@ -40,7 +40,7 @@ A PDF Simulation manual is also available and can be downloaded below.
 ---
 ## Inputs: Required Data and File Specifications
 
-The simulation requires several input files that define the **navigation channel**, **vessel classes**, and **terminal resources**. These inputs must be prepared carefully for any new port to ensure realistic results. This section describes each file, the meaning of its columns, expected units, and guidance on how to obtain the data.  
+The simulation requires several input files that define the **navigation channel**, **vessel classes**, and **terminal resources**. These inputs must be prepared carefully for any new port to ensure realistic results. 
 
 ### Summary Checklist
 Before running a new port simulation, prepare:
