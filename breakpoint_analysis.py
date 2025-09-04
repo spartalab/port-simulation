@@ -49,11 +49,12 @@ def objective(params, lambda_data, exits_data):
     return np.mean((exits_data - N_model)**2)
 
 
-def fit_ODE_model(df):
+def fit_ODE_model(df, file_id):
     """
     Fit the ODE model to the exit data from the DataFrame.
     Args:
         df (pd.DataFrame): DataFrame containing 'lambda' and 'exits' columns.
+        file_id (str): Identifier for saving the plot.
     Returns:
         tuple: Fitted parameters (Cu_fit, theta_fit).
     """
@@ -91,8 +92,8 @@ def fit_ODE_model(df):
     plt.title('ODE Model Fit', fontsize=16)
     plt.xticks(fontsize=12)
     plt.yticks(fontsize=12)
-    plt.xlim(left=0, right=np.max(lambda_data) * 1.1)
-    plt.ylim(bottom=0, top=np.max(exits_data) * 1.1)
+    # plt.xlim(left=0, right=np.max(lambda_data) * 1.1)
+    # plt.ylim(bottom=0, top=np.max(exits_data) * 1.1)
     plt.legend()
     plt.grid(False)
     plt.tight_layout()
@@ -106,7 +107,6 @@ def fit_ODE_model(df):
         bbox=dict(facecolor='white', edgecolor='black', boxstyle='square,pad=0.3')
     )
     plt.savefig(f"./breakpointAnalysis/{file_id}_ODE_fit.pdf")
-    plt.show()
     plt.close()
 
     return Cu_fit, theta_fit
@@ -188,6 +188,7 @@ def extract_data(log_ids, simulation_time, base_path):
     months = int(simulation_time / (30 * 24))
 
     for log_id in log_ids:
+
         # Construct the file path
         id = f'{months}_months_{constants.NUM_RUNS}_runs_run_{log_id}'
         file_path = f"{base_path}/{id}/run_details_{id}.txt"
@@ -278,7 +279,7 @@ def extract_data(log_ids, simulation_time, base_path):
     return data
 
 
-def plot_data(data, plot_error_bars=True):
+def plot_data(data, inter_arrival_factors_list, file_id, plot_error_bars=False):
     """
     Plot the extracted data and save the plots to files.
     The function generates several plots including:
@@ -290,9 +291,10 @@ def plot_data(data, plot_error_bars=True):
     - Channel utilization with error bars
     - Anchorage queue lengths for container, liquid, and drybulk ships
     - Anchorage queue lengths for all ships together
-    - Anchorage queue lengths for all ships together (stable range)
     Args:
         data (dict): Dictionary containing extracted data.
+        inter_arrival_factors_list (list): List of inter-arrival factors used in the simulations.
+        file_id (str): Identifier for the output files.
         plot_error_bars (bool): Whether to plot error bars for the channel utilization.
     """
 
@@ -309,48 +311,17 @@ def plot_data(data, plot_error_bars=True):
     plt.title("Mean entered vs mean exited ships")
     plt.xlabel("Arrival rate multiplier")
     plt.ylabel("Number of ships")
-    plt.legend()
     plt.grid()
     plt.savefig(f"./breakpointAnalysis/{file_id}_throughput.pdf")
     plt.close()
 
-    output_file = f"./breakpointAnalysis/{file_id}_throughput.csv"
+    output_file = f"./breakpointAnalysis/data_{file_id}_throughput.csv"
     with open(output_file, 'w') as f:
         f.write("Arrival Rate,Mean Entered,Mean Exited\n")
         for i in range(len(arrival_factors)):
             f.write(
                 f"{arrival_factors[i]},{data['mean_entered'][i]},{data['mean_exited'][i]}\n")
     print(f"Data saved to {output_file}")
-
-    k = 40
-    plt.plot(arrival_factors[:k], data['mean_entered']
-             [:k], label="Mean Entered Ships", marker='o')
-    plt.plot(arrival_factors[:k], data['mean_exited']
-             [:k], label="Mean Exited Ships", marker='s')
-    plt.title("Mean entered vs mean exited ships for stable range")
-    plt.xlabel("Arrival rate multiplier")
-    plt.ylabel("Number of ships")
-    plt.legend()
-    plt.grid()
-    plt.savefig(f"./breakpointAnalysis/{file_id}_throughput_stable.pdf")
-    plt.close()
-
-    # Plot 2: entered - exited ships
-    plt.plot(arrival_factors, np.array(data['mean_entered']) - np.array(
-        data['mean_exited']), label="Mean Entered - Exited Ships", marker='o')
-    plateau_avg = sum(
-        np.array(data['mean_entered'][:3]) - np.array(data['mean_exited'][:3])) / 3
-
-    plt.axhline(y=plateau_avg, color='r', linestyle='--',
-                label=f"Stable system: {plateau_avg:.2f}")
-    plt.title("Mean entered - exited ships")
-    plt.xlabel("Arrival rate multiplier")
-    plt.ylabel("Number of ships")
-    plt.legend()
-    plt.grid()
-    plt.savefig(
-        f"./breakpointAnalysis/{file_id}_throughput_entered_exited.pdf")
-    plt.close()
 
     # Plot 3: ctr ships entered vs exited
     plt.plot(arrival_factors, data['mean_ctr_entered'],
@@ -410,8 +381,8 @@ def plot_data(data, plot_error_bars=True):
     plateau_avg = sum(means[-4:]) / 4
     plt.axhline(y=plateau_avg, color='r', linestyle='--',
                 label=f"At capacity: {plateau_avg:.2f}")
-    plt.ylim(bottom=int(min(means)))
-    plt.ylim(top=int(max(means) + 1))
+    plt.ylim(bottom=0)
+    plt.ylim(top=int(max(means) + 1)*2)
     plt.title("Channel Utilization")
     plt.xlabel("Arrival rate multiplier")
     plt.ylabel("Mean Vessels in Channel (± SD)")
@@ -421,7 +392,7 @@ def plot_data(data, plot_error_bars=True):
     plt.savefig(f"./breakpointAnalysis/{file_id}_Channel.pdf")
     plt.close()
 
-    output_file = f"./breakpointAnalysis/{file_id}_channel_utilization.csv"
+    output_file = f"./breakpointAnalysis/data_{file_id}_channel_utilization.csv"
     with open(output_file, 'w') as f:
         f.write("Arrival Rate,Mean Channel Utilization\n")
         for i in range(len(arrival_factors)):
@@ -467,25 +438,12 @@ def plot_data(data, plot_error_bars=True):
     plt.title("Anchorage queue lengths for all ships")
     plt.xlabel("Arrival rate multiplier")
     plt.ylabel("Queue length (mean ± SD)")
-    plt.legend()
     plt.grid()
     plt.savefig(f"./breakpointAnalysis/{file_id}_AnchorageQueue_all.pdf")
     plt.close()
 
-    plt.plot(arrival_factors[:k], mean_all[:k],
-             label="Mean Anchorage Queue Lengths", marker='o')
-    if plot_error_bars:
-        plt.errorbar(arrival_factors, mean_all,
-                     yerr=std_all, fmt='o', capsize=5)
-    plt.title("Anchorage queue lengths for all ships")
-    plt.xlabel("Arrival rate multiplier")
-    plt.ylabel("Queue length (mean ± SD)")
-    plt.legend()
-    plt.grid()
-    plt.savefig(f"./breakpointAnalysis/{file_id}_AnchorageQueue_all_{k}.pdf")
-    plt.close()
 
-    output_file = f"./breakpointAnalysis/{file_id}_AnchorageQueue_all.csv"
+    output_file = f"./breakpointAnalysis/data_{file_id}_AnchorageQueue_all.csv"
     with open(output_file, 'w') as f:
         f.write("Arrival Rate,Mean Anchorage Queue Length\n")
         for i in range(len(arrival_factors)):
@@ -498,11 +456,12 @@ if __name__ == '__main__':
 
     # File ID
     file_id = constants.LOG_NUM
-    inter_arrival_factors_list = [1.0] + np.arange(0.5, 5.5, 0.5).tolist()
-    print(inter_arrival_factors_list)
+    # Nothe that the first run is not saved. 
+    # So if np.arange(0.5, 5.0, 0.2) is used, the first run with 0.5 is not saved.
+    inter_arrival_factors_list = np.arange(0.5, 5.0, 0.2).tolist()
+    # print(inter_arrival_factors_list)
     num_test = len(inter_arrival_factors_list)
     log_ids = [file_id + i for i in range(num_test)]
-
 
     inter_arrival_factors_ctr = inter_arrival_factors_list
     inter_arrival_factors_liq = inter_arrival_factors_list
@@ -513,8 +472,10 @@ if __name__ == '__main__':
          inter_arrival_factors_drybulk[i])
         for i in range(len(inter_arrival_factors_ctr))
     ]
+
     param_combinations = [(log_ids[i], inter_arrival_factors[i])
                           for i in range(len(log_ids))]
+    
 
     for params in param_combinations:
         print(f"Running simulation for LOG_NUM={params[0]} with inter-arrival factors {params[1]}")
@@ -524,15 +485,21 @@ if __name__ == '__main__':
 
     # Uncomment the following lines to analyze and plot data
     base_path = "./collatedResults"
-    data = extract_data(log_ids, simulation_time, base_path)
-    plot_data(data, plot_error_bars=False)
 
-    df = pd.read_csv(f"./breakpointAnalysis/{file_id}_throughput.csv")
+    # drop the first one (config -> constants doesnt propoierly update the values)
+    log_ids = log_ids[1:]
+    inter_arrival_factors_list = inter_arrival_factors_list[1:]
+
+    data = extract_data(log_ids, simulation_time, base_path)
+
+    
+    plot_data(data, inter_arrival_factors_list, file_id, plot_error_bars=True)
+
+    df = pd.read_csv(f"./breakpointAnalysis/data_{file_id}_throughput.csv")
     df.columns = ['lambda_multiplier', 'entries', 'exits']
     df['lambda'] = df['lambda_multiplier'] * constants.base_arrival_rate
-    df.to_csv(f"./breakpointAnalysis/{file_id}_throughput.csv")
-    df = df.drop(index=0)
+    df.to_csv(f"./breakpointAnalysis/data_{file_id}_throughput.csv")
     print(df)
-    Cu_fit, theta_fit = fit_ODE_model(df)
+    Cu_fit, theta_fit = fit_ODE_model(df, file_id)
 
     print("All simulations completed.")
