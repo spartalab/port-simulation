@@ -299,9 +299,9 @@ This project was developed by members of the [Simulation, Pricing, Autonomous Ve
 
 We gratefully acknowledge the support of our advisor **Dr. Stephen Boyles** (sboyles@austin.utexas.edu) for his invaluable guidance throughout this project.  
 
-This research was partially funded by the U.S. Army Engineer Research and Development Center (ERDC) under contract **#W912HZ23C0052**, *“Data-Driven, Multimodal Freight Modeling for Waterways and Ports.”* The findings and opinions expressed here are those of the authors and do not represent official policies or standards of the U.S. Army Corps of Engineers.  
+This research was partially funded by the **U.S. Army Engineer Research and Development Center (ERDC)** under contract **#W912HZ23C0052**, *“Data-Driven, Multimodal Freight Modeling for Waterways and Ports.”* The findings and opinions expressed here are those of the authors and do not represent official policies or standards of the U.S. Army Corps of Engineers.  
 
-Additional support was provided by the University Transportation Center (UTC) **National Center for Understanding Future Travel Behavior and Demand (TBD)**.  
+This work was also partially supported by the **University Transportation Center (UTC) National Center for Understanding Future Travel Behavior and Demand (TBD)**.
 
 We also thank **Dr. Kenneth N. Mitchell**, **Dr. Magdalena I. Asborno**, **Dr. Marin M. Kress**, and **Mr. Mark A. Cowan** of ERDC for their valuable input and feedback that greatly improved this work.  
 
