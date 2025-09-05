@@ -52,7 +52,7 @@ This model aids port planners and waterway management agencies in:
 Detailed documentation for each script is provided in HTML format in the `documentation` folder.  To open the documentation, download the folder and open `index.html` in a browser. The same documentation is also hosted [here.](https://spartalab.github.io/port-simulation/)
 
 **Simulation manual (PDF):**  
-A PDF Simulation Manual is also available, containing details on input data and example outputs.  Please review the manual to understand the scope of the simulation. [Download the Simulation Manual](https://github.com/spartalab/port-simulation/raw/main/simulation_documentation/Simulation_Manual.pdf)
+A PDF Simulation Manual is also available, containing details on input data and example outputs.  Please review the manual to understand the scope of the simulation. [Download the simulation manual.](https://github.com/spartalab/port-simulation/raw/main/simulation_documentation/Simulation_Manual.pdf)
 
 
 
