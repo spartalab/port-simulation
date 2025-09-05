@@ -1,0 +1,25 @@
+name: Deploy docs to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'simulation_documentation/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # needed to push to gh-pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy folder to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: simulation_documentation
+          force_orphan: true
+          enable_jekyll: false   # creates .nojekyll automatically
