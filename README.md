@@ -65,11 +65,16 @@ The simulation requires several input files that define the **navigation channel
 
 ### Summary Checklist
 Before running a new port simulation, prepare:
-- Channel geometry: divide the channel into sections where terminals are located. Each section has particular lengths, widths, depths, and travel speeds. The current synthetic data is given for 10 sections. Each section can have multiple terminals but the simulation will treat each of these terminals as being located at the exact same place. 
-- Vessel traffic mix: vessel dimensions, payload, and tug and pilot requirements for vessels. The provided data assumes vessels are one of three size types (small, medium, or large) for the container, liquid, and dry bulk cargo classes.
-- Terminal resources: berth counts, cranes/pipelines/conveyors and their associated transfer rates.  
-- Landside: truck and train arrival rates, gates, storage, payloads, and terminals which have these connections.
-- Activity flags: if a terminal is import/export-only or allows both, pipeline connectivity.  
+
+**Channel geometry:** divide the channel into sections where terminals are located. Each section has particular lengths, widths, depths, and travel speeds. The current synthetic data is given for 10 sections. Each section can have multiple terminals but the simulation will treat each of these terminals as being located at the exact same place. 
+
+**Vessel traffic mix:** vessel dimensions, payload, and tug and pilot requirements for vessels. The provided data assumes vessels are one of three size types (small, medium, or large) for the container, liquid, and dry bulk cargo classes.
+
+**Terminal resources:** berth counts, cranes/pipelines/conveyors and their associated transfer rates.  
+
+**Landside:** truck and train arrival rates, gates, storage, payloads, and terminals which have these connections.
+
+- **Activity flags:** if a terminal is import/export-only or allows both, pipeline connectivity.  
 
 Only after these files are updated should you run the simulation. **Synthetic data for a generic port with 10 channel sections, 2 container terminals, 4 liquid bulk terminals, and 1 dry bulk terminal have been provided.**
 
