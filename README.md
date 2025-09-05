@@ -297,7 +297,7 @@ This project was developed by members of the [Simulation, Pricing, Autonomous Ve
   - Email: kyle.bathgate@utexas.edu  
   - Website: <https://kylebathgate.github.io/index.html>  
 
-We gratefully acknowledge the support of our co-author **Dr. Stephen Boyles** (sboyles@austin.utexas.edu) for his invaluable guidance throughout this project.  
+We gratefully acknowledge the support of our advisor **Dr. Stephen Boyles** (sboyles@austin.utexas.edu) for his invaluable guidance throughout this project.  
 
 This research was partially funded by the U.S. Army Engineer Research and Development Center (ERDC) under contract **#W912HZ23C0052**, *“Data-Driven, Multimodal Freight Modeling for Waterways and Ports.”* The findings and opinions expressed here are those of the authors and do not represent official policies or standards of the U.S. Army Corps of Engineers.  
 
