@@ -31,6 +31,7 @@ Currently, the model supports:
 - [Quick start](#quick-start)
 - [Project structure](#project-structure)
 - [Simulation modules](#simulation-modules-defined-in-simulation_classes-folder)
+- [Contributors & acknowledgments](#contributors--acknowledgments)  
 - [License](#license)
 
 ---
@@ -282,7 +283,7 @@ This script works in conjunction with `main.py`
 
 ---
 
-## Contributors & Acknowledgments  
+## Contributors & acknowledgments  
 
 This project was developed by members of the [Simulation, Pricing, Autonomous Vehicles, Routing, & Traffic Assignment (SPARTA) Lab](https://github.com/spartalab) at The University of Texas at Austin.  
 
