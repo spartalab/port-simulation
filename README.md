@@ -295,7 +295,7 @@ This project was developed by members of the [Simulation, Pricing, Autonomous Ve
 - **Kyle Bathgate**  
   - Ph.D. candidate, The University of Texas at Austin  
   - Email: kyle.bathgate@utexas.edu  
-  - Website: <https://kylebathgate.github.io/index.html>  
+  - Website: <https://kylebathgate.github.io/>  
 
 We gratefully acknowledge the support of our advisor **Dr. Stephen Boyles** (sboyles@austin.utexas.edu) for his invaluable guidance throughout this project.  
 
