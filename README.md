@@ -74,7 +74,7 @@ Before running a new port simulation, prepare:
 
 **Landside:** truck and train arrival rates, gates, storage, payloads, and terminals which have these connections.
 
-- **Activity flags:** if a terminal is import/export-only or allows both, pipeline connectivity.  
+**Activity flags:** if a terminal is import/export-only or allows both, pipeline connectivity.  
 
 Only after these files are updated should you run the simulation. **Synthetic data for a generic port with 10 channel sections, 2 container terminals, 4 liquid bulk terminals, and 1 dry bulk terminal have been provided.**
 
