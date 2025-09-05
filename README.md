@@ -48,11 +48,15 @@ This model aids port planners and waterway management agencies in:
 
 ## Documentation
 
-Detailed documentation for each script is given in HTML format in the documentation folder. To open HTML documentation files, download the documentation folder and open `index.html` in a browser.
+**Code documentation:**  
+Detailed documentation for each script is provided in HTML format in the `documentation` folder.  To open the documentation, download the folder and open `index.html` in a browser.  
+The same documentation is also hosted [here.](https://spartalab.github.io/port-simulation/).
 
-A PDF Simulation manual is also available and can be downloaded below. 
+**Simulation manual (PDF):**  
+A PDF Simulation Manual is also available, containing details on input data and example outputs.  Please review the manual to understand the scope of the simulation.  
+[📘 Download the Simulation Manual](https://github.com/spartalab/port-simulation/raw/main/simulation_documentation/Simulation_Manual.pdf)
 
-[![Simulation Manual](https://img.shields.io/badge/📘_Download-Simulation_Manual-blue?style=for-the-badge&logo=adobeacrobatreader)](https://github.com/spartalab/port-simulation/raw/main/simulation_documentation/Simulation_Manual.pdf)
+
 
 
 ---
