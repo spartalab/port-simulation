@@ -1,2 +1,0 @@
-Arrival rate: 5.20 vessels / hr
-Exited ships: 5140.50 vessels / hr

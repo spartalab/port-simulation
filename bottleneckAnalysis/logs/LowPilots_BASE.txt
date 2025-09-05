@@ -1,0 +1,16 @@
+Operating capacity: 1.37 vessels / hr
+Arrival rate: 1.30 vessels / hr
+Exited ships: 3684.80 vessels / hr
+Dwell time (Container): 23.1 hr
+Dwell time (Liquid): 6.4 hr
+Dwell time (Dry Bulk): 18.6 hr
+Turn time (Average): 35.0 hr
+Anchorage queue length: 20.99 ships
+Anchorage queue length (Container): 4.19 ships
+Anchorage queue length (Liquid): 12.51 ships
+Anchorage queue length (Dry Bulk): 2.32 ships
+Mean wait time in anchorage: 9.61 hr
+Mean wait time in anchorage (Container): 4.19 hr
+Mean wait time in anchorage (Liquid): 12.51 hr
+Mean wait time in anchorage (Dry Bulk): 2.32 hr
+Mean channel utilization: 2.8 ships
