@@ -24,6 +24,18 @@ Currently, the model supports:
 
 ---
 
+## Contents
+
+- [Purpose](#purpose)
+- [Documentation](#documentation)
+- [Inputs: Required data and file specifications](#inputs-required-data-and-file-specifications)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Simulation Modules](#simulation-modules-defined-in-simulation_classes-folder)
+- [License](#license)
+
+---
+
 ## Purpose
 
 This model aids port planners and waterway management agencies in:
@@ -44,7 +56,8 @@ A PDF Simulation manual is also available and can be downloaded below.
 
 
 ---
-## Inputs: Required Data and File Specifications
+
+## Inputs: Required data and file specifications
 
 The simulation requires several input files that define the **navigation channel**, **vessel classes**, and **terminal resources**. These inputs must be prepared carefully for any new port to ensure realistic results. 
 
@@ -189,41 +202,23 @@ The `terminal_data.csv` and `constants.csv` are automatically changed in the cod
 
 ---
 
-## 4. Output Organization
-
-### `.Results_<SEED>_<DURATION>_<VERSION>/`
-
-For each individual simulation seed (as defined in `constants.py`), a directory is created with the naming pattern `.Results_<seed>_<duration>_<version>/` (e.g., `.Results_1000_6_months_1.0`). It contains:
-
-- `bottlenecks/`: Text/CSV-based summaries of system bottlenecks (e.g., resource utilizations)
-- `logs/`: Raw logs of simulation events, timestamps, vessel arrivals/departures, and resource allocation events
-- `plots/`: Organized subplots and visual summaries of port performance metrics, including:
-
-
-### `collatedResults/`
-
-After all seeds are completed, results are merged into `collatedResults/`. Each subfolder represents a combined output for a specific configuration of run duration and number of seeds. Example: `collatedResults/6_months_2_runs_run_100/`.
-
-
----
-
-## 5. Simulation Modules (defined in `simulation_classes` folder)
+## Simulation Modules (defined in `simulation_classes` folder)
 
 ### Terminals
 
 Each terminal is modeled as a SimPy process with its own class, resources, and queue logic.
 
-#### ContainerTerminal (defined in `terminal_container.py`)
+**ContainerTerminal (defined in `terminal_container.py`)**
 - **Operations**: Berth and crane allocation, container transfer, yard storage
 - **Resources**: Berths, cranes, yard
 - **Classes**: `Container`, `Crane`, `Berth_Ctr` (These are defined in `Port.py`)
 
-#### LiquidTerminal (defined in `terminal_liquid.py`)
+**LiquidTerminal (defined in `terminal_liquid.py`)**
 - **Operations**: Berth allocation, pipeline cargo transfer, tank storage
 - **Resources**: Pipelines, tanks, berths
 - **Classes**: `LiquidBatch`, `Pipeline`, `Berth_Liq` (These are defined in `Port.py`)
 
-#### DryBulkTerminal (defined in `terminal_drybulk.py`)
+**DryBulkTerminal (defined in `terminal_drybulk.py`)**
 - **Operations**: Berth allocation, conveyor-based transfer, silo storage
 - **Resources**: Conveyors, silos, berths
 - **Classes**: `DryBulkBatch`, `Conveyor`, `Berth_DryBulk` (These are defined in `Port.py`)
@@ -232,28 +227,25 @@ Each terminal is modeled as a SimPy process with its own class, resources, and q
 
 These modules handle the interaction between terminals and landside transport modes.
 
-#### Truck (defined in `truck.py`)
+**Truck (defined in `truck.py`)**
 - **Operations**: Handles container, liquid, and dry bulk delivery/pickup via trucks
 - **Processes**: 
   - Truck arrival
   - Loading/unloading
   - Waiting for resource availability
-- **Class**: `Truck` — represents each truck with relevant cargo information and terminal linkage
 
-#### Train (defined in `train.py`)
+**Train (defined in `train.py`)**
 - **Operations**: Models bulk transfer through trains (e.g., containers or bulk cargo)
 - **Processes**:
   - Train formation and arrival
   - Bulk transfer from terminal (liquid or dry bulk)
   - Departure after processing
-- **Class**: `Train` — defines train-level scheduling, interaction with terminals
 
-#### Pipeline (defined in `pipeline.py`)
+**Pipeline (defined in `pipeline.py`)**
 - **Operations**: Facilitates liquid cargo transfer between terminal tanks and regional pipeline network (this is modeled as a source / sink to the pipeline network)
 - **Processes**:
   - Transfer as source or sink from terminal storage tanks based on pump rate
   - Starts and stops when certain tank volumes are met
-- **Class**: `Pipeline` — models tank, mode (source or sink), and pump rate
 
 ### Channel Navigation (via `channel.py`)
 
@@ -262,16 +254,14 @@ This module handles the vessel movement through port entry and exit channels. It
 - **Two-way vessel traffic** is supported by default, allowing simultaneous inbound and outbound movements without conflict.
 - **Restriction logic implemented**: The user can toggle constraints such as:
   - Beam, draft and daylight restrictions
-  - One-way traffic (e.g., no restriction on beam, draft, daylight at all)
   - Spacing rules between consecutive vessels
-- **Vessel entry/exit logging**: Every vessel’s time of channel entry and exit is recorded, allowing analysis of channel utilization and potential delays.
 
 **Note:** To run the restricted channel with a different restriction just change the channel dimensions file in the inputs folder.
 
 
 ### Analysis modules (defined in `simulation_analysis` folder)
 
-### `whatif_scenarios.py`
+`whatif_scenarios.py`
 This script works in conjunction with `main.py`; scenarios to be tested can be set in `config.py`.
 Runs simulations under different scenarios (disruptions, parameter changes, etc). Useful for comparative assessments. It automates multiple simulation runs under varied configurations, allowing users to test hypotheses such as:
 
@@ -281,18 +271,18 @@ Runs simulations under different scenarios (disruptions, parameter changes, etc)
 - What effect does toggling channel restrictions have on congestion and vessel wait times?
 - How does varying the number of simulation seeds affect statistical confidence in the results?
 
-### `capacity.py`
+`capacity.py`
 This script works in conjunction with `main.py`
 Analytical module to estimate:
 - **Operating Capacity**: Max throughput under stable conditions
 - **Ultimate Capacity**: Saturation throughput under unstable queues
 
-### `resource_utilization.py`
+`resource_utilization.py`
 This script works in conjunction with `main.py`
 - Evaluates system resource utilization and restrictions
 
 ---
 
-## 6. License
+## License
 
 This project is under the MIT License. See `LICENSE` file for details.
