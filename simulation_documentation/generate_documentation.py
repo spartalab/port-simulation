@@ -61,13 +61,25 @@ def inject_readme(
     repo_url: str = "https://github.com/spartalab/port-simulation",
     manual_url: str = "Simulation_Manual.pdf"  # assumes the PDF lives next to index.html
 ):
-    """Inject the README.md contents into pdoc index.html, and add two CTAs after the logo."""
+    """Inject the README.md contents into pdoc index.html, add two CTAs after the logo,
+    and set the <title> to 'Port Simulation'."""
     html_path = Path(html_path)
     readme_path = Path(readme_path)
 
     html = html_path.read_text(encoding="utf-8")
     md_text = readme_path.read_text(encoding="utf-8")
     md_html = markdown.markdown(md_text, extensions=["fenced_code", "tables", "toc"])
+
+    # --- Change <title> tag to "Port Simulation" ---
+    html, count_title = re.subn(
+        r"<title>.*?</title>",
+        "<title>Port Simulation</title>",
+        html,
+        count=1,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+    if count_title == 0:
+        print("⚠️ Could not find <title> tag to rename.", file=sys.stderr)
 
     # adjust image paths if needed
     md_html = md_html.replace(
@@ -128,6 +140,7 @@ def inject_readme(
     new_html, count = pattern.subn(lambda m: f"{m.group(1)}{insert_html}{m.group(3)}", html)
     html_path.write_text(new_html, encoding="utf-8")
     print(f"Injected README.md + top CTAs into '{html_path}' ({count} replacements performed)")
+
 
 def open_index(html_path: str = "./simulation_documentation/index.html"):
     abs_path = Path(html_path).resolve()
