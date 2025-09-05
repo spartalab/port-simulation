@@ -6,8 +6,7 @@
 
 ![Version](https://img.shields.io/badge/Version-0.1--Beta-orange?style=for-the-badge)
 
-> **Note:** This is a **public v0.1 Beta release**. The framework is still under testing and active development,  
-> but it is functional and usable. Please report any issues through the [GitHub Issue Tracker](https://github.com/spartalab/port-simulation/issues).
+> **Note:** This is a **public v0.1 Beta release**. The framework is still under testing and active development, but it is functional and usable. Please report any issues through the [GitHub Issue Tracker](https://github.com/spartalab/port-simulation/issues).
 
 
 This repository provides a modular, discrete-event simulation (DES) framework for analyzing multimodal port operations across container, liquid bulk, and dry bulk terminals. It is designed to support **planning, bottleneck detection, and what-if scenario analysis** using real-world data inputs and calibration.  
@@ -283,6 +282,35 @@ This script works in conjunction with `main.py`
 
 ---
 
-## License
+## Contributors & Acknowledgments  
 
-This project is under the MIT License. See `LICENSE` file for details.
+This project was developed by members of the [Simulation, Pricing, Autonomous Vehicles, Routing, & Traffic Assignment (SPARTA) Lab](https://github.com/spartalab) at The University of Texas at Austin.  
+
+- **Debojjal Bagchi**  
+  - Ph.D. student, The University of Texas at Austin  
+  - Email: debojjalb@utexas.edu  
+  - Website: <https://debojjalb.github.io/>  
+
+- **Kyle Bathgate**  
+  - Ph.D. candidate, The University of Texas at Austin  
+  - Email: kyle.bathgate@utexas.edu  
+  - Website: <https://kylebathgate.github.io/index.html>  
+
+We gratefully acknowledge the support of our co-author **Dr. Stephen Boyles** (sboyles@austin.utexas.edu) for his invaluable guidance throughout this project.  
+
+This research was partially funded by the U.S. Army Engineer Research and Development Center (ERDC) under contract **#W912HZ23C0052**, *“Data-Driven, Multimodal Freight Modeling for Waterways and Ports.”* The findings and opinions expressed here are those of the authors and do not represent official policies or standards of the U.S. Army Corps of Engineers.  
+
+Additional support was provided by the University Transportation Center (UTC) **National Center for Understanding Future Travel Behavior and Demand (TBD)**.  
+
+We also thank **Dr. Kenneth N. Mitchell**, **Dr. Magdalena I. Asborno**, **Dr. Marin M. Kress**, and **Mr. Mark A. Cowan** of ERDC for their valuable input and feedback that greatly improved this work.  
+
+### Contributing
+
+We welcome all suggestions from the community. If you wish to contribute or report any bug please contact the creaters or create an issue on [issue tracking system](https://github.com/spartalab/port-simulation/issues).
+
+---
+
+
+## Copyright and license
+
+The content of this repository is bounded by MIT License. See [LICENSE](https://github.com/spartalab/port-simulation/blob/main/LICENSE) file for details.
