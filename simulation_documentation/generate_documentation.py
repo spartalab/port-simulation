@@ -55,8 +55,14 @@ def generate_docs(output_dir: str = "./simulation_documentation"):
     subprocess.run(cmd, check=True, env=env)
     print(f"Documentation generated into {output_dir}")
 
-def inject_readme(html_path: str = "./simulation_documentation/index.html", readme_path: str = "README.md"):
-    """Inject the README.md contents into the generated pdoc index.html."""
+def inject_readme(
+    html_path: str = "./simulation_documentation/index.html",
+    readme_path: str = "README.md",
+    repo_url: str = "https://github.com/spartalab/port-simulation"
+):
+    """Inject the README.md contents into the generated pdoc index.html,
+    and add a styled repo link right after the top logo image.
+    """
     html_path = Path(html_path)
     readme_path = Path(readme_path)
 
@@ -70,12 +76,42 @@ def inject_readme(html_path: str = "./simulation_documentation/index.html", read
         'src="home_logo.png"'
     )
 
+    # --- Repo button (glassy black style) ---
+    repo_html = f"""
+    <div class="repo-link" style="text-align:center; margin: 1em 0 1.5em 0;">
+        <a href="{repo_url}" target="_blank" rel="noopener"
+           style="display:inline-block; padding:0.6em 1.2em;
+                  border-radius:0.6em;
+                  text-decoration:none;
+                  font-weight:600;
+                  font-size:1.05em;
+                  color:#fff;
+                  background:rgba(0,0,0,0.85);
+                  backdrop-filter:blur(4px);
+                  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+                  transition:background 0.2s ease;">
+            🔗 View the Codebase on GitHub
+        </a>
+    </div>
+    """
+
+    # Insert repo link immediately after the top logo image
+    html, count_logo = re.subn(
+        r'(<img[^>]+src="[^"]*spartaStacked\.png"[^>]*>)',
+        r'\1' + repo_html,
+        html,
+        count=1,
+        flags=re.IGNORECASE
+    )
+    if count_logo == 0:
+        print("⚠️ Could not find spartaStacked.png logo to insert link after.", file=sys.stderr)
+
+    # Inject README as before
     insert_html = f"""
 <section class="module-info">
 {md_html}
 </section>
 """
-
     pattern = re.compile(r'(<main class="pdoc">)(.*?)(</main>)', re.DOTALL)
     if not pattern.search(html):
         print("Failed to locate the <main class=\"pdoc\"> element.", file=sys.stderr)
@@ -83,7 +119,7 @@ def inject_readme(html_path: str = "./simulation_documentation/index.html", read
 
     new_html, count = pattern.subn(lambda m: f"{m.group(1)}{insert_html}{m.group(3)}", html)
     html_path.write_text(new_html, encoding="utf-8")
-    print(f"Successfully injected README.md into '{html_path}' ({count} replacements performed)")
+    print(f"Successfully injected README.md + styled repo link into '{html_path}' ({count} replacements performed)")
 
 def open_index(html_path: str = "./simulation_documentation/index.html"):
     abs_path = Path(html_path).resolve()
