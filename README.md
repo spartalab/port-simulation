@@ -29,9 +29,9 @@ Currently, the model supports:
 - [Purpose](#purpose)
 - [Documentation](#documentation)
 - [Inputs: Required data and file specifications](#inputs-required-data-and-file-specifications)
-- [Quick Start](#quick-start)
-- [Project Structure](#project-structure)
-- [Simulation Modules](#simulation-modules-defined-in-simulation_classes-folder)
+- [Quick start](#quick-start)
+- [Project structure](#project-structure)
+- [Simulation modules](#simulation-modules-defined-in-simulation_classes-folder)
 - [License](#license)
 
 ---
@@ -87,9 +87,9 @@ Defines resources and landside throughput at each terminal. Copied internally to
 
 ---
 
-## Quick Start
+## Quick start
 
-### 1. Install Requirements
+### 1. Install requirements
 
 ```bash
 pip install -r requirements.txt
@@ -97,7 +97,7 @@ pip install -r requirements.txt
 
 We recommend using a virtual environment (`venv` or `pipenv`) to install all packages and dependencies in a clean workspace.
 
-### 2. Run the Simulation
+### 2. Run the simulation
 
 **2.1 Base simulation** Runs the base simulation.
 Edit `config.py` to configure your simulation scenario. Then:
@@ -134,7 +134,7 @@ The `terminal_data.csv` and `constants.csv` are automatically changed in the cod
 
 ---
 
-## Project Structure
+## Project structure
 
 ```
 .
@@ -202,7 +202,7 @@ The `terminal_data.csv` and `constants.csv` are automatically changed in the cod
 
 ---
 
-## Simulation Modules (defined in `simulation_classes` folder)
+## Simulation modules (defined in `simulation_classes` folder)
 
 ### Terminals
 
@@ -223,7 +223,7 @@ Each terminal is modeled as a SimPy process with its own class, resources, and q
 - **Resources**: Conveyors, silos, berths
 - **Classes**: `DryBulkBatch`, `Conveyor`, `Berth_DryBulk` (These are defined in `Port.py`)
 
-### Inland Transport
+### Inland transport
 
 These modules handle the interaction between terminals and landside transport modes.
 
@@ -247,7 +247,7 @@ These modules handle the interaction between terminals and landside transport mo
   - Transfer as source or sink from terminal storage tanks based on pump rate
   - Starts and stops when certain tank volumes are met
 
-### Channel Navigation (via `channel.py`)
+### Channel navigation (via `channel.py`)
 
 This module handles the vessel movement through port entry and exit channels. It tracks vessel navigation, applies movement rules, and can enforce access restrictions.
 
