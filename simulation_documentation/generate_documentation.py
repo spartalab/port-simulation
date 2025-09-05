@@ -58,11 +58,10 @@ def generate_docs(output_dir: str = "./simulation_documentation"):
 def inject_readme(
     html_path: str = "./simulation_documentation/index.html",
     readme_path: str = "README.md",
-    repo_url: str = "https://github.com/spartalab/port-simulation"
+    repo_url: str = "https://github.com/spartalab/port-simulation",
+    manual_url: str = "Simulation_Manual.pdf"  # assumes the PDF lives next to index.html
 ):
-    """Inject the README.md contents into the generated pdoc index.html,
-    and add a styled repo link right after the top logo image.
-    """
+    """Inject the README.md contents into pdoc index.html, and add two CTAs after the logo."""
     html_path = Path(html_path)
     readme_path = Path(readme_path)
 
@@ -76,35 +75,44 @@ def inject_readme(
         'src="home_logo.png"'
     )
 
-    # --- Repo button (glassy black style) ---
-    repo_html = f"""
-    <div class="repo-link" style="text-align:center; margin: 1em 0 1.5em 0;">
+    # --- Top CTAs: View Codebase (glassy black) + Download Manual (glassy dark blue) ---
+    top_cta_html = f"""
+    <div class="top-ctas" style="
+        display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center;
+        margin: 1rem 0 1.5rem 0;">
         <a href="{repo_url}" target="_blank" rel="noopener"
-           style="display:inline-block; padding:0.6em 1.2em;
-                  border-radius:0.6em;
-                  text-decoration:none;
-                  font-weight:600;
-                  font-size:1.05em;
-                  color:#fff;
-                  background:rgba(0,0,0,0.85);
+           aria-label="View the codebase on GitHub"
+           style="display:inline-block; padding:0.6em 1.2em; border-radius:0.6em;
+                  text-decoration:none; font-weight:600; font-size:1.05em;
+                  color:#fff; background:rgba(0,0,0,0.85);
                   backdrop-filter:blur(4px);
                   box-shadow:0 4px 10px rgba(0,0,0,0.3);
-                  transition:background 0.2s ease;">
-            🔗 View the Codebase on GitHub
+                  transition:filter 0.2s ease;">
+            View the Codebase
+        </a>
+        <a href="{manual_url}" target="_blank" rel="noopener"
+           aria-label="Download Simulation Manual (PDF)"
+           style="display:inline-block; padding:0.6em 1.2em; border-radius:0.6em;
+                  text-decoration:none; font-weight:600; font-size:1.05em;
+                  color:#fff; background:rgba(11,94,215,0.9); /* #0B5ED7 */
+                  backdrop-filter:blur(4px);
+                  box-shadow:0 4px 10px rgba(11,94,215,0.35);
+                  transition:filter 0.2s ease;">
+            Download Manual (PDF)
         </a>
     </div>
     """
 
-    # Insert repo link immediately after the top logo image
+    # Insert CTAs immediately after the top logo image
     html, count_logo = re.subn(
         r'(<img[^>]+src="[^"]*spartaStacked\.png"[^>]*>)',
-        r'\1' + repo_html,
+        r'\1' + top_cta_html,
         html,
         count=1,
         flags=re.IGNORECASE
     )
     if count_logo == 0:
-        print("⚠️ Could not find spartaStacked.png logo to insert link after.", file=sys.stderr)
+        print("⚠️ Could not find spartaStacked.png logo to insert CTAs after.", file=sys.stderr)
 
     # Inject README as before
     insert_html = f"""
@@ -114,12 +122,12 @@ def inject_readme(
 """
     pattern = re.compile(r'(<main class="pdoc">)(.*?)(</main>)', re.DOTALL)
     if not pattern.search(html):
-        print("Failed to locate the <main class=\"pdoc\"> element.", file=sys.stderr)
+        print('Failed to locate the <main class="pdoc"> element.', file=sys.stderr)
         sys.exit(1)
 
     new_html, count = pattern.subn(lambda m: f"{m.group(1)}{insert_html}{m.group(3)}", html)
     html_path.write_text(new_html, encoding="utf-8")
-    print(f"Successfully injected README.md + styled repo link into '{html_path}' ({count} replacements performed)")
+    print(f"Injected README.md + top CTAs into '{html_path}' ({count} replacements performed)")
 
 def open_index(html_path: str = "./simulation_documentation/index.html"):
     abs_path = Path(html_path).resolve()
