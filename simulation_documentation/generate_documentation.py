@@ -42,7 +42,9 @@ def generate_docs(output_dir: str = "./simulation_documentation"):
         *MODULES,
         "--docformat", "google",
         "--no-include-undocumented",
-        "-o", output_dir
+        "-o", output_dir,
+        "--logo", "spartaStacked.png"
+
     ]
 
     env = os.environ.copy()
