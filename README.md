@@ -289,12 +289,12 @@ This script works in conjunction with `main.py`
 
 This project was developed by members of the [Simulation, Pricing, Autonomous Vehicles, Routing, & Traffic Assignment (SPARTA) Lab](https://github.com/spartalab) at The University of Texas at Austin.  
 
-- **Debojjal Bagchi**  
+**Debojjal Bagchi**  
   - Ph.D. student, The University of Texas at Austin  
   - Email: debojjalb@utexas.edu  
   - Website: <https://debojjalb.github.io/>  
 
-- **Kyle Bathgate**  
+**Kyle Bathgate**  
   - Ph.D. candidate, The University of Texas at Austin  
   - Email: kyle.bathgate@utexas.edu  
   - Website: <https://kylebathgate.github.io/>  
