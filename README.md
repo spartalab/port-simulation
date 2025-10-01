@@ -39,6 +39,7 @@ Currently, the model supports:
 ## Purpose
 
 This model aids port planners and waterway management agencies in:
+
 - Identifying system bottlenecks
 - Analyzing vessel and cargo throughput
 - Evaluating port performance under disruption
@@ -216,16 +217,19 @@ The `terminal_data.csv` and `constants.csv` are automatically changed in the cod
 Each terminal is modeled as a SimPy process with its own class, resources, and queue logic.
 
 **ContainerTerminal (defined in `terminal_container.py`)**
+
 - **Operations**: Berth and crane allocation, container transfer, yard storage
 - **Resources**: Berths, cranes, yard
 - **Classes**: `Container`, `Crane`, `Berth_Ctr` (These are defined in `Port.py`)
 
 **LiquidTerminal (defined in `terminal_liquid.py`)**
+
 - **Operations**: Berth allocation, pipeline cargo transfer, tank storage
 - **Resources**: Pipelines, tanks, berths
 - **Classes**: `LiquidBatch`, `Pipeline`, `Berth_Liq` (These are defined in `Port.py`)
 
 **DryBulkTerminal (defined in `terminal_drybulk.py`)**
+
 - **Operations**: Berth allocation, conveyor-based transfer, silo storage
 - **Resources**: Conveyors, silos, berths
 - **Classes**: `DryBulkBatch`, `Conveyor`, `Berth_DryBulk` (These are defined in `Port.py`)
@@ -234,23 +238,29 @@ Each terminal is modeled as a SimPy process with its own class, resources, and q
 
 These modules handle the interaction between terminals and landside transport modes.
 
-**Truck (defined in `truck.py`)**
-- **Operations**: Handles container, liquid, and dry bulk delivery/pickup via trucks
-- **Processes**: 
+#### Truck (defined in `truck.py`)
+
+**Operations**: Handles container, liquid, and dry bulk delivery/pickup via trucks
+
+**Processes**: 
   - Truck arrival
   - Loading/unloading
   - Waiting for resource availability
 
-**Train (defined in `train.py`)**
-- **Operations**: Models bulk transfer through trains (e.g., containers or bulk cargo)
-- **Processes**:
+#### Train (defined in `train.py`)
+
+**Operations**: Models bulk transfer through trains (e.g., containers or bulk cargo)
+
+**Processes**:
   - Train formation and arrival
   - Bulk transfer from terminal (liquid or dry bulk)
   - Departure after processing
 
-**Pipeline (defined in `pipeline.py`)**
-- **Operations**: Facilitates liquid cargo transfer between terminal tanks and regional pipeline network (this is modeled as a source / sink to the pipeline network)
-- **Processes**:
+#### Pipeline (defined in `pipeline.py`)
+
+**Operations**: Facilitates liquid cargo transfer between terminal tanks and regional pipeline network (this is modeled as a source / sink to the pipeline network)
+
+**Processes**:
   - Transfer as source or sink from terminal storage tanks based on pump rate
   - Starts and stops when certain tank volumes are met
 

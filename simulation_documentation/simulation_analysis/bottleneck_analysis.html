@@ -3876,6 +3876,445 @@ main {
             </div>
         </div>
 
+    </div>
+</nav>
+<!-- Custom Navigation End -->
+
+<script>
+function toggleSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    var arrow = document.getElementById('arrow_' + sectionId);
+    if (section.style.display === 'none' || section.style.display === '') {
+        section.style.display = 'block';
+        arrow.style.transform = 'rotate(90deg)';
+    } else {
+        section.style.display = 'none';
+        arrow.style.transform = 'rotate(0deg)';
+    }
+}
+
+// Auto-expand active section
+document.addEventListener('DOMContentLoaded', function() {
+    // Hide original pdoc navigation
+    var originalNav = document.querySelector('body > nav');
+    if (originalNav) {
+        originalNav.style.display = 'none';
+    }
+    
+    // Adjust main content margin
+    var mainContent = document.querySelector('main');
+    if (mainContent) {
+        mainContent.style.marginLeft = '260px';
+        mainContent.style.padding = '2rem';
+    }
+    
+    // Auto-expand sections with active items
+    var activeLinks = document.querySelectorAll('a[style*="background: rgba(52, 152, 219, 0.4)"]');
+    activeLinks.forEach(function(link) {
+        var parentSection = link.parentElement;
+        if (parentSection && parentSection.id) {
+            parentSection.style.display = 'block';
+            var arrow = document.getElementById('arrow_' + parentSection.id);
+            if (arrow) {
+                arrow.style.transform = 'rotate(90deg)';
+            }
+        }
+    });
+});
+</script>
+
+<style>
+/* Additional styles to ensure visibility */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide pdoc nav */
+body > nav.pdoc,
+nav.pdoc {
+    display: none !important;
+}
+
+/* Ensure main content has proper margin */
+main.pdoc,
+main {
+    margin-left: 260px !important;
+    padding: 2rem !important;
+}
+
+/* Ensure custom sidebar is visible */
+#custom-sidebar {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    #custom-sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
+    
+    main.pdoc,
+    main {
+        margin-left: 0 !important;
+    }
+}
+</style>
+
+<!-- Custom Navigation Start -->
+<nav id="custom-sidebar" style="
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+">
+    <div style="padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 2px solid #3498db;">
+        <h2 style="margin: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 0.5rem;">
+            Modules
+        </h2>
+    </div>
+    <div style="padding: 0.5rem 0;">
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <a href="../index.html" style="
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.8rem 1rem;
+                color: white;
+                text-decoration: none;
+                transition: background 0.2s;
+                
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background=''">
+                <span>🏠</span>
+                <span>Overview</span>
+            </a>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Port_and_channel')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>📦</span>
+                    <span>Port and channel</span>
+                </span>
+                <span id="arrow_Port_and_channel" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Port_and_channel" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="../simulation_classes/port.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Port
+                </a>
+
+                <a href="../simulation_classes/channel.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Channel
+                </a>
+
+            </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Terminal')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🏭</span>
+                    <span>Terminal</span>
+                </span>
+                <span id="arrow_Terminal" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Terminal" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="../simulation_classes/terminal_container.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Container
+                </a>
+
+                <a href="../simulation_classes/terminal_drybulk.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Dry Bulk
+                </a>
+
+                <a href="../simulation_classes/terminal_liquid.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Liquid
+                </a>
+
+            </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Landside')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🚛</span>
+                    <span>Landside</span>
+                </span>
+                <span id="arrow_Landside" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Landside" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="../simulation_classes/truck.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Truck
+                </a>
+
+                <a href="../simulation_classes/train.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Train
+                </a>
+
+                <a href="../simulation_classes/pipeline.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Pipeline
+                </a>
+
+            </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Simulation_helpers')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🎯</span>
+                    <span>Simulation helpers</span>
+                </span>
+                <span id="arrow_Simulation_helpers" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Simulation_helpers" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="../simulation_handler/run_simulation.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Run
+                </a>
+
+                <a href="../simulation_handler/generators.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Generators
+                </a>
+
+                <a href="../simulation_handler/helpers.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Helpers
+                </a>
+
+                <a href="../simulation_handler/preprocess.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Preprocess
+                </a>
+
+            </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Analysis')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>📊</span>
+                    <span>Analysis</span>
+                </span>
+                <span id="arrow_Analysis" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Analysis" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="../simulation_analysis/capacity.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Capacity
+                </a>
+
+                <a href="../simulation_analysis/resource_utilization.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Utilization
+                </a>
+
+                <a href="../simulation_analysis/results.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Results
+                </a>
+
+                <a href="../simulation_analysis/collate_results.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Collate
+                </a>
+
+                <a href="../simulation_analysis/whatif_scenarios.html" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    What-If
+                </a>
+
+            </div>
+        </div>
+
         <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
             <div onclick="toggleSection('Configuration')" style="
                 display: flex;
