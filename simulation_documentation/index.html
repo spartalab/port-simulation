@@ -562,11 +562,13 @@ main {
 </ul>
 <hr />
 <h2>Purpose</h2>
-<p>This model aids port planners and waterway management agencies in:
-- Identifying system bottlenecks
-- Analyzing vessel and cargo throughput
-- Evaluating port performance under disruption
-- Conducting what-if analyses</p>
+<p>This model aids port planners and waterway management agencies in:</p>
+<ul>
+<li>Identifying system bottlenecks</li>
+<li>Analyzing vessel and cargo throughput</li>
+<li>Evaluating port performance under disruption</li>
+<li>Conducting what-if analyses</li>
+</ul>
 <hr />
 <h2>Documentation</h2>
 <p><strong>Code documentation:</strong><br />
@@ -685,42 +687,54 @@ Edit <code>config.py</code> to configure your simulation scenario. Set <code>SCE
 <h2>Simulation modules (defined in <code>simulation_classes</code> folder)</h2>
 <h3>Terminals</h3>
 <p>Each terminal is modeled as a SimPy process with its own class, resources, and queue logic.</p>
-<p><strong>ContainerTerminal (defined in <code>terminal_container.py</code>)</strong>
-- <strong>Operations</strong>: Berth and crane allocation, container transfer, yard storage
-- <strong>Resources</strong>: Berths, cranes, yard
-- <strong>Classes</strong>: <code>Container</code>, <code>Crane</code>, <code>Berth_Ctr</code> (These are defined in <code>Port.py</code>)</p>
-<p><strong>LiquidTerminal (defined in <code>terminal_liquid.py</code>)</strong>
-- <strong>Operations</strong>: Berth allocation, pipeline cargo transfer, tank storage
-- <strong>Resources</strong>: Pipelines, tanks, berths
-- <strong>Classes</strong>: <code>LiquidBatch</code>, <code>Pipeline</code>, <code>Berth_Liq</code> (These are defined in <code>Port.py</code>)</p>
-<p><strong>DryBulkTerminal (defined in <code>terminal_drybulk.py</code>)</strong>
-- <strong>Operations</strong>: Berth allocation, conveyor-based transfer, silo storage
-- <strong>Resources</strong>: Conveyors, silos, berths
-- <strong>Classes</strong>: <code>DryBulkBatch</code>, <code>Conveyor</code>, <code>Berth_DryBulk</code> (These are defined in <code>Port.py</code>)</p>
+<p><strong>ContainerTerminal (defined in <code>terminal_container.py</code>)</strong></p>
+<ul>
+<li><strong>Operations</strong>: Berth and crane allocation, container transfer, yard storage</li>
+<li><strong>Resources</strong>: Berths, cranes, yard</li>
+<li><strong>Classes</strong>: <code>Container</code>, <code>Crane</code>, <code>Berth_Ctr</code> (These are defined in <code>Port.py</code>)</li>
+</ul>
+<p><strong>LiquidTerminal (defined in <code>terminal_liquid.py</code>)</strong></p>
+<ul>
+<li><strong>Operations</strong>: Berth allocation, pipeline cargo transfer, tank storage</li>
+<li><strong>Resources</strong>: Pipelines, tanks, berths</li>
+<li><strong>Classes</strong>: <code>LiquidBatch</code>, <code>Pipeline</code>, <code>Berth_Liq</code> (These are defined in <code>Port.py</code>)</li>
+</ul>
+<p><strong>DryBulkTerminal (defined in <code>terminal_drybulk.py</code>)</strong></p>
+<ul>
+<li><strong>Operations</strong>: Berth allocation, conveyor-based transfer, silo storage</li>
+<li><strong>Resources</strong>: Conveyors, silos, berths</li>
+<li><strong>Classes</strong>: <code>DryBulkBatch</code>, <code>Conveyor</code>, <code>Berth_DryBulk</code> (These are defined in <code>Port.py</code>)</li>
+</ul>
 <h3>Inland transport</h3>
 <p>These modules handle the interaction between terminals and landside transport modes.</p>
-<p><strong>Truck (defined in <code>truck.py</code>)</strong>
-- <strong>Operations</strong>: Handles container, liquid, and dry bulk delivery/pickup via trucks
-- <strong>Processes</strong>: 
-  - Truck arrival
-  - Loading/unloading
-  - Waiting for resource availability</p>
-<p><strong>Train (defined in <code>train.py</code>)</strong>
-- <strong>Operations</strong>: Models bulk transfer through trains (e.g., containers or bulk cargo)
-- <strong>Processes</strong>:
-  - Train formation and arrival
-  - Bulk transfer from terminal (liquid or dry bulk)
-  - Departure after processing</p>
-<p><strong>Pipeline (defined in <code>pipeline.py</code>)</strong>
-- <strong>Operations</strong>: Facilitates liquid cargo transfer between terminal tanks and regional pipeline network (this is modeled as a source / sink to the pipeline network)
-- <strong>Processes</strong>:
-  - Transfer as source or sink from terminal storage tanks based on pump rate
-  - Starts and stops when certain tank volumes are met</p>
+<h4>Truck (defined in <code>truck.py</code>)</h4>
+<p><strong>Operations</strong>: Handles container, liquid, and dry bulk delivery/pickup via trucks</p>
+<p><strong>Processes</strong>: </p>
+<ul>
+<li>Truck arrival</li>
+<li>Loading/unloading</li>
+<li>Waiting for resource availability</li>
+</ul>
+<h4>Train (defined in <code>train.py</code>)</h4>
+<p><strong>Operations</strong>: Models bulk transfer through trains (e.g., containers or bulk cargo)</p>
+<p><strong>Processes</strong>:</p>
+<ul>
+<li>Train formation and arrival</li>
+<li>Bulk transfer from terminal (liquid or dry bulk)</li>
+<li>Departure after processing</li>
+</ul>
+<h4>Pipeline (defined in <code>pipeline.py</code>)</h4>
+<p><strong>Operations</strong>: Facilitates liquid cargo transfer between terminal tanks and regional pipeline network (this is modeled as a source / sink to the pipeline network)</p>
+<p><strong>Processes</strong>:</p>
+<ul>
+<li>Transfer as source or sink from terminal storage tanks based on pump rate</li>
+<li>Starts and stops when certain tank volumes are met</li>
+</ul>
 <h3>Channel navigation (via <code>channel.py</code>)</h3>
 <p>This module handles the vessel movement through port entry and exit channels. It tracks vessel navigation, applies movement rules, and can enforce access restrictions.</p>
+<p><strong>Two-way vessel traffic</strong> is supported by default, allowing simultaneous inbound and outbound movements without conflict.</p>
+<p><strong>Restriction logic implemented</strong>: The user can toggle constraints such as:</p>
 <ul>
-<li><strong>Two-way vessel traffic</strong> is supported by default, allowing simultaneous inbound and outbound movements without conflict.</li>
-<li><strong>Restriction logic implemented</strong>: The user can toggle constraints such as:</li>
 <li>Beam, draft and daylight restrictions</li>
 <li>Spacing rules between consecutive vessels</li>
 </ul>
@@ -738,12 +752,13 @@ Runs simulations under different scenarios (disruptions, parameter changes, etc)
 </ul>
 <p><code>capacity.py</code>
 This script works in conjunction with <code>main.py</code>
-Analytical module to estimate:
-- <strong>Operating Capacity</strong>: Max throughput under stable conditions
-- <strong>Ultimate Capacity</strong>: Saturation throughput under unstable queues</p>
+Analytical module to estimate:</p>
+<ul>
+<li><strong>Operating Capacity</strong>: Max throughput under stable conditions</li>
+<li><strong>Ultimate Capacity</strong>: Saturation throughput under unstable queues</li>
+</ul>
 <p><code>resource_utilization.py</code>
-This script works in conjunction with <code>main.py</code>
-- Evaluates system resource utilization and restrictions</p>
+This script works in conjunction with <code>main.py</code>. Evaluates system resource utilization and restrictions</p>
 <hr />
 <h2>Contributors and acknowledgments</h2>
 <p>This project was developed by members of the <a href="https://github.com/spartalab">Simulation, Pricing, Autonomous Vehicles, Routing, &amp; Traffic Assignment (SPARTA) Lab</a> at The University of Texas at Austin.  </p>
