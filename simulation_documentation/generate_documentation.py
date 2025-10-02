@@ -20,7 +20,7 @@ DOCUMENTATION_STRUCTURE = {
     },
     "Port and channel": {
         "type": "section", 
-        "icon": "📦",
+        "icon": "🚢",
         "modules": [
             ("Port", "simulation_classes/port.html"),
             ("Channel", "simulation_classes/channel.html"),
@@ -28,10 +28,10 @@ DOCUMENTATION_STRUCTURE = {
     },
     "Terminal": {
         "type": "section",
-        "icon": "🏭",
+        "icon": "🏗",
         "modules": [
             ("Container", "simulation_classes/terminal_container.html"),
-            ("Dry Bulk", "simulation_classes/terminal_drybulk.html"),
+            ("Dry bulk", "simulation_classes/terminal_drybulk.html"),
             ("Liquid", "simulation_classes/terminal_liquid.html")
         ]
     },
@@ -46,7 +46,7 @@ DOCUMENTATION_STRUCTURE = {
     },
     "Simulation helpers": {
         "type": "section",
-        "icon": "🎯",
+        "icon": "⚙️",
         "modules": [
             ("Run", "simulation_handler/run_simulation.html"),
             ("Generators", "simulation_handler/generators.html"),
@@ -65,14 +65,6 @@ DOCUMENTATION_STRUCTURE = {
             ("What-If", "simulation_analysis/whatif_scenarios.html")
         ]
     },
-    #     "Configuration": {
-    #     "type": "section",
-    #     "icon": "⚙️",
-    #     "modules": [
-    #         ("Config", "config.html"),
-    #         ("Constants", "constants.html")
-    #     ]
-    # },
 }
 
 # List of all modules for pdoc
@@ -131,8 +123,64 @@ def replace_sidebar_in_html(output_dir: str = "./simulation_documentation"):
             depth = len(html_file.relative_to(output_path).parts) - 1
             prefix = "../" * depth if depth > 0 else ""
             
-            # Build custom navigation HTML
+            # Build custom navigation HTML with hamburger menu for mobile
             nav_html = f"""
+<!-- Mobile Menu Toggle -->
+<div id="mobile-menu-toggle" style="
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    background: #2c3e50;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+">
+    <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    ">
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+    </div>
+</div>
+
+<!-- Overlay for mobile menu -->
+<div id="mobile-overlay" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+"></div>
+
 <!-- Custom Navigation Start -->
 <nav id="custom-sidebar" style="
     position: fixed;
@@ -145,7 +193,23 @@ def replace_sidebar_in_html(output_dir: str = "./simulation_documentation"):
     overflow-y: auto;
     box-shadow: 2px 0 10px rgba(0,0,0,0.2);
     z-index: 1000;
+    transition: transform 0.3s ease;
 ">
+    <!-- Close button for mobile -->
+    <div id="mobile-close" style="
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+    ">×</div>
+    
     <div style="padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 2px solid #3498db;">
         <h2 style="margin: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 0.5rem;">
             Modules
@@ -165,7 +229,7 @@ def replace_sidebar_in_html(output_dir: str = "./simulation_documentation"):
                     
                     nav_html += f"""
         <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <a href="{link}" style="
+            <a href="{link}" class="nav-link" style="
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
@@ -212,7 +276,7 @@ def replace_sidebar_in_html(output_dir: str = "./simulation_documentation"):
                         active_style = "background: rgba(52, 152, 219, 0.4); font-weight: bold;" if is_active else ""
                         
                         nav_html += f"""
-                <a href="{link}" style="
+                <a href="{link}" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -248,6 +312,46 @@ function toggleSection(sectionId) {
     }
 }
 
+// Mobile menu functionality
+function initMobileMenu() {
+    var sidebar = document.getElementById('custom-sidebar');
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var overlay = document.getElementById('mobile-overlay');
+    var closeBtn = document.getElementById('mobile-close');
+    
+    // Toggle menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.style.transform = 'translateX(0)';
+            overlay.style.display = 'block';
+        });
+    }
+    
+    // Close menu functions
+    function closeMenu() {
+        sidebar.style.transform = 'translateX(-100%)';
+        overlay.style.display = 'none';
+    }
+    
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+    }
+    
+    // Close menu when clicking on a link (mobile only)
+    if (window.innerWidth <= 768) {
+        var navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                setTimeout(closeMenu, 100);
+            });
+        });
+    }
+}
+
 // Auto-expand active section
 document.addEventListener('DOMContentLoaded', function() {
     // Hide original pdoc navigation
@@ -275,7 +379,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Check if mobile on load
+    checkMobile();
 });
+
+// Check if mobile and adjust styles
+function checkMobile() {
+    var sidebar = document.getElementById('custom-sidebar');
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var closeBtn = document.getElementById('mobile-close');
+    var mainContent = document.querySelector('main');
+    
+    if (window.innerWidth <= 768) {
+        // Mobile view
+        if (sidebar) sidebar.style.transform = 'translateX(-100%)';
+        if (menuToggle) menuToggle.style.display = 'block';
+        if (closeBtn) closeBtn.style.display = 'block';
+        if (mainContent) {
+            mainContent.style.marginLeft = '0';
+            mainContent.style.padding = '60px 1rem 1rem 1rem';
+        }
+    } else {
+        // Desktop view
+        if (sidebar) sidebar.style.transform = 'translateX(0)';
+        if (menuToggle) menuToggle.style.display = 'none';
+        if (closeBtn) closeBtn.style.display = 'none';
+        if (mainContent) {
+            mainContent.style.marginLeft = '260px';
+            mainContent.style.padding = '2rem';
+        }
+    }
+}
+
+// Listen for window resize
+window.addEventListener('resize', checkMobile);
 </script>
 
 <style>
@@ -291,11 +432,40 @@ nav.pdoc {
     display: none !important;
 }
 
-/* Ensure main content has proper margin */
+/* Ensure main content has proper margin and text wrapping */
 main.pdoc,
 main {
     margin-left: 260px !important;
     padding: 2rem !important;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix text wrapping for all content */
+main * {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Fix code blocks to wrap properly */
+pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+}
+
+code {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Fix tables to be responsive */
+table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 /* Ensure custom sidebar is visible */
@@ -304,18 +474,63 @@ main {
     visibility: visible !important;
 }
 
-/* Mobile responsive */
+/* Mobile responsive styles */
 @media (max-width: 768px) {
     #custom-sidebar {
-        width: 100%;
-        position: relative;
-        height: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    #mobile-menu-toggle {
+        display: block !important;
+    }
+    
+    #mobile-close {
+        display: block !important;
     }
     
     main.pdoc,
     main {
         margin-left: 0 !important;
+        padding: 60px 1rem 1rem 1rem !important;
     }
+    
+    /* Ensure content fits on mobile */
+    main {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Fix wide elements on mobile */
+    img, video, iframe {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Adjust font size for better mobile reading */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Fix code blocks on mobile */
+    pre {
+        padding: 0.5rem;
+        font-size: 12px;
+    }
+}
+
+/* Tablet responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    main.pdoc,
+    main {
+        margin-left: 260px !important;
+        padding: 1.5rem !important;
+    }
+}
+
+/* Animation for hamburger menu */
+#mobile-menu-toggle:active .hamburger-line {
+    background: #3498db;
 }
 </style>
 """
@@ -366,9 +581,9 @@ def inject_readme(
     # Update title
     html = re.sub(r"<title>.*?</title>", "<title>Documentation</title>", html)
     
-    # Add welcome section and CTAs
+    # Add welcome section and CTAs with responsive design
     welcome_html = f"""
-<div style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+<div style="margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
 
     <a href="{repo_url}" target="_blank" class="action-button primary">
         View codebase on GitHub
@@ -391,6 +606,7 @@ def inject_readme(
         border-radius: 8px;
         border: 2px solid #667eea;
         transition: all 0.2s ease-in-out;
+        white-space: nowrap;
     }}
     .action-button.primary {{
         background-color: #667eea;
@@ -408,10 +624,16 @@ def inject_readme(
         background-color: #667eea;
         color: white;
     }}
+    
+    /* Mobile responsive buttons */
+    @media (max-width: 768px) {{
+        .action-button {{
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }}
+    }}
 </style>
 """
-    
-    
     
     # Insert content into main
     if "<main" in html and "</main>" in html:

@@ -1,5 +1,0 @@
-Mean Container storage utilization over time steps:
-Overall: 47.14%
-Terminal_1: 62.04%
-Terminal_2: 32.24%
-Overall Container storage utilization: 47.14%

@@ -22,8 +22,17 @@ SCENARIO_NAME = "Base"  # Set to "Base" for base conditions, or set to "Bottlene
 
 # Set "what-if" scenarios. Set all as "False" for base conditions
 MODEL_HURRICANE = False
+SEVERE_HURRICANE = False  # If True, models a more severe hurricane with longer port closure and more resource damage
+TROPICAL_STORM = False  # If True, models a tropical storm with shorter port closure and less resource damage
 MODEL_FOG = False
-EXPANDED_CHANNEL = False
+EXPANDED_CHANNEL = False  
+
+if MODEL_HURRICANE == False:
+    if SEVERE_HURRICANE == True or TROPICAL_STORM == True:
+        raise ValueError("If MODEL_HURRICANE is False, both SEVERE_HURRICANE and TROPICAL_STORM must be False; update the config file.")
+if MODEL_HURRICANE == True:
+    if SEVERE_HURRICANE == False and TROPICAL_STORM == False:
+        raise ValueError("If MODEL_HURRICANE is True, either SEVERE_HURRICANE or TROPICAL_STORM must be True; update the config file.")
 
 # Set truck and pipeline overrides to ensure terminal storage capacities remain
 CTR_TRUCK_OVERRIDE = False # Set False if running bottleneck analysis; True for stable yard queue
@@ -35,15 +44,20 @@ LIQ_PIPELINE_OVERRIDE = False # Set False if running bottleneck analysis; True f
 ########################################################################################
 
 if MODEL_FOG == True:
-    INBOUND_CLOSED = [(1500, 1520), (1524, 1540), (1550, 1586), (1594, 1608), (1630, 1658), (1664, 1695), (1705, 1733), (
-        1744, 1764), (1932, 1972), (1981, 1999), (2007, 2028), (2038, 2050), (2062, 2078), (2086, 2118), (2130, 2178), (2188, 2200)]
-    OUTBOUND_CLOSED = [(1500, 1515), (1539, 1547), (1567, 1579), (1602, 1615), (1629, 1650), (1673, 1695), (1709, 1725), (
-        1739, 1750), (2002, 2023), (2033, 2049), (2065, 2078), (2100, 2117), (2137, 2161), (2184, 2206), (2226, 2235), (2257, 2270)]
+    INBOUND_CLOSED = [(1500, 1520), (1664, 1695), (1932, 1972)]
+    OUTBOUND_CLOSED = [(1500, 1515), (1673, 1695),  (2002, 2023)]
     FOG_CLOSURES = []  # BOTH INBOUND AND OUTBOUND CLOSURES
 else:
     INBOUND_CLOSED = []
     OUTBOUND_CLOSED = []
     FOG_CLOSURES = []
+
+if MODEL_HURRICANE == True:
+    HURRICANE_START = int(30*1.5*24) # in hours from start of simulation 1.5 months
+    if SEVERE_HURRICANE == False and TROPICAL_STORM == False:
+        raise ValueError("If MODEL_HURRICANE is True, either SEVERE_HURRICANE or TROPICAL_STORM must be True; update the config file.")
+else:
+    HURRICANE_START = None
 
 # set as 1.0 for most cases, values change directly if running breakpoint analysis
 ARRIVAL_INCREASE_FACTOR_CTR = 1.0

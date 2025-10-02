@@ -13,6 +13,62 @@
     <style>/*! content.css */.pdoc{color:var(--text);box-sizing:border-box;line-height:1.5;background:none;}.pdoc .pdoc-button{cursor:pointer;display:inline-block;border:solid black 1px;border-radius:2px;font-size:.75rem;padding:calc(0.5em - 1px) 1em;transition:100ms all;}.pdoc .alert{padding:1rem 1rem 1rem calc(1.5rem + 24px);border:1px solid transparent;border-radius:.25rem;background-repeat:no-repeat;background-position:.75rem center;margin-bottom:1rem;}.pdoc .alert > em{display:none;}.pdoc .alert > *:last-child{margin-bottom:0;}.pdoc .alert.note{color:#084298;background-color:#cfe2ff;border-color:#b6d4fe;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23084298%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%2016A8%208%200%201%200%208%200a8%208%200%200%200%200%2016zm.93-9.412-1%204.705c-.07.34.029.533.304.533.194%200%20.487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703%200-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381%202.29-.287zM8%205.5a1%201%200%201%201%200-2%201%201%200%200%201%200%202z%22/%3E%3C/svg%3E");}.pdoc .alert.tip{color:#0a3622;background-color:#d1e7dd;border-color:#a3cfbb;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%230a3622%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2%206a6%206%200%201%201%2010.174%204.31c-.203.196-.359.4-.453.619l-.762%201.769A.5.5%200%200%201%2010.5%2013a.5.5%200%200%201%200%201%20.5.5%200%200%201%200%201l-.224.447a1%201%200%200%201-.894.553H6.618a1%201%200%200%201-.894-.553L5.5%2015a.5.5%200%200%201%200-1%20.5.5%200%200%201%200-1%20.5.5%200%200%201-.46-.302l-.761-1.77a2%202%200%200%200-.453-.618A5.98%205.98%200%200%201%202%206m6-5a5%205%200%200%200-3.479%208.592c.263.254.514.564.676.941L5.83%2012h4.342l.632-1.467c.162-.377.413-.687.676-.941A5%205%200%200%200%208%201%22/%3E%3C/svg%3E");}.pdoc .alert.important{color:#055160;background-color:#cff4fc;border-color:#9eeaf9;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23055160%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2%200a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V2a2%202%200%200%200-2-2zm6%204c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%204.995A.905.905%200%200%201%208%204m.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E");}.pdoc .alert.warning{color:#664d03;background-color:#fff3cd;border-color:#ffecb5;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23664d03%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8.982%201.566a1.13%201.13%200%200%200-1.96%200L.165%2013.233c-.457.778.091%201.767.98%201.767h13.713c.889%200%201.438-.99.98-1.767L8.982%201.566zM8%205c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%205.995A.905.905%200%200%201%208%205zm.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2z%22/%3E%3C/svg%3E");}.pdoc .alert.caution{color:#842029;background-color:#f8d7da;border-color:#f5c2c7;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23842029%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M11.46.146A.5.5%200%200%200%2011.107%200H4.893a.5.5%200%200%200-.353.146L.146%204.54A.5.5%200%200%200%200%204.893v6.214a.5.5%200%200%200%20.146.353l4.394%204.394a.5.5%200%200%200%20.353.146h6.214a.5.5%200%200%200%20.353-.146l4.394-4.394a.5.5%200%200%200%20.146-.353V4.893a.5.5%200%200%200-.146-.353zM8%204c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%204.995A.905.905%200%200%201%208%204m.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E");}.pdoc .alert.danger{color:#842029;background-color:#f8d7da;border-color:#f5c2c7;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23842029%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5.52.359A.5.5%200%200%201%206%200h4a.5.5%200%200%201%20.474.658L8.694%206H12.5a.5.5%200%200%201%20.395.807l-7%209a.5.5%200%200%201-.873-.454L6.823%209.5H3.5a.5.5%200%200%201-.48-.641l2.5-8.5z%22/%3E%3C/svg%3E");}.pdoc .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important;border:0 !important;}.pdoc h1, .pdoc h2, .pdoc h3{font-weight:300;margin:.3em 0;padding:.2em 0;}.pdoc > section:not(.module-info) h1{font-size:1.5rem;font-weight:500;}.pdoc > section:not(.module-info) h2{font-size:1.4rem;font-weight:500;}.pdoc > section:not(.module-info) h3{font-size:1.3rem;font-weight:500;}.pdoc > section:not(.module-info) h4{font-size:1.2rem;}.pdoc > section:not(.module-info) h5{font-size:1.1rem;}.pdoc a{text-decoration:none;color:var(--link);}.pdoc a:hover{color:var(--link-hover);}.pdoc blockquote{margin-left:2rem;}.pdoc pre{border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-top:0;margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto;background-color:var(--code);}.pdoc code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--accent);border-radius:6px;}.pdoc a > code{color:inherit;}.pdoc pre > code{display:inline-block;font-size:inherit;background:none;border:none;padding:0;}.pdoc > section:not(.module-info){margin-bottom:1.5rem;}.pdoc .modulename{margin-top:0;font-weight:bold;}.pdoc .modulename a{color:var(--link);transition:100ms all;}.pdoc .git-button{float:right;border:solid var(--link) 1px;}.pdoc .git-button:hover{background-color:var(--link);color:var(--pdoc-background);}.view-source-toggle-state,.view-source-toggle-state ~ .pdoc-code{display:none;}.view-source-toggle-state:checked ~ .pdoc-code{display:block;}.view-source-button{display:inline-block;float:right;font-size:.75rem;line-height:1.5rem;color:var(--muted);padding:0 .4rem 0 1.3rem;cursor:pointer;text-indent:-2px;}.view-source-button > span{visibility:hidden;}.module-info .view-source-button{float:none;display:flex;justify-content:flex-end;margin:-1.2rem .4rem -.2rem 0;}.view-source-button::before{position:absolute;content:"View Source";display:list-item;list-style-type:disclosure-closed;}.view-source-toggle-state:checked ~ .attr .view-source-button::before,.view-source-toggle-state:checked ~ .view-source-button::before{list-style-type:disclosure-open;}.pdoc .docstring{margin-bottom:1.5rem;}.pdoc section:not(.module-info) .docstring{margin-left:clamp(0rem, 5vw - 2rem, 1rem);}.pdoc .docstring .pdoc-code{margin-left:1em;margin-right:1em;}.pdoc h1:target,.pdoc h2:target,.pdoc h3:target,.pdoc h4:target,.pdoc h5:target,.pdoc h6:target,.pdoc .pdoc-code > pre > span:target{background-color:var(--active);box-shadow:-1rem 0 0 0 var(--active);}.pdoc .pdoc-code > pre > span:target{display:block;}.pdoc div:target > .attr,.pdoc section:target > .attr,.pdoc dd:target > a{background-color:var(--active);}.pdoc *{scroll-margin:2rem;}.pdoc .pdoc-code .linenos{user-select:none;}.pdoc .attr:hover{filter:contrast(0.95);}.pdoc section, .pdoc .classattr{position:relative;}.pdoc .headerlink{--width:clamp(1rem, 3vw, 2rem);position:absolute;top:0;left:calc(0rem - var(--width));transition:all 100ms ease-in-out;opacity:0;}.pdoc .headerlink::before{content:"#";display:block;text-align:center;width:var(--width);height:2.3rem;line-height:2.3rem;font-size:1.5rem;}.pdoc .attr:hover ~ .headerlink,.pdoc *:target > .headerlink,.pdoc .headerlink:hover{opacity:1;}.pdoc .attr{display:block;margin:.5rem 0 .5rem;padding:.4rem .4rem .4rem 1rem;background-color:var(--accent);overflow-x:auto;}.pdoc .classattr{margin-left:2rem;}.pdoc .decorator-deprecated{color:#842029;}.pdoc .decorator-deprecated ~ span{filter:grayscale(1) opacity(0.8);}.pdoc .name{color:var(--name);font-weight:bold;}.pdoc .def{color:var(--def);font-weight:bold;}.pdoc .signature{background-color:transparent;}.pdoc .param, .pdoc .return-annotation{white-space:pre;}.pdoc .signature.multiline .param{display:block;}.pdoc .signature.condensed .param{display:inline-block;}.pdoc .annotation{color:var(--annotation);}.pdoc .view-value-toggle-state,.pdoc .view-value-toggle-state ~ .default_value{display:none;}.pdoc .view-value-toggle-state:checked ~ .default_value{display:inherit;}.pdoc .view-value-button{font-size:.5rem;vertical-align:middle;border-style:dashed;margin-top:-0.1rem;}.pdoc .view-value-button:hover{background:white;}.pdoc .view-value-button::before{content:"show";text-align:center;width:2.2em;display:inline-block;}.pdoc .view-value-toggle-state:checked ~ .view-value-button::before{content:"hide";}.pdoc .inherited{margin-left:2rem;}.pdoc .inherited dt{font-weight:700;}.pdoc .inherited dt, .pdoc .inherited dd{display:inline;margin-left:0;margin-bottom:.5rem;}.pdoc .inherited dd:not(:last-child):after{content:", ";}.pdoc .inherited .class:before{content:"class ";}.pdoc .inherited .function a:after{content:"()";}.pdoc .search-result .docstring{overflow:auto;max-height:25vh;}.pdoc .search-result.focused > .attr{background-color:var(--active);}.pdoc .attribution{margin-top:2rem;display:block;opacity:0.5;transition:all 200ms;filter:grayscale(100%);}.pdoc .attribution:hover{opacity:1;filter:grayscale(0%);}.pdoc .attribution img{margin-left:5px;height:35px;vertical-align:middle;width:70px;transition:all 200ms;}.pdoc table{display:block;width:max-content;max-width:100%;overflow:auto;margin-bottom:1rem;}.pdoc table th{font-weight:600;}.pdoc table th, .pdoc table td{padding:6px 13px;border:1px solid var(--accent2);}</style>
     <style>/*! custom.css */</style></head>
 <body>
+<!-- Mobile Menu Toggle -->
+<div id="mobile-menu-toggle" style="
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    background: #2c3e50;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+">
+    <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    ">
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+    </div>
+</div>
+
+<!-- Overlay for mobile menu -->
+<div id="mobile-overlay" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+"></div>
+
 <!-- Custom Navigation Start -->
 <nav id="custom-sidebar" style="
     position: fixed;
@@ -25,7 +81,23 @@
     overflow-y: auto;
     box-shadow: 2px 0 10px rgba(0,0,0,0.2);
     z-index: 1000;
+    transition: transform 0.3s ease;
 ">
+    <!-- Close button for mobile -->
+    <div id="mobile-close" style="
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+    ">×</div>
+    
     <div style="padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 2px solid #3498db;">
         <h2 style="margin: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 0.5rem;">
             Modules
@@ -34,7 +106,7 @@
     <div style="padding: 0.5rem 0;">
 
         <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <a href="index.html" style="
+            <a href="index.html" class="nav-link" style="
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
@@ -62,14 +134,14 @@
             " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
                onmouseout="this.style.background='rgba(0,0,0,0.1)'">
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span>📦</span>
+                    <span>🚢</span>
                     <span>Port and channel</span>
                 </span>
                 <span id="arrow_Port_and_channel" style="transition: transform 0.2s;">▶</span>
             </div>
             <div id="Port_and_channel" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_classes/port.html" style="
+                <a href="simulation_classes/port.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -81,7 +153,7 @@
                     Port
                 </a>
 
-                <a href="simulation_classes/channel.html" style="
+                <a href="simulation_classes/channel.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -108,14 +180,14 @@
             " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
                onmouseout="this.style.background='rgba(0,0,0,0.1)'">
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span>🏭</span>
+                    <span>🏗</span>
                     <span>Terminal</span>
                 </span>
                 <span id="arrow_Terminal" style="transition: transform 0.2s;">▶</span>
             </div>
             <div id="Terminal" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_classes/terminal_container.html" style="
+                <a href="simulation_classes/terminal_container.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -127,7 +199,7 @@
                     Container
                 </a>
 
-                <a href="simulation_classes/terminal_drybulk.html" style="
+                <a href="simulation_classes/terminal_drybulk.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -136,10 +208,10 @@
                     
                 " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
                    onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
-                    Dry Bulk
+                    Dry bulk
                 </a>
 
-                <a href="simulation_classes/terminal_liquid.html" style="
+                <a href="simulation_classes/terminal_liquid.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -173,7 +245,7 @@
             </div>
             <div id="Landside" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_classes/truck.html" style="
+                <a href="simulation_classes/truck.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -185,7 +257,7 @@
                     Truck
                 </a>
 
-                <a href="simulation_classes/train.html" style="
+                <a href="simulation_classes/train.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -197,7 +269,7 @@
                     Train
                 </a>
 
-                <a href="simulation_classes/pipeline.html" style="
+                <a href="simulation_classes/pipeline.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -224,14 +296,14 @@
             " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
                onmouseout="this.style.background='rgba(0,0,0,0.1)'">
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span>🎯</span>
+                    <span>⚙️</span>
                     <span>Simulation helpers</span>
                 </span>
                 <span id="arrow_Simulation_helpers" style="transition: transform 0.2s;">▶</span>
             </div>
             <div id="Simulation_helpers" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_handler/run_simulation.html" style="
+                <a href="simulation_handler/run_simulation.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -243,7 +315,7 @@
                     Run
                 </a>
 
-                <a href="simulation_handler/generators.html" style="
+                <a href="simulation_handler/generators.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -255,7 +327,7 @@
                     Generators
                 </a>
 
-                <a href="simulation_handler/helpers.html" style="
+                <a href="simulation_handler/helpers.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -267,7 +339,7 @@
                     Helpers
                 </a>
 
-                <a href="simulation_handler/preprocess.html" style="
+                <a href="simulation_handler/preprocess.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -301,7 +373,7 @@
             </div>
             <div id="Analysis" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_analysis/capacity.html" style="
+                <a href="simulation_analysis/capacity.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -313,7 +385,7 @@
                     Capacity
                 </a>
 
-                <a href="simulation_analysis/resource_utilization.html" style="
+                <a href="simulation_analysis/resource_utilization.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -325,7 +397,7 @@
                     Utilization
                 </a>
 
-                <a href="simulation_analysis/results.html" style="
+                <a href="simulation_analysis/results.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -337,7 +409,7 @@
                     Results
                 </a>
 
-                <a href="simulation_analysis/collate_results.html" style="
+                <a href="simulation_analysis/collate_results.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -349,7 +421,7 @@
                     Collate
                 </a>
 
-                <a href="simulation_analysis/whatif_scenarios.html" style="
+                <a href="simulation_analysis/whatif_scenarios.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -381,6 +453,46 @@ function toggleSection(sectionId) {
     }
 }
 
+// Mobile menu functionality
+function initMobileMenu() {
+    var sidebar = document.getElementById('custom-sidebar');
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var overlay = document.getElementById('mobile-overlay');
+    var closeBtn = document.getElementById('mobile-close');
+    
+    // Toggle menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.style.transform = 'translateX(0)';
+            overlay.style.display = 'block';
+        });
+    }
+    
+    // Close menu functions
+    function closeMenu() {
+        sidebar.style.transform = 'translateX(-100%)';
+        overlay.style.display = 'none';
+    }
+    
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+    }
+    
+    // Close menu when clicking on a link (mobile only)
+    if (window.innerWidth <= 768) {
+        var navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                setTimeout(closeMenu, 100);
+            });
+        });
+    }
+}
+
 // Auto-expand active section
 document.addEventListener('DOMContentLoaded', function() {
     // Hide original pdoc navigation
@@ -408,7 +520,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Check if mobile on load
+    checkMobile();
 });
+
+// Check if mobile and adjust styles
+function checkMobile() {
+    var sidebar = document.getElementById('custom-sidebar');
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var closeBtn = document.getElementById('mobile-close');
+    var mainContent = document.querySelector('main');
+    
+    if (window.innerWidth <= 768) {
+        // Mobile view
+        if (sidebar) sidebar.style.transform = 'translateX(-100%)';
+        if (menuToggle) menuToggle.style.display = 'block';
+        if (closeBtn) closeBtn.style.display = 'block';
+        if (mainContent) {
+            mainContent.style.marginLeft = '0';
+            mainContent.style.padding = '60px 1rem 1rem 1rem';
+        }
+    } else {
+        // Desktop view
+        if (sidebar) sidebar.style.transform = 'translateX(0)';
+        if (menuToggle) menuToggle.style.display = 'none';
+        if (closeBtn) closeBtn.style.display = 'none';
+        if (mainContent) {
+            mainContent.style.marginLeft = '260px';
+            mainContent.style.padding = '2rem';
+        }
+    }
+}
+
+// Listen for window resize
+window.addEventListener('resize', checkMobile);
 </script>
 
 <style>
@@ -424,11 +573,40 @@ nav.pdoc {
     display: none !important;
 }
 
-/* Ensure main content has proper margin */
+/* Ensure main content has proper margin and text wrapping */
 main.pdoc,
 main {
     margin-left: 260px !important;
     padding: 2rem !important;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix text wrapping for all content */
+main * {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Fix code blocks to wrap properly */
+pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+}
+
+code {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Fix tables to be responsive */
+table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 /* Ensure custom sidebar is visible */
@@ -437,18 +615,63 @@ main {
     visibility: visible !important;
 }
 
-/* Mobile responsive */
+/* Mobile responsive styles */
 @media (max-width: 768px) {
     #custom-sidebar {
-        width: 100%;
-        position: relative;
-        height: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    #mobile-menu-toggle {
+        display: block !important;
+    }
+    
+    #mobile-close {
+        display: block !important;
     }
     
     main.pdoc,
     main {
         margin-left: 0 !important;
+        padding: 60px 1rem 1rem 1rem !important;
     }
+    
+    /* Ensure content fits on mobile */
+    main {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Fix wide elements on mobile */
+    img, video, iframe {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Adjust font size for better mobile reading */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Fix code blocks on mobile */
+    pre {
+        padding: 0.5rem;
+        font-size: 12px;
+    }
+}
+
+/* Tablet responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    main.pdoc,
+    main {
+        margin-left: 260px !important;
+        padding: 1.5rem !important;
+    }
+}
+
+/* Animation for hamburger menu */
+#mobile-menu-toggle:active .hamburger-line {
+    background: #3498db;
 }
 </style>
 

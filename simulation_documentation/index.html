@@ -14,6 +14,62 @@
     <style>/*! custom.css */</style>
     <style>header.pdoc{display:flex;align-items:center;flex-wrap:wrap;}header.pdoc img{max-width:200px;max-height:75px;padding-right:2rem;}header.pdoc input[type=search]{outline-offset:0;font-size:1.5rem;min-width:60%;flex-grow:1;padding-left:.5rem;margin:1.75rem 0;}</style></head>
 <body>
+<!-- Mobile Menu Toggle -->
+<div id="mobile-menu-toggle" style="
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    background: #2c3e50;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+">
+    <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    ">
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+    </div>
+</div>
+
+<!-- Overlay for mobile menu -->
+<div id="mobile-overlay" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+"></div>
+
 <!-- Custom Navigation Start -->
 <nav id="custom-sidebar" style="
     position: fixed;
@@ -26,7 +82,23 @@
     overflow-y: auto;
     box-shadow: 2px 0 10px rgba(0,0,0,0.2);
     z-index: 1000;
+    transition: transform 0.3s ease;
 ">
+    <!-- Close button for mobile -->
+    <div id="mobile-close" style="
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+    ">×</div>
+    
     <div style="padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 2px solid #3498db;">
         <h2 style="margin: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 0.5rem;">
             Modules
@@ -35,7 +107,7 @@
     <div style="padding: 0.5rem 0;">
 
         <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <a href="index.html" style="
+            <a href="index.html" class="nav-link" style="
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
@@ -63,14 +135,14 @@
             " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
                onmouseout="this.style.background='rgba(0,0,0,0.1)'">
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span>📦</span>
+                    <span>🚢</span>
                     <span>Port and channel</span>
                 </span>
                 <span id="arrow_Port_and_channel" style="transition: transform 0.2s;">▶</span>
             </div>
             <div id="Port_and_channel" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_classes/port.html" style="
+                <a href="simulation_classes/port.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -82,7 +154,7 @@
                     Port
                 </a>
 
-                <a href="simulation_classes/channel.html" style="
+                <a href="simulation_classes/channel.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -109,14 +181,14 @@
             " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
                onmouseout="this.style.background='rgba(0,0,0,0.1)'">
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span>🏭</span>
+                    <span>🏗</span>
                     <span>Terminal</span>
                 </span>
                 <span id="arrow_Terminal" style="transition: transform 0.2s;">▶</span>
             </div>
             <div id="Terminal" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_classes/terminal_container.html" style="
+                <a href="simulation_classes/terminal_container.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -128,7 +200,7 @@
                     Container
                 </a>
 
-                <a href="simulation_classes/terminal_drybulk.html" style="
+                <a href="simulation_classes/terminal_drybulk.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -137,10 +209,10 @@
                     
                 " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
                    onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
-                    Dry Bulk
+                    Dry bulk
                 </a>
 
-                <a href="simulation_classes/terminal_liquid.html" style="
+                <a href="simulation_classes/terminal_liquid.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -174,7 +246,7 @@
             </div>
             <div id="Landside" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_classes/truck.html" style="
+                <a href="simulation_classes/truck.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -186,7 +258,7 @@
                     Truck
                 </a>
 
-                <a href="simulation_classes/train.html" style="
+                <a href="simulation_classes/train.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -198,7 +270,7 @@
                     Train
                 </a>
 
-                <a href="simulation_classes/pipeline.html" style="
+                <a href="simulation_classes/pipeline.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -225,14 +297,14 @@
             " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
                onmouseout="this.style.background='rgba(0,0,0,0.1)'">
                 <span style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span>🎯</span>
+                    <span>⚙️</span>
                     <span>Simulation helpers</span>
                 </span>
                 <span id="arrow_Simulation_helpers" style="transition: transform 0.2s;">▶</span>
             </div>
             <div id="Simulation_helpers" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_handler/run_simulation.html" style="
+                <a href="simulation_handler/run_simulation.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -244,7 +316,7 @@
                     Run
                 </a>
 
-                <a href="simulation_handler/generators.html" style="
+                <a href="simulation_handler/generators.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -256,7 +328,7 @@
                     Generators
                 </a>
 
-                <a href="simulation_handler/helpers.html" style="
+                <a href="simulation_handler/helpers.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -268,7 +340,7 @@
                     Helpers
                 </a>
 
-                <a href="simulation_handler/preprocess.html" style="
+                <a href="simulation_handler/preprocess.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -302,7 +374,7 @@
             </div>
             <div id="Analysis" style="display: none; background: rgba(0,0,0,0.2);">
 
-                <a href="simulation_analysis/capacity.html" style="
+                <a href="simulation_analysis/capacity.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -314,7 +386,7 @@
                     Capacity
                 </a>
 
-                <a href="simulation_analysis/resource_utilization.html" style="
+                <a href="simulation_analysis/resource_utilization.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -326,7 +398,7 @@
                     Utilization
                 </a>
 
-                <a href="simulation_analysis/results.html" style="
+                <a href="simulation_analysis/results.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -338,7 +410,7 @@
                     Results
                 </a>
 
-                <a href="simulation_analysis/collate_results.html" style="
+                <a href="simulation_analysis/collate_results.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -350,7 +422,7 @@
                     Collate
                 </a>
 
-                <a href="simulation_analysis/whatif_scenarios.html" style="
+                <a href="simulation_analysis/whatif_scenarios.html" class="nav-link" style="
                     display: block;
                     padding: 0.6rem 1rem 0.6rem 2.5rem;
                     color: rgba(255,255,255,0.9);
@@ -382,6 +454,46 @@ function toggleSection(sectionId) {
     }
 }
 
+// Mobile menu functionality
+function initMobileMenu() {
+    var sidebar = document.getElementById('custom-sidebar');
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var overlay = document.getElementById('mobile-overlay');
+    var closeBtn = document.getElementById('mobile-close');
+    
+    // Toggle menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.style.transform = 'translateX(0)';
+            overlay.style.display = 'block';
+        });
+    }
+    
+    // Close menu functions
+    function closeMenu() {
+        sidebar.style.transform = 'translateX(-100%)';
+        overlay.style.display = 'none';
+    }
+    
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+    }
+    
+    // Close menu when clicking on a link (mobile only)
+    if (window.innerWidth <= 768) {
+        var navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                setTimeout(closeMenu, 100);
+            });
+        });
+    }
+}
+
 // Auto-expand active section
 document.addEventListener('DOMContentLoaded', function() {
     // Hide original pdoc navigation
@@ -409,7 +521,44 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Check if mobile on load
+    checkMobile();
 });
+
+// Check if mobile and adjust styles
+function checkMobile() {
+    var sidebar = document.getElementById('custom-sidebar');
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var closeBtn = document.getElementById('mobile-close');
+    var mainContent = document.querySelector('main');
+    
+    if (window.innerWidth <= 768) {
+        // Mobile view
+        if (sidebar) sidebar.style.transform = 'translateX(-100%)';
+        if (menuToggle) menuToggle.style.display = 'block';
+        if (closeBtn) closeBtn.style.display = 'block';
+        if (mainContent) {
+            mainContent.style.marginLeft = '0';
+            mainContent.style.padding = '60px 1rem 1rem 1rem';
+        }
+    } else {
+        // Desktop view
+        if (sidebar) sidebar.style.transform = 'translateX(0)';
+        if (menuToggle) menuToggle.style.display = 'none';
+        if (closeBtn) closeBtn.style.display = 'none';
+        if (mainContent) {
+            mainContent.style.marginLeft = '260px';
+            mainContent.style.padding = '2rem';
+        }
+    }
+}
+
+// Listen for window resize
+window.addEventListener('resize', checkMobile);
 </script>
 
 <style>
@@ -425,11 +574,40 @@ nav.pdoc {
     display: none !important;
 }
 
-/* Ensure main content has proper margin */
+/* Ensure main content has proper margin and text wrapping */
 main.pdoc,
 main {
     margin-left: 260px !important;
     padding: 2rem !important;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix text wrapping for all content */
+main * {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Fix code blocks to wrap properly */
+pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+}
+
+code {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Fix tables to be responsive */
+table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 /* Ensure custom sidebar is visible */
@@ -438,18 +616,63 @@ main {
     visibility: visible !important;
 }
 
-/* Mobile responsive */
+/* Mobile responsive styles */
 @media (max-width: 768px) {
     #custom-sidebar {
-        width: 100%;
-        position: relative;
-        height: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    #mobile-menu-toggle {
+        display: block !important;
+    }
+    
+    #mobile-close {
+        display: block !important;
     }
     
     main.pdoc,
     main {
         margin-left: 0 !important;
+        padding: 60px 1rem 1rem 1rem !important;
     }
+    
+    /* Ensure content fits on mobile */
+    main {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Fix wide elements on mobile */
+    img, video, iframe {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Adjust font size for better mobile reading */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Fix code blocks on mobile */
+    pre {
+        padding: 0.5rem;
+        font-size: 12px;
+    }
+}
+
+/* Tablet responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    main.pdoc,
+    main {
+        margin-left: 260px !important;
+        padding: 1.5rem !important;
+    }
+}
+
+/* Animation for hamburger menu */
+#mobile-menu-toggle:active .hamburger-line {
+    background: #3498db;
 }
 </style>
 
@@ -490,7 +713,7 @@ main {
             <input type="search" placeholder="Search API Documentation..." aria-label="search box">
     </header>
     <main class="pdoc">
-<div style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+<div style="margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
 
     <a href="https://github.com/spartalab/port-simulation" target="_blank" class="action-button primary">
         View codebase on GitHub
@@ -513,6 +736,7 @@ main {
         border-radius: 8px;
         border: 2px solid #667eea;
         transition: all 0.2s ease-in-out;
+        white-space: nowrap;
     }
     .action-button.primary {
         background-color: #667eea;
@@ -529,6 +753,14 @@ main {
     .action-button.secondary:hover {
         background-color: #667eea;
         color: white;
+    }
+    
+    /* Mobile responsive buttons */
+    @media (max-width: 768px) {
+        .action-button {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
     }
 </style>
 <div class="readme-content"><h1>Data-Driven, Multimodal Freight Simulation Framework for Waterways and Ports</h1>

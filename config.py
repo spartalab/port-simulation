@@ -22,8 +22,17 @@ SCENARIO_NAME = "Base"  # Set to "Base" for base conditions, or set to "Bottlene
 
 # Set "what-if" scenarios. Set all as "False" for base conditions
 MODEL_HURRICANE = False
+SEVERE_HURRICANE = False  # If True, models a more severe hurricane with longer port closure and more resource damage
+TROPICAL_STORM = False  # If True, models a tropical storm with shorter port closure and less resource damage
 MODEL_FOG = False
-EXPANDED_CHANNEL = False
+EXPANDED_CHANNEL = False  
+
+if MODEL_HURRICANE == False:
+    if SEVERE_HURRICANE == True or TROPICAL_STORM == True:
+        raise ValueError("If MODEL_HURRICANE is False, both SEVERE_HURRICANE and TROPICAL_STORM must be False; update the config file.")
+if MODEL_HURRICANE == True:
+    if SEVERE_HURRICANE == False and TROPICAL_STORM == False:
+        raise ValueError("If MODEL_HURRICANE is True, either SEVERE_HURRICANE or TROPICAL_STORM must be True; update the config file.")
 
 # Set truck and pipeline overrides to ensure terminal storage capacities remain
 CTR_TRUCK_OVERRIDE = False # Set False if running bottleneck analysis; True for stable yard queue
@@ -42,6 +51,13 @@ else:
     INBOUND_CLOSED = []
     OUTBOUND_CLOSED = []
     FOG_CLOSURES = []
+
+if MODEL_HURRICANE == True:
+    HURRICANE_START = int(30*1.5*24) # in hours from start of simulation 1.5 months
+    if SEVERE_HURRICANE == False and TROPICAL_STORM == False:
+        raise ValueError("If MODEL_HURRICANE is True, either SEVERE_HURRICANE or TROPICAL_STORM must be True; update the config file.")
+else:
+    HURRICANE_START = None
 
 # set as 1.0 for most cases, values change directly if running breakpoint analysis
 ARRIVAL_INCREASE_FACTOR_CTR = 1.0
