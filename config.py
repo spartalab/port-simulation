@@ -6,12 +6,12 @@ directory = os.getcwd()
 
 # set simulation IDs and run characteristics
 WARMUP_ITERS = 1000  # Number of ships to ignore while calculating means, recommended: first 1,000
-NUM_MONTHS = 4  # Number of months to run the simulation
+NUM_MONTHS = 6  # Number of months to run the simulation
 SIMULATION_TIME = int(NUM_MONTHS*30*24) # Total time to run the simulation for, in hours
 
 LOG_NUM = 10
-NUM_RUNS = 2  # How many unique replications of different seeds to conduct for a given run
-NUM_CORES = 2  # How many CPU cores to run individual seeds on simultaneously (set depending on local hardware capabilities)
+NUM_RUNS = 4  # How many unique replications of different seeds to conduct for a given run
+NUM_CORES = 4  # How many CPU cores to run individual seeds on simultaneously (set depending on local hardware capabilities)
 START_SEED = 100  # Initial random seed for the simulation
 
 # Cleans output result folders
@@ -24,7 +24,7 @@ SCENARIO_NAME = "Base"  # Set to "Base" for base conditions, or set to "Bottlene
 MODEL_HURRICANE = False
 SEVERE_HURRICANE = False  # If True, models a more severe hurricane with longer port closure and more resource damage
 TROPICAL_STORM = False  # If True, models a tropical storm with shorter port closure and less resource damage
-MODEL_FOG = False
+MODEL_FOG = True
 EXPANDED_CHANNEL = False  
 
 if MODEL_HURRICANE == False:

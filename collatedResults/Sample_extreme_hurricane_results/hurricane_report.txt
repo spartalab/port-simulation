@@ -1,0 +1,18 @@
+onset: 1080.000
+queue-in-point: 1224.000
+mobilisation: 1228.000
+peak: 1350.000
+recovery: 2375.000
+
+time onset to queue-in-point (days): 6.0
+time queue-in-point to mobilisation (days): 0.2
+time mobilisation to peak (days): 5.1
+time peak to recovery (days): 42.7
+
+area above baseline (vessel days): 1587.05
+area below baseline (vessel days): 67.55
+
+Robustness: 0.00
+Mobilization: 148.00
+Peak Queue Increase: 10.55
+Max Recovery Rate: -2.20

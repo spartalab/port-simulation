@@ -221,6 +221,7 @@ class Truck(object):
             TRUCK_WAITING_TIME_MIN, TRUCK_WAITING_TIME_MAX)
         yield self.env.timeout(TRUCK_WAITING_TIME)
 
+        force = False
         if constants.CTR_TRUCK_OVERRIDE:
             if len(self.port_yard.items) <= 0.05 * self.port_yard.capacity:
                 action = "unload"

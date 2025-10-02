@@ -28,6 +28,7 @@ from tqdm import tqdm
 from simulation_analysis.collate_results import collate_results
 from simulation_handler.run_simulation import run_simulation
 from simulation_handler.helpers import clean_results_directory
+from simulation_analysis.whatif_scenarios import disruption_report_smoothed, fog_peak_slopes
 
 
 def parallel_run():
@@ -45,6 +46,12 @@ def parallel_run():
             pass
     total_time = round((time.time() - start_time) / 60, 2)
     collate_results(num_runs, total_time)
+    if constants.MODEL_HURRICANE:
+        print("\nHurricane disruption report (smoothed):")
+        disruption_report_smoothed(plot_legend=True)
+    if constants.MODEL_FOG:
+        print("\nFog peak slopes:")
+        fog_peak_slopes()
 
 
 def single_run():
@@ -55,6 +62,12 @@ def single_run():
         clean_results_directory()
     run_simulation(seed)
     # collate_results(1)
+    if constants.MODEL_HURRICANE:
+        print("\nHurricane disruption report (smoothed):")
+        disruption_report_smoothed()
+    if constants.MODEL_FOG:
+        print("\nFog peak slopes:")
+        fog_peak_slopes()
     total_time = round((time.time() - start_time) / 60, 2)
     print(f"\nTotal time taken: {total_time} minutes")
    

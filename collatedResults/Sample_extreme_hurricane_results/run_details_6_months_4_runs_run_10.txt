@@ -1,0 +1,22 @@
+Run details:
+Simulation time: 6 months
+Number of runs: 4
+Start seed: 100
+
+Expanded channel: False
+Hurricane scenario: True
+Fog scenario: False
+
+Constants:
+Arrival increase factor: 1.0
+Anchorage waiting of container: 0
+Anchorage waiting of liquid: 0
+Anchorage waiting of dry bulk: 0
+Efficiency of container terminal: 1.0
+Efficiency of liquid terminal: 1.0
+Efficiency of dry bulk terminal: 1.0
+Channel safety two way: False
+Arrival rates:
+Container: 10.0
+Liquid: 1.0
+Dry Bulk: 5.0

@@ -233,7 +233,7 @@ if __name__ == '__main__':
     #                       'LowCtrBerths', 'LowCtrStorage', 'LowCtrTransfer',
     #                        'FastTruckArrival', 'FastTrainArrival', 'SlowTrainArrival',
     #   'HighPilots','LowTugs','HighTugs']
-    scenario_name_list = ['LowLiqBerth']
+    scenario_name_list = [ 'Base', 'LowLiqBerth']
     
     # clear results from earlier runs in bottleneckAnalysis/results.txt
     with open("bottleneckAnalysis/results.txt", "w") as f:

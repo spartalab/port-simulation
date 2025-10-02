@@ -14,7 +14,7 @@ from tqdm import tqdm
 
 # #import constants
 
-# Get the parent directory path
+# # Get the parent directory path
 # parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # # Add parent directory to sys.path
@@ -581,16 +581,17 @@ def collate_results(num_runs, total_time):
 
     # Cu_opt = calculate_ultimate_capacity()
 
+    if config.SCENARIO_NAME != "Base":
 
-    try:
-        Cu_opt,theta_opt = calculate_ultimate_capacity()
-        with open(f'collatedResults/{logfileid}/run_details_{logfileid}.txt', 'a') as f:
-            f.write(f"Ultimate capacity: {Cu_opt:.2f} vessels / hr\n")
-            f.write(f"Optimal theta: {theta_opt:.2f}\n")
-    except Exception as e:
-        print("Ultimate capacity calculation failed")
-        print("Error:", e)
-        print("More simulation runs may be needed to calculate ultimate capacity.")
+        try:
+            Cu_opt,theta_opt = calculate_ultimate_capacity()
+            with open(f'collatedResults/{logfileid}/run_details_{logfileid}.txt', 'a') as f:
+                f.write(f"Ultimate capacity: {Cu_opt:.2f} vessels / hr\n")
+                f.write(f"Optimal theta: {theta_opt:.2f}\n")
+        except Exception as e:
+            print("Ultimate capacity calculation failed")
+            print("Error:", e)
+            print("More simulation runs may be needed to calculate ultimate capacity.")
     
 
     # save the dataframes
@@ -817,4 +818,4 @@ def compute_throughput(
         "exited_ids": exited_ids,
     }
 
-# collate_results(5, 8)
+# collate_results(4, 12.19)

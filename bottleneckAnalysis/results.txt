@@ -1,13 +1,39 @@
-===== Capacity Analysis for LowPilots =====
-Months: 4 (T = 2880 hours)
+===== Capacity Analysis for Base =====
+Months: 6 (T = 4320 hours)
 Sample points (λ_i, N_i):
-  Point 1: λ = 1.3000, N = 3684.8000
-  Point 2: λ = 2.6000, N = 4564.2000
-  Point 3: λ = 3.9000, N = 4699.4000
-  Point 4: λ = 5.2000, N = 4710.6000
-  Point 5: λ = 6.5000, N = 4753.6000
-  Point 6: λ = 7.8000, N = 4779.4000
-Operating capacity (Co): 1.3700 vessels/hr
-Fitted ultimate capacity (Cu): 1.6335
-Fitted exponent (θ): 7.0015
+  Point 1: λ = 1.3000, N = 3687.0000
+  Point 2: λ = 2.6000, N = 4951.4000
+  Point 3: λ = 3.9000, N = 5036.6000
+  Point 4: λ = 5.2000, N = 5136.8000
+  Point 5: λ = 6.5000, N = 5119.6000
+  Point 6: λ = 7.8000, N = 5177.2000
+Operating capacity (Co): 1.3900 vessels/hr
+Fitted ultimate capacity (Cu): 1.1943
+Fitted exponent (θ): 1.3742
+
+===== Capacity Analysis for Base =====
+Months: 6 (T = 4320 hours)
+Sample points (λ_i, N_i):
+  Point 1: λ = 1.3000, N = 3687.0000
+  Point 2: λ = 2.6000, N = 4951.4000
+  Point 3: λ = 3.9000, N = 5036.6000
+  Point 4: λ = 5.2000, N = 5136.8000
+  Point 5: λ = 6.5000, N = 5119.6000
+  Point 6: λ = 7.8000, N = 5177.2000
+Operating capacity (Co): 1.3900 vessels/hr
+Fitted ultimate capacity (Cu): 1.1943
+Fitted exponent (θ): 1.3742
+
+===== Capacity Analysis for Base =====
+Months: 6 (T = 4320 hours)
+Sample points (λ_i, N_i):
+  Point 1: λ = 1.3000, N = 3687.0000
+  Point 2: λ = 2.6000, N = 4951.4000
+  Point 3: λ = 3.9000, N = 5036.6000
+  Point 4: λ = 5.2000, N = 5136.8000
+  Point 5: λ = 6.5000, N = 5119.6000
+  Point 6: λ = 7.8000, N = 5177.2000
+Operating capacity (Co): 1.3900 vessels/hr
+Fitted ultimate capacity (Cu): 1.1943
+Fitted exponent (θ): 1.3742
 

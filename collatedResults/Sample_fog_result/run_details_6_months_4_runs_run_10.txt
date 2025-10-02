@@ -1,0 +1,83 @@
+Run details:
+Simulation time: 6 months
+Number of runs: 4
+Start seed: 100
+
+Expanded channel: False
+Hurricane scenario: False
+Fog scenario: True
+
+Constants:
+Arrival increase factor: 1.0
+Anchorage waiting of container: 0
+Anchorage waiting of liquid: 0
+Anchorage waiting of dry bulk: 0
+Efficiency of container terminal: 1.0
+Efficiency of liquid terminal: 1.0
+Efficiency of dry bulk terminal: 1.0
+Channel safety two way: False
+Arrival rates:
+Container: 10.0
+Liquid: 1.0
+Dry Bulk: 5.0
+
+Mean ships entered: 5553.0
+Mean ships exited: 5517.0
+Mean ships entered channel: 5550.0
+
+Mean ships entered for container: 425.5
+Mean ships exited for container: 422.25
+Mean ships entered channel for container: 425.25
+
+Mean ships entered for liquid: 4277.75
+Mean ships exited for liquid: 4250.5
+Mean ships entered channel for liquid: 4275.25
+
+Mean ships entered for dry bulk: 849.75
+Mean ships exited for dry bulk: 844.25
+Mean ships entered channel for dry bulk: 849.5
+
+Mean annualised throughput (million tons): 421.69
+Mean annualised container throughput (million FEU containers): 1.12
+Mean annualised container throughput (million tons): 0.04
+Mean annualised liquid throughput (million cbm): 379.7
+Mean annualised liquid throughput (million tons): 409.13
+Mean annualised dry bulk throughput (million tons): 69.26
+
+
+Anchorage queue lengths:
+Mean (+- std) for anchorage queue of container ships: 0.8 (+- 0.8)
+Mean (+- std) for anchorage queue of liquid ships: 11.3 (+- 4.2)
+Mean (+- std) for anchorage queue of drybulk ships: 2.1 (+- 1.4)
+Mean (+- std) for anchorage queue of all ships: 14.1 (+- 4.7)
+
+Time taken for different ship types:
+Mean (+- std) for dwell time for all ships: 11.1 (+- 6.1)
+Mean (+- std) for turn time for all ships: 34.1 (+- 10.0)
+Mean (+- std) for anchorage time for all ships: 8.4 (+- 6.0)
+Mean (+- std) for cargo time for all ships: 11.1 (+- 6.1)
+Mean (+- std) for dwell time for container ships: 17.1 (+- 1.2)
+Mean (+- std) for turn time for container ships: 34.4 (+- 1.6)
+Mean (+- std) for anchorage time for container ships: 5.2 (+- 0.8)
+Mean (+- std) for cargo time for container ships: 17.1 (+- 1.2)
+Mean (+- std) for dwell time for liquid ships: 8.8 (+- 3.6)
+Mean (+- std) for turn time for liquid ships: 33.4 (+- 8.8)
+Mean (+- std) for anchorage time for liquid ships: 8.6 (+- 5.6)
+Mean (+- std) for cargo time for liquid ships: 8.8 (+- 3.6)
+Mean (+- std) for dwell time for drybulk ships: 19.4 (+- 2.4)
+Mean (+- std) for turn time for drybulk ships: 34.9 (+- 3.2)
+Mean (+- std) for anchorage time for drybulk ships: 7.1 (+- 1.6)
+Mean (+- std) for cargo time for drybulk ships: 19.4 (+- 2.4)
+
+Channel utilization:
+Mean (+- std) for channel utilization: 2.9 (+- 1.0)
+
+Capacity Analysis
+Arrival Rates: [0.1, 1.0, 0.2]
+Queue Lengths: [np.float64(0.7821715300293346), np.float64(10.614957166010651), np.float64(1.9726146364057433)]
+Calculated service rate (mu): 1.39
+Calculated mean wait time: 10.56
+Input mean wait time: 7.96
+Relative Error: 32.65823750647188
+
+Total simulation runtime: 10.65 minutes
