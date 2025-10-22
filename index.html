@@ -1,0 +1,1189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="pdoc 15.0.4"/>
+    <title>Documentation</title>
+
+    <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
+    <style>/*! syntax-highlighting.css */pre{line-height:125%;}span.linenos{color:inherit; background-color:transparent; padding-left:5px; padding-right:20px;}.pdoc-code .hll{background-color:#ffffcc}.pdoc-code{background:#f8f8f8;}.pdoc-code .c{color:#3D7B7B; font-style:italic}.pdoc-code .err{border:1px solid #FF0000}.pdoc-code .k{color:#008000; font-weight:bold}.pdoc-code .o{color:#666666}.pdoc-code .ch{color:#3D7B7B; font-style:italic}.pdoc-code .cm{color:#3D7B7B; font-style:italic}.pdoc-code .cp{color:#9C6500}.pdoc-code .cpf{color:#3D7B7B; font-style:italic}.pdoc-code .c1{color:#3D7B7B; font-style:italic}.pdoc-code .cs{color:#3D7B7B; font-style:italic}.pdoc-code .gd{color:#A00000}.pdoc-code .ge{font-style:italic}.pdoc-code .gr{color:#E40000}.pdoc-code .gh{color:#000080; font-weight:bold}.pdoc-code .gi{color:#008400}.pdoc-code .go{color:#717171}.pdoc-code .gp{color:#000080; font-weight:bold}.pdoc-code .gs{font-weight:bold}.pdoc-code .gu{color:#800080; font-weight:bold}.pdoc-code .gt{color:#0044DD}.pdoc-code .kc{color:#008000; font-weight:bold}.pdoc-code .kd{color:#008000; font-weight:bold}.pdoc-code .kn{color:#008000; font-weight:bold}.pdoc-code .kp{color:#008000}.pdoc-code .kr{color:#008000; font-weight:bold}.pdoc-code .kt{color:#B00040}.pdoc-code .m{color:#666666}.pdoc-code .s{color:#BA2121}.pdoc-code .na{color:#687822}.pdoc-code .nb{color:#008000}.pdoc-code .nc{color:#0000FF; font-weight:bold}.pdoc-code .no{color:#880000}.pdoc-code .nd{color:#AA22FF}.pdoc-code .ni{color:#717171; font-weight:bold}.pdoc-code .ne{color:#CB3F38; font-weight:bold}.pdoc-code .nf{color:#0000FF}.pdoc-code .nl{color:#767600}.pdoc-code .nn{color:#0000FF; font-weight:bold}.pdoc-code .nt{color:#008000; font-weight:bold}.pdoc-code .nv{color:#19177C}.pdoc-code .ow{color:#AA22FF; font-weight:bold}.pdoc-code .w{color:#bbbbbb}.pdoc-code .mb{color:#666666}.pdoc-code .mf{color:#666666}.pdoc-code .mh{color:#666666}.pdoc-code .mi{color:#666666}.pdoc-code .mo{color:#666666}.pdoc-code .sa{color:#BA2121}.pdoc-code .sb{color:#BA2121}.pdoc-code .sc{color:#BA2121}.pdoc-code .dl{color:#BA2121}.pdoc-code .sd{color:#BA2121; font-style:italic}.pdoc-code .s2{color:#BA2121}.pdoc-code .se{color:#AA5D1F; font-weight:bold}.pdoc-code .sh{color:#BA2121}.pdoc-code .si{color:#A45A77; font-weight:bold}.pdoc-code .sx{color:#008000}.pdoc-code .sr{color:#A45A77}.pdoc-code .s1{color:#BA2121}.pdoc-code .ss{color:#19177C}.pdoc-code .bp{color:#008000}.pdoc-code .fm{color:#0000FF}.pdoc-code .vc{color:#19177C}.pdoc-code .vg{color:#19177C}.pdoc-code .vi{color:#19177C}.pdoc-code .vm{color:#19177C}.pdoc-code .il{color:#666666}</style>
+    <style>/*! theme.css */:root{--pdoc-background:#fff;}.pdoc{--text:#212529;--muted:#6c757d;--link:#3660a5;--link-hover:#1659c5;--code:#f8f8f8;--active:#fff598;--accent:#eee;--accent2:#c1c1c1;--nav-hover:rgba(255, 255, 255, 0.5);--name:#0066BB;--def:#008800;--annotation:#007020;}</style>
+    <style>/*! layout.css */html, body{width:100%;height:100%;}html, main{scroll-behavior:smooth;}body{background-color:var(--pdoc-background);}@media (max-width:769px){#navtoggle{cursor:pointer;position:absolute;width:50px;height:40px;top:1rem;right:1rem;border-color:var(--text);color:var(--text);display:flex;opacity:0.8;z-index:999;}#navtoggle:hover{opacity:1;}#togglestate + div{display:none;}#togglestate:checked + div{display:inherit;}main, header{padding:2rem 3vw;}header + main{margin-top:-3rem;}.git-button{display:none !important;}nav input[type="search"]{max-width:77%;}nav input[type="search"]:first-child{margin-top:-6px;}nav input[type="search"]:valid ~ *{display:none !important;}}@media (min-width:770px){:root{--sidebar-width:clamp(12.5rem, 28vw, 22rem);}nav{position:fixed;overflow:auto;height:100vh;width:var(--sidebar-width);}main, header{padding:3rem 2rem 3rem calc(var(--sidebar-width) + 3rem);width:calc(54rem + var(--sidebar-width));max-width:100%;}header + main{margin-top:-4rem;}#navtoggle{display:none;}}#togglestate{position:absolute;height:0;opacity:0;}nav.pdoc{--pad:clamp(0.5rem, 2vw, 1.75rem);--indent:1.5rem;background-color:var(--accent);border-right:1px solid var(--accent2);box-shadow:0 0 20px rgba(50, 50, 50, .2) inset;padding:0 0 0 var(--pad);overflow-wrap:anywhere;scrollbar-width:thin; scrollbar-color:var(--accent2) transparent; z-index:1}nav.pdoc::-webkit-scrollbar{width:.4rem; }nav.pdoc::-webkit-scrollbar-thumb{background-color:var(--accent2); }nav.pdoc > div{padding:var(--pad) 0;}nav.pdoc .module-list-button{display:inline-flex;align-items:center;color:var(--text);border-color:var(--muted);margin-bottom:1rem;}nav.pdoc .module-list-button:hover{border-color:var(--text);}nav.pdoc input[type=search]{display:block;outline-offset:0;width:calc(100% - var(--pad));}nav.pdoc .logo{max-width:calc(100% - var(--pad));max-height:35vh;display:block;margin:0 auto 1rem;transform:translate(calc(-.5 * var(--pad)), 0);}nav.pdoc ul{list-style:none;padding-left:0;}nav.pdoc > div > ul{margin-left:calc(0px - var(--pad));}nav.pdoc li a{padding:.2rem 0 .2rem calc(var(--pad) + var(--indent));}nav.pdoc > div > ul > li > a{padding-left:var(--pad);}nav.pdoc li{transition:all 100ms;}nav.pdoc li:hover{background-color:var(--nav-hover);}nav.pdoc a, nav.pdoc a:hover{color:var(--text);}nav.pdoc a{display:block;}nav.pdoc > h2:first-of-type{margin-top:1.5rem;}nav.pdoc .class:before{content:"class ";color:var(--muted);}nav.pdoc .function:after{content:"()";color:var(--muted);}nav.pdoc footer:before{content:"";display:block;width:calc(100% - var(--pad));border-top:solid var(--accent2) 1px;margin-top:1.5rem;padding-top:.5rem;}nav.pdoc footer{font-size:small;}</style>
+    <style>/*! content.css */.pdoc{color:var(--text);box-sizing:border-box;line-height:1.5;background:none;}.pdoc .pdoc-button{cursor:pointer;display:inline-block;border:solid black 1px;border-radius:2px;font-size:.75rem;padding:calc(0.5em - 1px) 1em;transition:100ms all;}.pdoc .alert{padding:1rem 1rem 1rem calc(1.5rem + 24px);border:1px solid transparent;border-radius:.25rem;background-repeat:no-repeat;background-position:.75rem center;margin-bottom:1rem;}.pdoc .alert > em{display:none;}.pdoc .alert > *:last-child{margin-bottom:0;}.pdoc .alert.note{color:#084298;background-color:#cfe2ff;border-color:#b6d4fe;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23084298%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%2016A8%208%200%201%200%208%200a8%208%200%200%200%200%2016zm.93-9.412-1%204.705c-.07.34.029.533.304.533.194%200%20.487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703%200-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381%202.29-.287zM8%205.5a1%201%200%201%201%200-2%201%201%200%200%201%200%202z%22/%3E%3C/svg%3E");}.pdoc .alert.tip{color:#0a3622;background-color:#d1e7dd;border-color:#a3cfbb;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%230a3622%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2%206a6%206%200%201%201%2010.174%204.31c-.203.196-.359.4-.453.619l-.762%201.769A.5.5%200%200%201%2010.5%2013a.5.5%200%200%201%200%201%20.5.5%200%200%201%200%201l-.224.447a1%201%200%200%201-.894.553H6.618a1%201%200%200%201-.894-.553L5.5%2015a.5.5%200%200%201%200-1%20.5.5%200%200%201%200-1%20.5.5%200%200%201-.46-.302l-.761-1.77a2%202%200%200%200-.453-.618A5.98%205.98%200%200%201%202%206m6-5a5%205%200%200%200-3.479%208.592c.263.254.514.564.676.941L5.83%2012h4.342l.632-1.467c.162-.377.413-.687.676-.941A5%205%200%200%200%208%201%22/%3E%3C/svg%3E");}.pdoc .alert.important{color:#055160;background-color:#cff4fc;border-color:#9eeaf9;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23055160%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2%200a2%202%200%200%200-2%202v12a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V2a2%202%200%200%200-2-2zm6%204c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%204.995A.905.905%200%200%201%208%204m.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E");}.pdoc .alert.warning{color:#664d03;background-color:#fff3cd;border-color:#ffecb5;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23664d03%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8.982%201.566a1.13%201.13%200%200%200-1.96%200L.165%2013.233c-.457.778.091%201.767.98%201.767h13.713c.889%200%201.438-.99.98-1.767L8.982%201.566zM8%205c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%205.995A.905.905%200%200%201%208%205zm.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2z%22/%3E%3C/svg%3E");}.pdoc .alert.caution{color:#842029;background-color:#f8d7da;border-color:#f5c2c7;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23842029%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M11.46.146A.5.5%200%200%200%2011.107%200H4.893a.5.5%200%200%200-.353.146L.146%204.54A.5.5%200%200%200%200%204.893v6.214a.5.5%200%200%200%20.146.353l4.394%204.394a.5.5%200%200%200%20.353.146h6.214a.5.5%200%200%200%20.353-.146l4.394-4.394a.5.5%200%200%200%20.146-.353V4.893a.5.5%200%200%200-.146-.353zM8%204c.535%200%20.954.462.9.995l-.35%203.507a.552.552%200%200%201-1.1%200L7.1%204.995A.905.905%200%200%201%208%204m.002%206a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E");}.pdoc .alert.danger{color:#842029;background-color:#f8d7da;border-color:#f5c2c7;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23842029%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5.52.359A.5.5%200%200%201%206%200h4a.5.5%200%200%201%20.474.658L8.694%206H12.5a.5.5%200%200%201%20.395.807l-7%209a.5.5%200%200%201-.873-.454L6.823%209.5H3.5a.5.5%200%200%201-.48-.641l2.5-8.5z%22/%3E%3C/svg%3E");}.pdoc .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0, 0, 0, 0) !important;white-space:nowrap !important;border:0 !important;}.pdoc h1, .pdoc h2, .pdoc h3{font-weight:300;margin:.3em 0;padding:.2em 0;}.pdoc > section:not(.module-info) h1{font-size:1.5rem;font-weight:500;}.pdoc > section:not(.module-info) h2{font-size:1.4rem;font-weight:500;}.pdoc > section:not(.module-info) h3{font-size:1.3rem;font-weight:500;}.pdoc > section:not(.module-info) h4{font-size:1.2rem;}.pdoc > section:not(.module-info) h5{font-size:1.1rem;}.pdoc a{text-decoration:none;color:var(--link);}.pdoc a:hover{color:var(--link-hover);}.pdoc blockquote{margin-left:2rem;}.pdoc pre{border-top:1px solid var(--accent2);border-bottom:1px solid var(--accent2);margin-top:0;margin-bottom:1em;padding:.5rem 0 .5rem .5rem;overflow-x:auto;background-color:var(--code);}.pdoc code{color:var(--text);padding:.2em .4em;margin:0;font-size:85%;background-color:var(--accent);border-radius:6px;}.pdoc a > code{color:inherit;}.pdoc pre > code{display:inline-block;font-size:inherit;background:none;border:none;padding:0;}.pdoc > section:not(.module-info){margin-bottom:1.5rem;}.pdoc .modulename{margin-top:0;font-weight:bold;}.pdoc .modulename a{color:var(--link);transition:100ms all;}.pdoc .git-button{float:right;border:solid var(--link) 1px;}.pdoc .git-button:hover{background-color:var(--link);color:var(--pdoc-background);}.view-source-toggle-state,.view-source-toggle-state ~ .pdoc-code{display:none;}.view-source-toggle-state:checked ~ .pdoc-code{display:block;}.view-source-button{display:inline-block;float:right;font-size:.75rem;line-height:1.5rem;color:var(--muted);padding:0 .4rem 0 1.3rem;cursor:pointer;text-indent:-2px;}.view-source-button > span{visibility:hidden;}.module-info .view-source-button{float:none;display:flex;justify-content:flex-end;margin:-1.2rem .4rem -.2rem 0;}.view-source-button::before{position:absolute;content:"View Source";display:list-item;list-style-type:disclosure-closed;}.view-source-toggle-state:checked ~ .attr .view-source-button::before,.view-source-toggle-state:checked ~ .view-source-button::before{list-style-type:disclosure-open;}.pdoc .docstring{margin-bottom:1.5rem;}.pdoc section:not(.module-info) .docstring{margin-left:clamp(0rem, 5vw - 2rem, 1rem);}.pdoc .docstring .pdoc-code{margin-left:1em;margin-right:1em;}.pdoc h1:target,.pdoc h2:target,.pdoc h3:target,.pdoc h4:target,.pdoc h5:target,.pdoc h6:target,.pdoc .pdoc-code > pre > span:target{background-color:var(--active);box-shadow:-1rem 0 0 0 var(--active);}.pdoc .pdoc-code > pre > span:target{display:block;}.pdoc div:target > .attr,.pdoc section:target > .attr,.pdoc dd:target > a{background-color:var(--active);}.pdoc *{scroll-margin:2rem;}.pdoc .pdoc-code .linenos{user-select:none;}.pdoc .attr:hover{filter:contrast(0.95);}.pdoc section, .pdoc .classattr{position:relative;}.pdoc .headerlink{--width:clamp(1rem, 3vw, 2rem);position:absolute;top:0;left:calc(0rem - var(--width));transition:all 100ms ease-in-out;opacity:0;}.pdoc .headerlink::before{content:"#";display:block;text-align:center;width:var(--width);height:2.3rem;line-height:2.3rem;font-size:1.5rem;}.pdoc .attr:hover ~ .headerlink,.pdoc *:target > .headerlink,.pdoc .headerlink:hover{opacity:1;}.pdoc .attr{display:block;margin:.5rem 0 .5rem;padding:.4rem .4rem .4rem 1rem;background-color:var(--accent);overflow-x:auto;}.pdoc .classattr{margin-left:2rem;}.pdoc .decorator-deprecated{color:#842029;}.pdoc .decorator-deprecated ~ span{filter:grayscale(1) opacity(0.8);}.pdoc .name{color:var(--name);font-weight:bold;}.pdoc .def{color:var(--def);font-weight:bold;}.pdoc .signature{background-color:transparent;}.pdoc .param, .pdoc .return-annotation{white-space:pre;}.pdoc .signature.multiline .param{display:block;}.pdoc .signature.condensed .param{display:inline-block;}.pdoc .annotation{color:var(--annotation);}.pdoc .view-value-toggle-state,.pdoc .view-value-toggle-state ~ .default_value{display:none;}.pdoc .view-value-toggle-state:checked ~ .default_value{display:inherit;}.pdoc .view-value-button{font-size:.5rem;vertical-align:middle;border-style:dashed;margin-top:-0.1rem;}.pdoc .view-value-button:hover{background:white;}.pdoc .view-value-button::before{content:"show";text-align:center;width:2.2em;display:inline-block;}.pdoc .view-value-toggle-state:checked ~ .view-value-button::before{content:"hide";}.pdoc .inherited{margin-left:2rem;}.pdoc .inherited dt{font-weight:700;}.pdoc .inherited dt, .pdoc .inherited dd{display:inline;margin-left:0;margin-bottom:.5rem;}.pdoc .inherited dd:not(:last-child):after{content:", ";}.pdoc .inherited .class:before{content:"class ";}.pdoc .inherited .function a:after{content:"()";}.pdoc .search-result .docstring{overflow:auto;max-height:25vh;}.pdoc .search-result.focused > .attr{background-color:var(--active);}.pdoc .attribution{margin-top:2rem;display:block;opacity:0.5;transition:all 200ms;filter:grayscale(100%);}.pdoc .attribution:hover{opacity:1;filter:grayscale(0%);}.pdoc .attribution img{margin-left:5px;height:35px;vertical-align:middle;width:70px;transition:all 200ms;}.pdoc table{display:block;width:max-content;max-width:100%;overflow:auto;margin-bottom:1rem;}.pdoc table th{font-weight:600;}.pdoc table th, .pdoc table td{padding:6px 13px;border:1px solid var(--accent2);}</style>
+    <style>/*! custom.css */</style>
+    <style>header.pdoc{display:flex;align-items:center;flex-wrap:wrap;}header.pdoc img{max-width:200px;max-height:75px;padding-right:2rem;}header.pdoc input[type=search]{outline-offset:0;font-size:1.5rem;min-width:60%;flex-grow:1;padding-left:.5rem;margin:1.75rem 0;}</style></head>
+<body>
+<!-- Mobile Menu Toggle -->
+<div id="mobile-menu-toggle" style="
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    background: #2c3e50;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+">
+    <div style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    ">
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+        <div class="hamburger-line" style="
+            width: 24px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        "></div>
+    </div>
+</div>
+
+<!-- Overlay for mobile menu -->
+<div id="mobile-overlay" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+"></div>
+
+<!-- Custom Navigation Start -->
+<nav id="custom-sidebar" style="
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+">
+    <!-- Close button for mobile -->
+    <div id="mobile-close" style="
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        color: white;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+    ">×</div>
+    
+    <div style="padding: 1.5rem; background: rgba(0,0,0,0.2); border-bottom: 2px solid #3498db;">
+        <h2 style="margin: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 0.5rem;">
+            Modules
+        </h2>
+    </div>
+    <div style="padding: 0.5rem 0;">
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <a href="index.html" class="nav-link" style="
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.8rem 1rem;
+                color: white;
+                text-decoration: none;
+                transition: background 0.2s;
+                background: rgba(52, 152, 219, 0.3); border-left: 4px solid #3498db;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='background: rgba(52, 152, 219, 0.3); border-left: 4px solid #3498db;'">
+                <span>🏠</span>
+                <span>Overview</span>
+            </a>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Port_and_channel')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🚢</span>
+                    <span>Port and channel</span>
+                </span>
+                <span id="arrow_Port_and_channel" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Port_and_channel" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="simulation_classes/port.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Port
+                </a>
+
+                <a href="simulation_classes/channel.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Channel
+                </a>
+
+            </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Terminal')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🏗</span>
+                    <span>Terminal</span>
+                </span>
+                <span id="arrow_Terminal" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Terminal" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="simulation_classes/terminal_container.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Container
+                </a>
+
+                <a href="simulation_classes/terminal_drybulk.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Dry bulk
+                </a>
+
+                <a href="simulation_classes/terminal_liquid.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Liquid
+                </a>
+
+            </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Landside')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🚛</span>
+                    <span>Landside</span>
+                </span>
+                <span id="arrow_Landside" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Landside" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="simulation_classes/truck.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Truck
+                </a>
+
+                <a href="simulation_classes/train.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Train
+                </a>
+
+                <a href="simulation_classes/pipeline.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Pipeline
+                </a>
+
+            </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Simulation_helpers')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>⚙️</span>
+                    <span>Simulation helpers</span>
+                </span>
+                <span id="arrow_Simulation_helpers" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Simulation_helpers" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="simulation_handler/run_simulation.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Run
+                </a>
+
+                <a href="simulation_handler/generators.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Generators
+                </a>
+
+                <a href="simulation_handler/helpers.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Helpers
+                </a>
+
+                <a href="simulation_handler/preprocess.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Preprocess
+                </a>
+
+            </div>
+        </div>
+
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <div onclick="toggleSection('Analysis')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                background: rgba(0,0,0,0.1);
+                transition: background 0.2s;
+            " onmouseover="this.style.background='rgba(52,152,219,0.2)'" 
+               onmouseout="this.style.background='rgba(0,0,0,0.1)'">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span>📊</span>
+                    <span>Analysis</span>
+                </span>
+                <span id="arrow_Analysis" style="transition: transform 0.2s;">▶</span>
+            </div>
+            <div id="Analysis" style="display: none; background: rgba(0,0,0,0.2);">
+
+                <a href="simulation_analysis/capacity.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Capacity
+                </a>
+
+                <a href="simulation_analysis/resource_utilization.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Utilization
+                </a>
+
+                <a href="simulation_analysis/results.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Results
+                </a>
+
+                <a href="simulation_analysis/collate_results.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    Collate
+                </a>
+
+                <a href="simulation_analysis/whatif_scenarios.html" class="nav-link" style="
+                    display: block;
+                    padding: 0.6rem 1rem 0.6rem 2.5rem;
+                    color: rgba(255,255,255,0.9);
+                    text-decoration: none;
+                    transition: all 0.2s;
+                    
+                " onmouseover="this.style.background='rgba(52,152,219,0.3)'; this.style.paddingLeft='2.7rem'" 
+                   onmouseout="this.style.background=''; this.style.paddingLeft='2.5rem'">
+                    What-If
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</nav>
+<!-- Custom Navigation End -->
+
+<script>
+function toggleSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    var arrow = document.getElementById('arrow_' + sectionId);
+    if (section.style.display === 'none' || section.style.display === '') {
+        section.style.display = 'block';
+        arrow.style.transform = 'rotate(90deg)';
+    } else {
+        section.style.display = 'none';
+        arrow.style.transform = 'rotate(0deg)';
+    }
+}
+
+// Mobile menu functionality
+function initMobileMenu() {
+    var sidebar = document.getElementById('custom-sidebar');
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var overlay = document.getElementById('mobile-overlay');
+    var closeBtn = document.getElementById('mobile-close');
+    
+    // Toggle menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.style.transform = 'translateX(0)';
+            overlay.style.display = 'block';
+        });
+    }
+    
+    // Close menu functions
+    function closeMenu() {
+        sidebar.style.transform = 'translateX(-100%)';
+        overlay.style.display = 'none';
+    }
+    
+    if (overlay) {
+        overlay.addEventListener('click', closeMenu);
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+    }
+    
+    // Close menu when clicking on a link (mobile only)
+    if (window.innerWidth <= 768) {
+        var navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                setTimeout(closeMenu, 100);
+            });
+        });
+    }
+}
+
+// Auto-expand active section
+document.addEventListener('DOMContentLoaded', function() {
+    // Hide original pdoc navigation
+    var originalNav = document.querySelector('body > nav');
+    if (originalNav) {
+        originalNav.style.display = 'none';
+    }
+    
+    // Adjust main content margin
+    var mainContent = document.querySelector('main');
+    if (mainContent) {
+        mainContent.style.marginLeft = '260px';
+        mainContent.style.padding = '2rem';
+    }
+    
+    // Auto-expand sections with active items
+    var activeLinks = document.querySelectorAll('a[style*="background: rgba(52, 152, 219, 0.4)"]');
+    activeLinks.forEach(function(link) {
+        var parentSection = link.parentElement;
+        if (parentSection && parentSection.id) {
+            parentSection.style.display = 'block';
+            var arrow = document.getElementById('arrow_' + parentSection.id);
+            if (arrow) {
+                arrow.style.transform = 'rotate(90deg)';
+            }
+        }
+    });
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Check if mobile on load
+    checkMobile();
+});
+
+// Check if mobile and adjust styles
+function checkMobile() {
+    var sidebar = document.getElementById('custom-sidebar');
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var closeBtn = document.getElementById('mobile-close');
+    var mainContent = document.querySelector('main');
+    
+    if (window.innerWidth <= 768) {
+        // Mobile view
+        if (sidebar) sidebar.style.transform = 'translateX(-100%)';
+        if (menuToggle) menuToggle.style.display = 'block';
+        if (closeBtn) closeBtn.style.display = 'block';
+        if (mainContent) {
+            mainContent.style.marginLeft = '0';
+            mainContent.style.padding = '60px 1rem 1rem 1rem';
+        }
+    } else {
+        // Desktop view
+        if (sidebar) sidebar.style.transform = 'translateX(0)';
+        if (menuToggle) menuToggle.style.display = 'none';
+        if (closeBtn) closeBtn.style.display = 'none';
+        if (mainContent) {
+            mainContent.style.marginLeft = '260px';
+            mainContent.style.padding = '2rem';
+        }
+    }
+}
+
+// Listen for window resize
+window.addEventListener('resize', checkMobile);
+</script>
+
+<style>
+/* Additional styles to ensure visibility */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide pdoc nav */
+body > nav.pdoc,
+nav.pdoc {
+    display: none !important;
+}
+
+/* Ensure main content has proper margin and text wrapping */
+main.pdoc,
+main {
+    margin-left: 260px !important;
+    padding: 2rem !important;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix text wrapping for all content */
+main * {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Fix code blocks to wrap properly */
+pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+}
+
+code {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Fix tables to be responsive */
+table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+/* Ensure custom sidebar is visible */
+#custom-sidebar {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    #custom-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    #mobile-menu-toggle {
+        display: block !important;
+    }
+    
+    #mobile-close {
+        display: block !important;
+    }
+    
+    main.pdoc,
+    main {
+        margin-left: 0 !important;
+        padding: 60px 1rem 1rem 1rem !important;
+    }
+    
+    /* Ensure content fits on mobile */
+    main {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Fix wide elements on mobile */
+    img, video, iframe {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Adjust font size for better mobile reading */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Fix code blocks on mobile */
+    pre {
+        padding: 0.5rem;
+        font-size: 12px;
+    }
+}
+
+/* Tablet responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    main.pdoc,
+    main {
+        margin-left: 260px !important;
+        padding: 1.5rem !important;
+    }
+}
+
+/* Animation for hamburger menu */
+#mobile-menu-toggle:active .hamburger-line {
+    background: #3498db;
+}
+</style>
+
+    <nav class="pdoc">
+        <label id="navtoggle" for="togglestate" class="pdoc-button"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke-linecap='round' stroke="currentColor" stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg></label>
+        <input id="togglestate" type="checkbox" aria-hidden="true" tabindex="-1">
+        <div>    <h2>Available Modules</h2>
+    <ul>
+            <li><a href="config.html">config</a></li>
+            <li><a href="constants.html">constants</a></li>
+            <li><a href="inputs.html">inputs</a></li>
+            <li><a href="main.html">main</a></li>
+            <li><a href="simulation_classes.html">simulation_classes</a></li>
+            <li><a href="simulation_classes/channel.html">simulation_classes.channel</a></li>
+            <li><a href="simulation_classes/pipeline.html">simulation_classes.pipeline</a></li>
+            <li><a href="simulation_classes/port.html">simulation_classes.port</a></li>
+            <li><a href="simulation_classes/terminal_container.html">simulation_classes.terminal_container</a></li>
+            <li><a href="simulation_classes/terminal_drybulk.html">simulation_classes.terminal_drybulk</a></li>
+            <li><a href="simulation_classes/terminal_liquid.html">simulation_classes.terminal_liquid</a></li>
+            <li><a href="simulation_classes/train.html">simulation_classes.train</a></li>
+            <li><a href="simulation_classes/truck.html">simulation_classes.truck</a></li>
+            <li><a href="simulation_handler.html">simulation_handler</a></li>
+            <li><a href="simulation_handler/generators.html">simulation_handler.generators</a></li>
+            <li><a href="simulation_handler/helpers.html">simulation_handler.helpers</a></li>
+            <li><a href="simulation_handler/preprocess.html">simulation_handler.preprocess</a></li>
+            <li><a href="simulation_handler/run_simulation.html">simulation_handler.run_simulation</a></li>
+            <li><a href="simulation_analysis.html">simulation_analysis</a></li>
+            <li><a href="simulation_analysis/capacity.html">simulation_analysis.capacity</a></li>
+            <li><a href="simulation_analysis/collate_results.html">simulation_analysis.collate_results</a></li>
+            <li><a href="simulation_analysis/resource_utilization.html">simulation_analysis.resource_utilization</a></li>
+            <li><a href="simulation_analysis/results.html">simulation_analysis.results</a></li>
+            <li><a href="simulation_analysis/whatif_scenarios.html">simulation_analysis.whatif_scenarios</a></li>
+    </ul>
+</div>
+    </nav>
+    <header class="pdoc">
+                <img src="spartaStacked.png" alt="project logo"/>
+            <input type="search" placeholder="Search API Documentation..." aria-label="search box">
+    </header>
+    <main class="pdoc">
+<div style="margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+
+    <a href="https://github.com/spartalab/port-simulation" target="_blank" class="action-button primary">
+        View codebase on GitHub
+    </a>
+
+    <a href="Simulation_Manual.pdf" target="_blank" class="action-button secondary">
+        Download configuration manual (pdf)
+    </a>
+</div>
+
+<style>
+    .action-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 8px;
+        border: 2px solid #667eea;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;
+    }
+    .action-button.primary {
+        background-color: #667eea;
+        color: white;
+    }
+    .action-button.secondary {
+        background-color: transparent;
+        color: #667eea;
+    }
+    .action-button.primary:hover {
+        background-color: transparent;
+        border-color: #667eea;
+    }
+    .action-button.secondary:hover {
+        background-color: #667eea;
+        color: white;
+    }
+    
+    /* Mobile responsive buttons */
+    @media (max-width: 768px) {
+        .action-button {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+    }
+</style>
+<div class="readme-content"><h1>Multimodal Analysis Port Simulation (MAPS)</h1>
+<p align="center">
+  <img src="home_logo.png" alt="Logo" width="800"/>
+</p>
+
+<p><img alt="Version" src="https://img.shields.io/badge/Version-0.1--Beta-orange?style=for-the-badge" /></p>
+<blockquote>
+<p><strong>Note:</strong> This is a <strong>public v0.1 Beta release</strong>. The framework is still under testing and active development, but it is functional and usable. Please report any issues through the <a href="https://github.com/spartalab/port-simulation/issues">GitHub Issue Tracker</a>.</p>
+</blockquote>
+<p>This repository provides a modular, discrete-event simulation (DES) framework for analyzing multimodal port operations across container, liquid bulk, and dry bulk terminals. It is designed to support <strong>planning, bottleneck detection, and what-if scenario analysis</strong> using real-world data inputs and calibration.  </p>
+<p>The simulation framework is developed for ports configured with an <strong>anchorage area</strong> connected to a <strong>navigation channel</strong> providing access to <strong>terminals</strong> and <strong>landside transportation</strong> modes. Input data for a hypothetical generic port system (shown above) are provided as an illustrative example. Users can adjust input parameters and the port layout configuration to simulate real-world port operations and scenarios for their desired location.  </p>
+<p><a href="https://github.com/spartalab/port-simulation/raw/main/simulation_documentation/Simulation_Manual.pdf"><img alt="Simulation Manual" src="https://img.shields.io/badge/📘_Download-Simulation_Manual-blue?style=for-the-badge&amp;logo=adobeacrobatreader" /></a></p>
+<p>Currently, the model supports:  </p>
+<ul>
+<li><strong>Vessel types:</strong> Container, tanker (liquid bulk), and dry bulk vessels  </li>
+<li><strong>Landside connections:</strong> Truck, rail, and pipeline system interconnections  </li>
+</ul>
+<hr />
+<h2>Contents</h2>
+<ul>
+<li><a href="#purpose">Purpose</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#inputs-required-data-and-file-specifications">Inputs: Required data and file specifications</a></li>
+<li><a href="#quick-start">Quick start</a></li>
+<li><a href="#project-structure">Project structure</a></li>
+<li><a href="#simulation-modules-defined-in-simulation_classes-folder">Simulation modules</a></li>
+<li><a href="#contributors-and-acknowledgments">Contributors and acknowledgments</a>  </li>
+<li><a href="#copyright-and-license">Copyright and license</a>  </li>
+</ul>
+<hr />
+<h2>Purpose</h2>
+<p>This model aids port planners and waterway management agencies in:</p>
+<ul>
+<li>Identifying system bottlenecks</li>
+<li>Analyzing vessel and cargo throughput</li>
+<li>Evaluating port performance under disruption</li>
+<li>Conducting what-if analyses</li>
+</ul>
+<hr />
+<h2>Documentation</h2>
+<p><strong>Code documentation:</strong><br />
+Detailed documentation for each script is provided in HTML format in the <code>documentation</code> folder.  To open the documentation, download the folder and open <code>index.html</code> in a browser. The same documentation is also hosted <a href="https://spartalab.github.io/port-simulation/">here.</a></p>
+<p><strong>Simulation manual (PDF):</strong><br />
+A PDF Simulation Manual is also available, containing details on input data and example outputs.  Please review the manual to understand the scope of the simulation. <a href="https://github.com/spartalab/port-simulation/raw/main/simulation_documentation/Simulation_Manual.pdf">Download the simulation manual.</a></p>
+<hr />
+<h2>Inputs: Required data and file specifications</h2>
+<p>The simulation requires several input files that define the <strong>navigation channel</strong>, <strong>vessel classes</strong>, and <strong>terminal resources</strong>. These inputs must be prepared carefully for any new port to ensure realistic results. </p>
+<h3>Summary Checklist</h3>
+<p>Before running a new port simulation, prepare:</p>
+<p><strong>Channel geometry:</strong> divide the channel into sections where terminals are located. Each section has particular lengths, widths, depths, and travel speeds. The current synthetic data is given for 10 sections. Each section can have multiple terminals but the simulation will treat each of these terminals as being located at the exact same place. </p>
+<p><strong>Vessel traffic mix:</strong> vessel dimensions, payload, and tug and pilot requirements for vessels. The provided data assumes vessels are one of three size types (small, medium, or large) for the container, liquid, and dry bulk cargo classes.</p>
+<p><strong>Terminal resources:</strong> berth counts, cranes/pipelines/conveyors and their associated transfer rates.  </p>
+<p><strong>Landside:</strong> truck and train arrival rates, gates, storage, payloads, and terminals which have these connections.</p>
+<p><strong>Activity flags:</strong> if a terminal is import/export-only or allows both, pipeline connectivity.  </p>
+<p>Only after these files are updated should you run the simulation. <strong>Synthetic data for a generic port with 10 channel sections, 2 container terminals, 4 liquid bulk terminals, and 1 dry bulk terminal have been provided.</strong></p>
+<p>⚠️ <strong>Important:</strong> Only edit the base user files listed below. Internal copies (e.g., <code>constants.py</code>, <code>terminal_data.csv</code>) are automatically generated by the simulation and should <strong>not</strong> be changed manually.</p>
+<h3>1. <code>config.py</code></h3>
+<p>Sets global parameters for a simulation run (duration, seeds, scenario name, number of cores, restriction toggles, etc.) and port details. Vessel arrival rates (Poisson), number of pilots and tugboats are also set here. </p>
+<h3>2. <code>inputs/channel_dimensions.csv</code></h3>
+<p>Defines the navigation channel as segments used for movement and restriction checks.</p>
+<h3>3. <code>inputs/ship_sizes.csv</code></h3>
+<p>Defines representative vessel classes by cargo type with geometry, tonnage, and tug/pilot needs.  </p>
+<h3>4. <code>inputs/terminal_data_base.csv</code></h3>
+<p>Defines resources and landside throughput at each terminal. Copied internally to <code>terminal_data.csv</code>.  Any value may be randomly sampled from range (a,b) instead of providing a single value.</p>
+<hr />
+<h2>Quick start</h2>
+<h3>1. Install requirements</h3>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+<p>We recommend using a virtual environment (<code>venv</code> or <code>pipenv</code>) to install all packages and dependencies in a clean workspace.</p>
+<h3>2. Run the simulation</h3>
+<p><strong>2.1 Base simulation</strong> Runs the base simulation.
+Edit <code>config.py</code> to configure your simulation scenario. Then:</p>
+<pre><code class="language-bash">python main.py
+</code></pre>
+<p>Output plots and logs are saved in the appropriate folders. The current version supports parallel processing and the number of cores can be set in the <code>config.py</code> file.</p>
+<p><strong>2.2 Bottleneck detection</strong> Runs sensitivity analysis on all resources one by one.
+Edit <code>config.py</code> to configure your simulation scenario. Set <code>SCENARIO_NAME = "BottleneckDetection"</code> Then:</p>
+<pre><code class="language-bash">python bottleneck_analysis.py
+</code></pre>
+<p>Output plots and logs are saved in the <code>bottleneckAnalysis</code> folder. Each sensitivity analysis is saved as different folders under <code>bottleneckAnalysis</code>. Key metrics of each sensitivity analysis are saved in  <code>bottleneckAnalysis/logs</code> folder.  A summary is saved in <code>bottleneckAnalysis/results.txt</code> and  <code>bottleneckAnalysis/capacity_analysis.csv</code>. The current version supports parallel processing and the number of cores can be set in the <code>config.py</code> file. Note: runtime may be very long, on the order of 1-2 days, depending on computing resources.</p>
+<p><strong>2.3 Capacity analysis</strong> Runs several simulations with varied arrival rates to determine the "breakpoint" of the system.
+Edit <code>config.py</code> to configure your simulation scenario. Set <code>SCENARIO_NAME = "BreakpointAnalysis"</code> Then:</p>
+<pre><code class="language-bash">python breakpoint_analysis.py
+</code></pre>
+<p>Output plots and logs are saved in the <code>breakpointAnalysis</code> folder. The current version supports parallel processing and the number of cores can be set in the <code>config.py</code> file.</p>
+<p><strong>⚠️ Important:</strong></p>
+<p>The <code>terminal_data.csv</code> and <code>constants.csv</code> are automatically changed in the code while scenario analyses are performed. For every scenario, the <code>config.py</code> and <code>terminal_data_base.csv</code> are copied to <code>constants.py</code> and <code>terminal_data.csv</code> respectively. This allows for some resource availabilities to be dynamically increased or decreased for a given scenario.</p>
+<hr />
+<h2>Project structure</h2>
+<pre><code>.
+├── main.py                                        # Master simulation controller
+├── breakpoint_analysis.py                         # Finds break-points with varying arrival rates
+├── bottleneck_analysis.py                         # Finds resource bottlenecks
+|
+├── config.py                                      # Set input parameters for the simulation
+├── constants.py                                   # Internal config for simulation (DO NOT CHANGE)
+|
+├── inputs/                                        # Input datasets for terminals and channels
+│   ├── channel_dimensions.csv                     # Channel dimensions
+│   ├── ship_sizes.csv                             # Vessel dimensions
+│   └── terminal_data_base.csv                     # Terminal attributes (Changes should be made only here)
+│   └── terminal_data.csv                          # Internal copy (DO NOT CHANGE)
+|
+├── simulation_analysis/                           # Post-processing &amp; results analytics
+│   ├── capacity.py                                # Functions that estimate operating &amp; ultimate capacity
+│   ├── collate_results.py                         # Aggregates results across runs
+│   ├── resource_utilization.py                    # Computes berth / crane / pipeline utilizations
+│   ├── results.py                                 # Generates plots and logs for every seed
+│   └── whatif_scenarios.py                        # Models “what-if” scenarios and sensitivity tests
+│
+├── simulation_classes/                            # Core SimPy entity classes
+│   ├── channel.py                                 # Navigational channel processes
+│   ├── pipeline.py                                # Pipeline resource model for liquid cargo
+│   ├── port.py                                    # Port resources for all terminals, pilots and tugboats
+│   ├── terminal_container.py                      # Container-terminal operations logic
+│   ├── terminal_drybulk.py                        # Dry-bulk-terminal operations logic
+│   ├── terminal_liquid.py                         # Liquid-bulk-terminal operations logic
+│   ├── train.py                                   # Rail interface (loading / unloading trains)
+│   └── truck.py                                   # Gate-truck processes (arrivals, dwell, exit)
+│
+├── simulation_handler/                            # Utilities that prepare and launch runs
+│   ├── generators.py                              # Arrival-stream &amp; demand generators for simpy classes
+│   ├── helpers.py                                 # Shared helper functions 
+│   ├── preprocess.py                              # Cleans and validates inputs; writes derived tables
+│   └── run_simulation.py                          # script to run the simulation
+│
+├── simulation_documentation/                      # Self-contained HTML docs built by pdoc
+│   ├── generate_documentation                     # Bash / Python script that triggers pdoc build
+│   └── home_logo.png                              # Logo for the project
+│   └── *.html files                               # html files for documentation. Use index.html to navigate
+|
+├── .Results_&lt;SEED&gt;_&lt;DURATION&gt;_&lt;VERSION&gt;/          # Auto-generated per simulation seed 
+│   ├── bottlenecks/                               # Bottleneck reports per run
+│   ├── logs/                                      # Time-stamped operational logs
+│   └── plots/                                     # Output plots (e.g., queue lengths, flow rates)
+|
+├──collatedResults/                                # Combined results for multi-seed runs
+└── &lt;DURATION&gt;_months_&lt;COUNT&gt;_runs_run_&lt;LOG_ID&gt;/   # Seed-based run result collation
+    ├── data/                                      # Combined CSV files across all seeds
+    ├── distPlots/                                 # Plots showing time spent in each process
+    ├── queuePlots/                                # Time series plots of queue lengths by cargo type
+    ├── restrictionPlots/                          # Histograms showing wait times for channel restrictions
+    ├── timePlots/                                 # Turnaround, dwell, and anchorage time distribution plots
+    ├── capacity_simulation_analysis.pdf           # Summary of capacity estimates for each terminal type
+    ├── channel.pdf                                # Time series of number of vessels in channel
+    └── run_details_run_100.txt                    # Summary run report
+|
+├──bottleneckAnalysis/                             # Results for bottleneck analysis
+|
+├──breakpointAnalysis/                             # Results for capacity analysis
+</code></pre>
+<hr />
+<h2>Simulation modules (defined in <code>simulation_classes</code> folder)</h2>
+<h3>Terminals</h3>
+<p>Each terminal is modeled as a SimPy process with its own class, resources, and queue logic.</p>
+<p><strong>ContainerTerminal (defined in <code>terminal_container.py</code>)</strong></p>
+<ul>
+<li><strong>Operations</strong>: Berth and crane allocation, container transfer, yard storage</li>
+<li><strong>Resources</strong>: Berths, cranes, yard</li>
+<li><strong>Classes</strong>: <code>Container</code>, <code>Crane</code>, <code>Berth_Ctr</code> (These are defined in <code>Port.py</code>)</li>
+</ul>
+<p><strong>LiquidTerminal (defined in <code>terminal_liquid.py</code>)</strong></p>
+<ul>
+<li><strong>Operations</strong>: Berth allocation, pipeline cargo transfer, tank storage</li>
+<li><strong>Resources</strong>: Pipelines, tanks, berths</li>
+<li><strong>Classes</strong>: <code>LiquidBatch</code>, <code>Pipeline</code>, <code>Berth_Liq</code> (These are defined in <code>Port.py</code>)</li>
+</ul>
+<p><strong>DryBulkTerminal (defined in <code>terminal_drybulk.py</code>)</strong></p>
+<ul>
+<li><strong>Operations</strong>: Berth allocation, conveyor-based transfer, silo storage</li>
+<li><strong>Resources</strong>: Conveyors, silos, berths</li>
+<li><strong>Classes</strong>: <code>DryBulkBatch</code>, <code>Conveyor</code>, <code>Berth_DryBulk</code> (These are defined in <code>Port.py</code>)</li>
+</ul>
+<h3>Inland transport</h3>
+<p>These modules handle the interaction between terminals and landside transport modes.</p>
+<h4>Truck (defined in <code>truck.py</code>)</h4>
+<p><strong>Operations</strong>: Handles container, liquid, and dry bulk delivery/pickup via trucks</p>
+<p><strong>Processes</strong>: 
+  - Truck arrival
+  - Loading/unloading
+  - Waiting for resource availability</p>
+<h4>Train (defined in <code>train.py</code>)</h4>
+<p><strong>Operations</strong>: Models bulk transfer through trains (e.g., containers or bulk cargo)</p>
+<p><strong>Processes</strong>:
+  - Train formation and arrival
+  - Bulk transfer from terminal (liquid or dry bulk)
+  - Departure after processing</p>
+<h4>Pipeline (defined in <code>pipeline.py</code>)</h4>
+<p><strong>Operations</strong>: Facilitates liquid cargo transfer between terminal tanks and regional pipeline network (this is modeled as a source / sink to the pipeline network)</p>
+<p><strong>Processes</strong>:
+  - Transfer as source or sink from terminal storage tanks based on pump rate
+  - Starts and stops when certain tank volumes are met</p>
+<h3>Channel navigation (via <code>channel.py</code>)</h3>
+<p>This module handles the vessel movement through port entry and exit channels. It tracks vessel navigation, applies movement rules, and can enforce access restrictions.</p>
+<ul>
+<li><strong>Two-way vessel traffic</strong> is supported by default, allowing simultaneous inbound and outbound movements without conflict.</li>
+<li><strong>Restriction logic implemented</strong>: The user can toggle constraints such as:</li>
+<li>Beam, draft and daylight restrictions</li>
+<li>Spacing rules between consecutive vessels</li>
+</ul>
+<p><strong>Note:</strong> To run the restricted channel with a different restriction just change the channel dimensions file in the inputs folder.</p>
+<h3>Analysis modules (defined in <code>simulation_analysis</code> folder)</h3>
+<p><code>whatif_scenarios.py</code>
+This script works in conjunction with <code>main.py</code>; scenarios to be tested can be set in <code>config.py</code>.
+Runs simulations under different scenarios (disruptions, parameter changes, etc). Useful for comparative assessments. It automates multiple simulation runs under varied configurations, allowing users to test hypotheses such as:</p>
+<ul>
+<li>How does port performance change under increased arrival rates?</li>
+<li>What if certain terminals or berths are unavailable due to disruptions?</li>
+<li>How sensitive is system throughput to changes in crane, pipeline, or conveyor efficiency?</li>
+<li>What effect does toggling channel restrictions have on congestion and vessel wait times?</li>
+<li>How does varying the number of simulation seeds affect statistical confidence in the results?</li>
+</ul>
+<p><code>capacity.py</code>
+This script works in conjunction with <code>main.py</code>
+Analytical module to estimate:
+- <strong>Operating Capacity</strong>: Max throughput under stable conditions
+- <strong>Ultimate Capacity</strong>: Saturation throughput under unstable queues</p>
+<p><code>resource_utilization.py</code>
+This script works in conjunction with <code>main.py</code>
+- Evaluates system resource utilization and restrictions</p>
+<hr />
+<h2>Contributors and acknowledgments</h2>
+<p>This project was developed by members of the <a href="https://github.com/spartalab">Simulation, Pricing, Autonomous Vehicles, Routing, &amp; Traffic Assignment (SPARTA) Lab</a> at The University of Texas at Austin.  </p>
+<p><strong>Debojjal Bagchi</strong><br />
+  - Ph.D. student, The University of Texas at Austin<br />
+  - Email: debojjalb@utexas.edu<br />
+  - Website: <a href="https://debojjalb.github.io/">https://debojjalb.github.io/</a>  </p>
+<p><strong>Kyle Bathgate</strong><br />
+  - Ph.D. candidate, The University of Texas at Austin<br />
+  - Email: kyle.bathgate@utexas.edu<br />
+  - Website: <a href="https://kylebathgate.github.io/">https://kylebathgate.github.io/</a>  </p>
+<p>We gratefully acknowledge the support of our advisor <strong>Dr. Stephen Boyles</strong> (sboyles@austin.utexas.edu) for his invaluable guidance throughout this project.  </p>
+<p>This research was partially funded by the <strong>U.S. Army Engineer Research and Development Center (ERDC)</strong> under contract <strong>#W912HZ23C0052</strong>, <em>“Data-Driven, Multimodal Freight Modeling for Waterways and Ports.”</em> The findings and opinions expressed here are those of the authors and do not represent official policies or standards of the U.S. Army Corps of Engineers.  </p>
+<p>This work was also partially supported by the <strong>University Transportation Center (UTC) National Center for Understanding Future Travel Behavior and Demand (TBD)</strong>.</p>
+<p>We also thank <strong>Dr. Kenneth N. Mitchell</strong>, <strong>Dr. Magdalena I. Asborno</strong>, <strong>Dr. Marin M. Kress</strong>, and <strong>Mr. Mark A. Cowan</strong> of ERDC for their valuable input and feedback that greatly improved this work.  </p>
+<h3>Contributing</h3>
+<p>We welcome all suggestions from the community. If you wish to contribute or report any bug please contact the creaters or create an issue on <a href="https://github.com/spartalab/port-simulation/issues">issue tracking system</a>.</p>
+<hr />
+<h2>Copyright and license</h2>
+<p>The content of this repository is bounded by MIT License. See <a href="https://github.com/spartalab/port-simulation/blob/main/LICENSE">LICENSE</a> file for details.</p></div></main>
+<script>
+    function escapeHTML(html) {
+        return document.createElement('div').appendChild(document.createTextNode(html)).parentNode.innerHTML;
+    }
+
+    const originalContent = document.querySelector("main.pdoc");
+    let currentContent = originalContent;
+
+    function setContent(innerHTML) {
+        let elem;
+        if (innerHTML) {
+            elem = document.createElement("main");
+            elem.classList.add("pdoc");
+            elem.innerHTML = innerHTML;
+        } else {
+            elem = originalContent;
+        }
+        if (currentContent !== elem) {
+            currentContent.replaceWith(elem);
+            currentContent = elem;
+        }
+    }
+
+    function getSearchTerm() {
+        return (new URL(window.location)).searchParams.get("search");
+    }
+
+    const searchBox = document.querySelector(".pdoc input[type=search]");
+    searchBox.addEventListener("input", function () {
+        let url = new URL(window.location);
+        if (searchBox.value.trim()) {
+            url.hash = "";
+            url.searchParams.set("search", searchBox.value);
+        } else {
+            url.searchParams.delete("search");
+        }
+        history.replaceState("", "", url.toString());
+        onInput();
+    });
+    window.addEventListener("popstate", onInput);
+
+
+    let search, searchErr;
+
+    async function initialize() {
+        try {
+            search = await new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+                script.type = "text/javascript";
+                script.async = true;
+                script.onload = () => resolve(window.pdocSearch);
+                script.onerror = (e) => reject(e);
+                script.src = "search.js";
+                document.getElementsByTagName("head")[0].appendChild(script);
+            });
+        } catch (e) {
+            console.error("Cannot fetch pdoc search index");
+            searchErr = "Cannot fetch search index.";
+        }
+        onInput();
+
+        document.querySelector("nav.pdoc").addEventListener("click", e => {
+            if (e.target.hash) {
+                searchBox.value = "";
+                searchBox.dispatchEvent(new Event("input"));
+            }
+        });
+    }
+
+    function onInput() {
+        setContent((() => {
+            const term = getSearchTerm();
+            if (!term) {
+                return null
+            }
+            if (searchErr) {
+                return `<h3>Error: ${searchErr}</h3>`
+            }
+            if (!search) {
+                return "<h3>Searching...</h3>"
+            }
+
+            window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+
+            const results = search(term);
+
+            let html;
+            if (results.length === 0) {
+                html = `No search results for '${escapeHTML(term)}'.`
+            } else {
+                html = `<h4>${results.length} search result${results.length > 1 ? "s" : ""} for '${escapeHTML(term)}'.</h4>`;
+            }
+            for (let result of results.slice(0, 10)) {
+                let doc = result.doc;
+                let url = `${doc.modulename.replaceAll(".", "/")}.html`;
+                if (doc.qualname) {
+                    url += `#${doc.qualname}`;
+                }
+
+                let heading;
+                switch (result.doc.kind) {
+                    case "function":
+                        if (doc.fullname.endsWith(".__init__")) {
+                            heading = `<span class="name">${doc.fullname.replace(/\.__init__$/, "")}</span>${doc.signature}`;
+                        } else {
+                            heading = `<span class="def">${doc.funcdef}</span> <span class="name">${doc.fullname}</span>${doc.signature}`;
+                        }
+                        break;
+                    case "class":
+                        heading = `<span class="def">class</span> <span class="name">${doc.fullname}</span>`;
+                        if (doc.bases)
+                            heading += `<wbr>(<span class="base">${doc.bases}</span>)`;
+                        heading += `:`;
+                        break;
+                    case "variable":
+                        heading = `<span class="name">${doc.fullname}</span>`;
+                        if (doc.annotation)
+                            heading += `<span class="annotation">${doc.annotation}</span>`;
+                        if (doc.default_value)
+                            heading += `<span class="default_value"> = ${doc.default_value}</span>`;
+                        break;
+                    default:
+                        heading = `<span class="name">${doc.fullname}</span>`;
+                        break;
+                }
+                html += `
+                        <section class="search-result">
+                        <a href="${url}" class="attr ${doc.kind}">${heading}</a>
+                        <div class="docstring">${doc.doc}</div>
+                        </section>
+                    `;
+
+            }
+            return html;
+        })());
+    }
+
+    if (getSearchTerm()) {
+        initialize();
+        searchBox.value = getSearchTerm();
+        onInput();
+    } else {
+        searchBox.addEventListener("focus", initialize, {once: true});
+    }
+
+    searchBox.addEventListener("keydown", e => {
+        if (["ArrowDown", "ArrowUp", "Enter"].includes(e.key)) {
+            let focused = currentContent.querySelector(".search-result.focused");
+            if (!focused) {
+                currentContent.querySelector(".search-result").classList.add("focused");
+            } else if (
+                e.key === "ArrowDown"
+                && focused.nextElementSibling
+                && focused.nextElementSibling.classList.contains("search-result")
+            ) {
+                focused.classList.remove("focused");
+                focused.nextElementSibling.classList.add("focused");
+                focused.nextElementSibling.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            } else if (
+                e.key === "ArrowUp"
+                && focused.previousElementSibling
+                && focused.previousElementSibling.classList.contains("search-result")
+            ) {
+                focused.classList.remove("focused");
+                focused.previousElementSibling.classList.add("focused");
+                focused.previousElementSibling.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest",
+                    inline: "nearest"
+                });
+            } else if (
+                e.key === "Enter"
+            ) {
+                focused.querySelector("a").click();
+            }
+        }
+    });
+</script></body>
+</html>
