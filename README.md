@@ -1,4 +1,4 @@
-# Data-Driven, Multimodal Freight Simulation Framework for Waterways and Ports
+# Multimodal Analysis Port Simulation (MAPS)
 
 <p align="center">
   <img src="simulation_documentation/home_logo.png" alt="Logo" width="800"/>
