@@ -1,5 +1,11 @@
 # Multimodal Analysis Port Simulation (MAPS)
 
+<a href="https://github.com/spartalab/port-simulation">
+  <img src="https://img.shields.io/github/stars/spartalab/port-simulation?style=for-the-badge&logo=github&logoColor=white&label=GitHub&color=yellow" alt="GitHub Stars" height="40"/>
+</a>
+
+**⭐ [Star this repository](https://github.com/spartalab/port-simulation)** to stay updated with new features, improvements, and releases!
+
 <p align="center">
   <img src="simulation_documentation/home_logo.png" alt="Logo" width="800"/>
 </p>
